@@ -1,0 +1,5 @@
+===================
+Loglanri boshqarish
+===================
+
+Loglanri boshqarish
