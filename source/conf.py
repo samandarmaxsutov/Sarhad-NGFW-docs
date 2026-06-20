@@ -50,3 +50,14 @@ html_display_toc_header_version = True
 
 # Pastki futer qismida mualliflik huquqi va versiyani ko'rsatish
 html_show_sphinx = False  # "Powered by Sphinx" yozuvini o'chiradi (toza brending uchun)
+
+
+# source/conf.py faylining oxiriga qo'shing:
+
+simplepdf_vars = {
+    'primary': "#1e4537",          # Asosiy yashil rang (chiziqlar, linklar va sarlavhalar uchun)
+    'primary-light': "#12231d",    # Ochroq yashil
+    'primary-dark': "#141D4D",     # To'qroq yashil
+    'cover-bg': "#0B1A08",         # Muqova (birinchi sahifa) orqa foni - Dashboard kabi to'q qora/ko'k
+    'cover-text': '#ffffff',       # Muqovadagi yozuvlar rangi - oq
+}

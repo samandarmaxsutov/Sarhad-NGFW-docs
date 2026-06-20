@@ -12,6 +12,15 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
 
 .. toctree::
    :maxdepth: 2
+   :caption: Kirish
+   :numbered:
+
+   introduction/login
+   introduction/dashboard
+
+
+.. toctree::
+   :maxdepth: 2
    :caption: Tarmoq Sozlamalari
    :numbered:
 
