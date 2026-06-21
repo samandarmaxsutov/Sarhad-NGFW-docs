@@ -25,6 +25,14 @@ if errorlevel 9009 (
 
 if "%1" == "" goto help
 
+if "%1" == "pdf-build" (
+    %SPHINXBUILD% -M simplepdf %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+    if errorlevel 1 exit /b %ERRORLEVEL%
+    copy /Y "%BUILDDIR%\simplepdf\Sarhad NGFW.pdf" "%SOURCEDIR%\_static\SarhadNGFW.pdf" >NUL
+    %SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+    goto end
+)
+
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end
 

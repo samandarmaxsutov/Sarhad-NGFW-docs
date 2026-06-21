@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. Login &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+  <title>2. Tizimga kirish &mdash; Sarhad NGFW v2026.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Dashboard" href="dashboard.html" />
-    <link rel="prev" title="Sarhad Next-Generation Firewall (Sarhad NGFW)" href="../index.html" /> 
+    <link rel="next" title="3. Dashboard oynasi" href="dashboard.html" />
+    <link rel="prev" title="1. Sarhad NGFW Umumiy Ko’rinishi" href="../overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,8 +50,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Login</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dashboard.html">2. Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Tizimga kirish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#foydalanuvchi-rollari">2.1. Foydalanuvchi rollari</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">3. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
@@ -93,7 +97,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1. </span>Login</li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Tizimga kirish</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/introduction/login.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,19 +107,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="login">
-<h1><span class="section-number">1. </span>Login<a class="headerlink" href="#login" title="Link to this heading"></a></h1>
-<p>Bu bo’limda siz tizimga qanday kirish haqida ma’lumot olasiz. Kirish jarayoni oddiy va xavfsizdir, bu sizning shaxsiy ma’lumotlaringizni himoya qilishga yordam beradi.</p>
+  <section id="tizimga-kirish">
+<h1><span class="section-number">2. </span>Tizimga kirish<a class="headerlink" href="#tizimga-kirish" title="Link to this heading"></a></h1>
+<p>Bu bo’limda siz Sarhad NGFW mahsulotiga qanday kirish va foydalanuvchi rollari haqida ma’lumot olasiz.</p>
+<p>Login sahifasi manzili:</p>
+<blockquote>
+<div><p><a class="reference external" href="https:/">https:/</a>/&lt;ip&gt;:8443/login</p>
+</div></blockquote>
+<p>Masalan:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://192.168.1.1:8443/login">https://192.168.1.1:8443/login</a></p>
+</div></blockquote>
+<p>Default login ma’lumotlari:</p>
+<ul class="simple">
+<li><p>Username: admin</p></li>
+<li><p>Password: admin123</p></li>
+</ul>
+<section id="foydalanuvchi-rollari">
+<h2><span class="section-number">2.1. </span>Foydalanuvchi rollari<a class="headerlink" href="#foydalanuvchi-rollari" title="Link to this heading"></a></h2>
+<p>Sarhad NGFW tizimida uch xil foydalanuvchi toifasi mavjud:</p>
+<ul class="simple">
+<li><p>root
+- barcha huquqlarga ega.
+- tizimni to’liq boshqarish, konfiguratsiyani o’zgartirish, foydalanuvchilar yaratish va parollarni boshqarish mumkin.</p></li>
+<li><p>admin
+- tizim konfiguratsiyasini ko’rish va o’zgartirish huquqiga ega.
+- yangi foydalanuvchilar yaratish va mavjud foydalanuvchilarni boshqarish mumkin.
+- ammo ba’zi tizim darajasidagi funktsiyalar faqat root uchun bo’lishi mumkin.</p></li>
+<li><p>user
+- faqat ko’rish huquqiga ega.
+- tizim holatini, tarmoq statistikalarini va hisobotlarni ko’rishi mumkin.
+- konfiguratsiya yoki foydalanuvchi sozlamalarini o’zgartira olmaydi.</p></li>
+</ul>
 <a class="reference internal image-reference" href="../_images/login_page.png"><img alt="Login Screen" class="align-center" src="../_images/login_page.png" style="width: 100%;" />
 </a>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Sarhad Next-Generation Firewall (Sarhad NGFW)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dashboard.html" class="btn btn-neutral float-right" title="2. Dashboard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../overview.html" class="btn btn-neutral float-left" title="1. Sarhad NGFW Umumiy Ko’rinishi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dashboard.html" class="btn btn-neutral float-right" title="3. Dashboard oynasi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

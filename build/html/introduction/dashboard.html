@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. Dashboard &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+  <title>3. Dashboard oynasi &mdash; Sarhad NGFW v2026.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1. Tarmoq interfeyslarini sozlash va boshqarish bo’yicha qo’llanma" href="../network/interface.html" />
-    <link rel="prev" title="1. Login" href="login.html" /> 
+    <link rel="prev" title="2. Tizimga kirish" href="login.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,8 +50,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="login.html">1. Login</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="login.html">2. Tizimga kirish</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Dashboard oynasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asosiy-ko-rinish">3.1. Asosiy ko’rinish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sidebar-menyusi">3.2. Sidebar menyusi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#top-bar-funksiyalari">3.3. Top bar funksiyalari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboarddan-foydalanish">3.4. Dashboarddan foydalanish</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
@@ -93,7 +100,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2. </span>Dashboard</li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Dashboard oynasi</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/introduction/dashboard.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,18 +110,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="dashboard">
-<h1><span class="section-number">2. </span>Dashboard<a class="headerlink" href="#dashboard" title="Link to this heading"></a></h1>
-<p>Bu bo’limda sizning dashboardingiz haqida ma’lumotlar mavjud. Dashboard sizning hisobingizning umumiy ko’rinishini taqdim etadi va sizga muhim ma’lumotlarni tezda ko’rish imkonini beradi. Dashboardda sizning hisobingizdagi faoliyat, statistikalar, va boshqa muhim ma’lumotlar ko’rsatiladi. Bu bo’limda siz dashboardingizni qanday sozlash va undan qanday foydalanish haqida ma’lumot olishingiz mumkin.</p>
+  <section id="dashboard-oynasi">
+<h1><span class="section-number">3. </span>Dashboard oynasi<a class="headerlink" href="#dashboard-oynasi" title="Link to this heading"></a></h1>
+<p>Tizimga muvoffaqqiyatli kirgach, foydalanuvchi avtomatik ravishda dashboard sahifasiga yo’naltiriladi. Bu sahifa tizim holatini bir qarashda ko’rish va muhim statistikalarni tezkor kuzatish uchun mo’ljallangan.</p>
+<section id="asosiy-ko-rinish">
+<h2><span class="section-number">3.1. </span>Asosiy ko’rinish<a class="headerlink" href="#asosiy-ko-rinish" title="Link to this heading"></a></h2>
+<p>Dashboard oynasida odatda quyidagi ma’lumotlar ko’rsatiladi:</p>
+<ul class="simple">
+<li><p>Tarmoq trafik statistikasi (yo’lovchi paketlar, o’tkazilgan baytlar, yuzaga kelgan tarmoq oqimi)</p></li>
+<li><p>CPU yuki va ishlatilgan protsessor resurslari</p></li>
+<li><p>Xotira (RAM) holati va ishlatilgan xotira miqdori</p></li>
+<li><p>Faol sessiyalar va tarmoq aloqalari haqida umumiy ma’lumot</p></li>
+<li><p>Qo’llanilayotgan xavfsizlik hodisalari yoki ogohlantirishlar</p></li>
+</ul>
+</section>
+<section id="sidebar-menyusi">
+<h2><span class="section-number">3.2. </span>Sidebar menyusi<a class="headerlink" href="#sidebar-menyusi" title="Link to this heading"></a></h2>
+<p>Dashboard sahifasining chap tomonida siz tizimning asosiy bo’limlariga tezkor o’tish uchun sidebar menyusini ko’rasiz. U quyidagi bo’limlarni o’z ichiga olishi mumkin:</p>
+<ul class="simple">
+<li><p>Tarmoq (Network)</p></li>
+<li><p>Firewall qoidalari (Firewall Policies)</p></li>
+<li><p>Xavfsizlik profillari (Security Profiles)</p></li>
+<li><p>VPN</p></li>
+<li><p>Tizim sozlamalari (System Settings)</p></li>
+<li><p>Loglar (Logs)</p></li>
+</ul>
+<p>Bu bo’limlar orqali siz kerakli konfiguratsiya va monitoring sahifalariga tezda o’tishingiz mumkin.</p>
+</section>
+<section id="top-bar-funksiyalari">
+<h2><span class="section-number">3.3. </span>Top bar funksiyalari<a class="headerlink" href="#top-bar-funksiyalari" title="Link to this heading"></a></h2>
+<p>Dashboardning yuqori panelida quyidagi boshqaruv elementlari joylashgan bo’lishi mumkin:</p>
+<ul class="simple">
+<li><p>Joriy konfiguratsiyani saqlash</p></li>
+<li><p>Oldingi tizim sozlamalariga qaytish</p></li>
+<li><p>Tizim tilini o’zgartirish</p></li>
+<li><p>Tema va ko’rinish variantlarini tanlash</p></li>
+<li><p>Joriy foydalanuvchi ma’lumotini ko’rish</p></li>
+<li><p>Tizimdan chiqish (logout)</p></li>
+</ul>
+<p>Bu panel bilan siz tezkor ravishda asosiy ish faoliyatini bajarishingiz va tizim interfeysini o’zingizga qulay holatga keltirishingiz mumkin.</p>
+</section>
+<section id="dashboarddan-foydalanish">
+<h2><span class="section-number">3.4. </span>Dashboarddan foydalanish<a class="headerlink" href="#dashboarddan-foydalanish" title="Link to this heading"></a></h2>
+<p>Dashboard sahifasi boshqaruv va monitoring uchun markaz sifatida xizmat qiladi. U yerda tarmoq holatini, resurs iste’molini va xavfsizlik hodisalarini kuzatishingiz mumkin. Kerakli bo’limlar va parametrlarni chap sidebar yoki yuqori panel yordamida oching.</p>
 <a class="reference internal image-reference" href="../_images/dashboard.png"><img alt="Dashboard Tizim Sxemasi" class="align-center" src="../_images/dashboard.png" style="width: 100%;" />
 </a>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="login.html" class="btn btn-neutral float-left" title="1. Login" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="login.html" class="btn btn-neutral float-left" title="2. Tizimga kirish" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../network/interface.html" class="btn btn-neutral float-right" title="1. Tarmoq interfeyslarini sozlash va boshqarish bo’yicha qo’llanma" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
