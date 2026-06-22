@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Sertifikatlar va PKI &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=9fed09df"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. VPN — Umumiy ko’rinish" href="../vpn/overview.html" />
+    <link rel="prev" title="2. TLS trafigini tekshirish (TLS Interception)" href="tls-interception.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Sarhad NGFW
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/ip-groups.html">2. IP guruhlar (IP Groups)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">3. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Policer)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Sertifikatlar va PKI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asosiy-tushunchalar">3.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sertifikat-markazini-ca-yaratish">3.2. Sertifikat markazini (CA) yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sertifikat-berish-issue">3.3. Sertifikat berish (issue)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tls-interception-uchun-ca">3.4. TLS Interception uchun CA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sertifikatni-bekor-qilish-revoke">3.5. Sertifikatni bekor qilish (revoke)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/logs.html">1. Jurnallar (Logs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/flow.html">2. Trafik monitoringi (Flow / IPFIX)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sarhad NGFW</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Sertifikatlar va PKI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/security/certificates.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sertifikatlar-va-pki">
+<h1><span class="section-number">3. </span>Sertifikatlar va PKI<a class="headerlink" href="#sertifikatlar-va-pki" title="Link to this heading"></a></h1>
+<p>Sarhad NGFW raqamli sertifikatlarni boshqarish uchun ichki <strong>PKI</strong> (Public Key
+Infrastructure — ochiq kalitlar infratuzilmasi) tizimiga ega. Sertifikatlar
+TLS trafigini tekshirish hamda VPN ulanishlarini autentifikatsiya qilish uchun
+ishlatiladi. Bu bo’limga o’tish uchun chap menyudagi <strong>Security → Certificates</strong>
+yoki <strong>PKI → Authorities</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/certificates</span></code>, <code class="docutils literal notranslate"><span class="pre">/pki/authorities</span></code>).</p>
+<section id="asosiy-tushunchalar">
+<h2><span class="section-number">3.1. </span>Asosiy tushunchalar<a class="headerlink" href="#asosiy-tushunchalar" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>CA (Certificate Authority)</strong> — sertifikat beruvchi markaz. CA boshqa
+sertifikatlarni imzolaydi va ularning haqiqiyligini tasdiqlaydi.</p></li>
+<li><p><strong>Server sertifikati</strong> — server (masalan, VPN gateway) o’zini tasdiqlash
+uchun ishlatadigan sertifikat.</p></li>
+<li><p><strong>Mijoz sertifikati</strong> — foydalanuvchi yoki qurilmani tasdiqlash uchun
+ishlatiladigan sertifikat.</p></li>
+<li><p><strong>CRL (Certificate Revocation List)</strong> — bekor qilingan sertifikatlar ro’yxati.</p></li>
+</ul>
+</section>
+<section id="sertifikat-markazini-ca-yaratish">
+<h2><span class="section-number">3.2. </span>Sertifikat markazini (CA) yaratish<a class="headerlink" href="#sertifikat-markazini-ca-yaratish" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>PKI → Authorities</strong> sahifasiga o’ting.</p></li>
+<li><p><strong>CA yaratish (Create CA)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Nom (CN — Common Name)</strong> — CA nomi (masalan, <code class="docutils literal notranslate"><span class="pre">Sarhad-Root-CA</span></code>).</p></li>
+<li><p><strong>Tashkilot (Organization)</strong> — tashkilot nomi.</p></li>
+<li><p><strong>Amal qilish muddati</strong> — sertifikat necha kun amal qilishi.</p></li>
+</ul>
+</li>
+<li><p><strong>Yaratish</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Mavjud CA’ni import qilish ham mumkin — buning uchun PEM formatidagi
+sertifikat va maxfiy kalit fayllarini yuklang.</p>
+</section>
+<section id="sertifikat-berish-issue">
+<h2><span class="section-number">3.3. </span>Sertifikat berish (issue)<a class="headerlink" href="#sertifikat-berish-issue" title="Link to this heading"></a></h2>
+<p>CA yaratilgandan so’ng undan server yoki mijoz sertifikatlarini berishingiz
+mumkin:</p>
+<ol class="arabic simple">
+<li><p>CA’ni tanlang va <strong>Sertifikat berish (Issue Certificate)</strong> tugmasini bosing.</p></li>
+<li><p>Sertifikat turini (server yoki mijoz) va CN (egasi nomi) ni kiriting.</p></li>
+<li><p>Amal qilish muddatini belgilang va <strong>Berish</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Berilgan sertifikatni yuklab olish (download) yoki VPN sozlamalarida ishlatish
+mumkin.</p>
+</section>
+<section id="tls-interception-uchun-ca">
+<h2><span class="section-number">3.4. </span>TLS Interception uchun CA<a class="headerlink" href="#tls-interception-uchun-ca" title="Link to this heading"></a></h2>
+<p>TLS trafigini tekshirish (<a class="reference internal" href="tls-interception.html"><span class="doc">TLS trafigini tekshirish (TLS Interception)</span></a>) uchun maxsus CA
+sertifikati kerak. Bu sertifikatni <strong>Certificates</strong> sahifasida yuklang
+(upload) yoki PKI orqali yarating. So’ngra bu CA sertifikatini barcha mijoz
+qurilmalariga <strong>ishonchli</strong> sifatida o’rnating — aks holda foydalanuvchilar
+brauzerda sertifikat xatoliklarini ko’radi.</p>
+</section>
+<section id="sertifikatni-bekor-qilish-revoke">
+<h2><span class="section-number">3.5. </span>Sertifikatni bekor qilish (revoke)<a class="headerlink" href="#sertifikatni-bekor-qilish-revoke" title="Link to this heading"></a></h2>
+<p>Agar sertifikat xavf ostida qolsa yoki kerak bo’lmasa, uni bekor qilish
+mumkin:</p>
+<ol class="arabic simple">
+<li><p>Sertifikatlar ro’yxatidan kerakli sertifikatni tanlang.</p></li>
+<li><p><strong>Bekor qilish (Revoke)</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Bekor qilingan sertifikat CRL’ga qo’shiladi va undan keyin ishonchsiz deb
+hisoblanadi.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CA’ning maxfiy kalitini xavfsiz saqlang. Agar maxfiy kalit o’g’irlansa,
+tajovuzkor soxta sertifikatlar yaratishi mumkin. Shubha tug’ilsa, CA’ni
+bekor qilib, yangisini yarating.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tls-interception.html" class="btn btn-neutral float-left" title="2. TLS trafigini tekshirish (TLS Interception)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../vpn/overview.html" class="btn btn-neutral float-right" title="1. VPN — Umumiy ko’rinish" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Sarhad NGFW Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versiyalar va Eksport</span>
+    v2026.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Hujjat Versiyalari</dt>
+      <dd><a href="#">v2026.1.0 (Stabil)</a></dd>
+    </dl>
+    <dl>
+      <dt>Yuklab olish (Eksport)</dt>
+      <dd><a href="_static/SarhadNGFW.pdf" download>PDF formatida yuklash</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

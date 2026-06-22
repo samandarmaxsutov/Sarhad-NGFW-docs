@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Litsenziya va faollashtirish &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=9fed09df"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Tarmoq interfeyslarini sozlash va boshqarish" href="../network/interface.html" />
+    <link rel="prev" title="3. Dashboard oynasi" href="dashboard.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Sarhad NGFW
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="login.html">2. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">3. Dashboard oynasi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Litsenziya va faollashtirish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qanday-ishlaydi">4.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#litsenziyani-faollashtirish">4.2. Litsenziyani faollashtirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#litsenziya-muddati">4.3. Litsenziya muddati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#litsenziyani-uzaytirish">4.4. Litsenziyani uzaytirish</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/ip-groups.html">2. IP guruhlar (IP Groups)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">3. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Policer)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/logs.html">1. Jurnallar (Logs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/flow.html">2. Trafik monitoringi (Flow / IPFIX)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sarhad NGFW</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Litsenziya va faollashtirish</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/introduction/licensing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="litsenziya-va-faollashtirish">
+<h1><span class="section-number">4. </span>Litsenziya va faollashtirish<a class="headerlink" href="#litsenziya-va-faollashtirish" title="Link to this heading"></a></h1>
+<p>Sarhad NGFW litsenziyalangan mahsulot bo’lib, boshqaruv interfeysidan
+foydalanish uchun amaldagi litsenziya talab qilinadi. Litsenziya har bir
+qurilmaga alohida bog’lanadi va internetga ulanishsiz (offline) tekshiriladi.</p>
+<section id="qanday-ishlaydi">
+<h2><span class="section-number">4.1. </span>Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Har bir qurilma o’zining noyob <strong>Machine ID</strong> (qurilma identifikatori) sini
+hisoblaydi. U asbob-uskuna (anakart, tizim) ma’lumotlaridan kelib chiqadi va
+<code class="docutils literal notranslate"><span class="pre">XXXX-XXXX-XXXX-XXXX</span></code> ko’rinishida ko’rsatiladi.</p></li>
+<li><p>Litsenziya aynan shu Machine ID ga bog’lab beriladi va boshqa qurilmada
+ishlamaydi.</p></li>
+<li><p>Tizim litsenziyani to’liq oflayn tekshiradi — hech qanday litsenziya
+serveriga ulanish shart emas.</p></li>
+<li><p>Litsenziya amal qilmagunicha, boshqaruv paneli faqat <strong>faollashtirish
+sahifasini</strong> (<code class="docutils literal notranslate"><span class="pre">/license</span></code>) ko’rsatadi; qolgan barcha bo’limlar yopiq bo’ladi.</p></li>
+</ul>
+</section>
+<section id="litsenziyani-faollashtirish">
+<h2><span class="section-number">4.2. </span>Litsenziyani faollashtirish<a class="headerlink" href="#litsenziyani-faollashtirish" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Tizimga kirgach, agar litsenziya o’rnatilmagan bo’lsa, avtomatik ravishda
+<code class="docutils literal notranslate"><span class="pre">/license</span></code> sahifasiga yo’naltirilasiz.</p></li>
+<li><p>Sahifada ko’rsatilgan <strong>Machine ID</strong> ni nusxalang.</p></li>
+<li><p>Bu Machine ID ni mahsulot yetkazib beruvchiga (vendor) yuboring.</p></li>
+<li><p>Yetkazib beruvchi sizning qurilmangiz uchun litsenziya kalitini (token)
+yaratib beradi.</p></li>
+<li><p>Olingan litsenziya kalitini sahifadagi maydonga joylang va
+<strong>Faollashtirish (Activate)</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Litsenziya to’g’ri bo’lsa, tizim darhol ochiladi va barcha bo’limlardan
+foydalanish mumkin bo’ladi.</p>
+</section>
+<section id="litsenziya-muddati">
+<h2><span class="section-number">4.3. </span>Litsenziya muddati<a class="headerlink" href="#litsenziya-muddati" title="Link to this heading"></a></h2>
+<p>Litsenziya ikki turda bo’lishi mumkin:</p>
+<ul class="simple">
+<li><p><strong>Muddatli (time-boxed)</strong> — belgilangan kunlardan keyin amal qilishi tugaydi.
+Muddat tugashidan oldin yangi litsenziya bilan uzaytirish kerak.</p></li>
+<li><p><strong>Doimiy (perpetual)</strong> — muddati cheklanmagan.</p></li>
+</ul>
+<p>Litsenziya holatini (amal qilish muddati, xususiyatlar) <code class="docutils literal notranslate"><span class="pre">/license</span></code> sahifasida
+ko’rishingiz mumkin.</p>
+</section>
+<section id="litsenziyani-uzaytirish">
+<h2><span class="section-number">4.4. </span>Litsenziyani uzaytirish<a class="headerlink" href="#litsenziyani-uzaytirish" title="Link to this heading"></a></h2>
+<p>Muddatli litsenziyani uzaytirish uchun yetkazib beruvchidan yangi litsenziya
+kaliti oling va uni <code class="docutils literal notranslate"><span class="pre">/license</span></code> sahifasida joylang. Buni joriy litsenziya
+hali amal qilayotgan paytda bajarish mumkin.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Anakartni almashtirish yoki operatsion tizimni qayta o’rnatish Machine ID
+ni o’zgartiradi — bu holda mavjud litsenziya ishlamay qoladi va yangi
+Machine ID uchun yangi litsenziya kerak bo’ladi.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dashboard.html" class="btn btn-neutral float-left" title="3. Dashboard oynasi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../network/interface.html" class="btn btn-neutral float-right" title="1. Tarmoq interfeyslarini sozlash va boshqarish" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Sarhad NGFW Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versiyalar va Eksport</span>
+    v2026.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Hujjat Versiyalari</dt>
+      <dd><a href="#">v2026.1.0 (Stabil)</a></dd>
+    </dl>
+    <dl>
+      <dt>Yuklab olish (Eksport)</dt>
+      <dd><a href="_static/SarhadNGFW.pdf" download>PDF formatida yuklash</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

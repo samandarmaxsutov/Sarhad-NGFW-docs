@@ -52,12 +52,23 @@ html_display_toc_header_version = True
 html_show_sphinx = False  # "Powered by Sphinx" yozuvini o'chiradi (toza brending uchun)
 
 
-# source/conf.py faylining oxiriga qo'shing:
+# -- PDF (sphinx-simplepdf) sozlamalari --------------------------------------
+# PDF fayl nomi (build/simplepdf/<name>.pdf)
+simplepdf_file_name = 'SarhadNGFW.pdf'
 
+# Rang palitrasi — izchil yashil brending.
+# DIQQAT: 'primary-light' 'primary'dan OCHROQ, 'primary-dark' esa TO'QROQ
+# bo'lishi kerak. Avvalgi sozlamada bu teskari va rang nomuvofiq edi.
 simplepdf_vars = {
-    'primary': "#1e4537",          # Asosiy yashil rang (chiziqlar, linklar va sarlavhalar uchun)
-    'primary-light': "#12231d",    # Ochroq yashil
-    'primary-dark': "#141D4D",     # To'qroq yashil
-    'cover-bg': "#0B1A08",         # Muqova (birinchi sahifa) orqa foni - Dashboard kabi to'q qora/ko'k
-    'cover-text': '#ffffff',       # Muqovadagi yozuvlar rangi - oq
+    'primary': '#1e4537',          # Asosiy yashil — sarlavhalar, chiziqlar, linklar
+    'primary-light': '#2e6b54',    # Ochroq yashil — fon urg'ulari, hover holatlari
+    'primary-dark': '#12231d',     # To'q yashil — kuchli urg'u
+    'secondary': '#2e6b54',        # Ikkilamchi yashil ohang
+    'cover-bg': '#0B1A08',         # Muqova (1-sahifa) orqa foni — to'q yashil
+    'cover': '#ffffff',            # Muqovadagi sarlavha/yozuvlar rangi — oq
+    'white': '#ffffff',            # Muqova futeri matni — oq
+    'links': '#1e4537',            # Havola (link) rangi
+    'top-left-content': 'counter(page)',                 # Yuqori chap: sahifa raqami
+    'top-right-content': "'Sarhad NGFW'",                # Yuqori o'ng: mahsulot nomi
+    'bottom-center-content': "'Sarhad NGFW — Foydalanuvchi qo''llanmasi'",
 }

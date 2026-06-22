@@ -1,53 +1,107 @@
-=============================
-Sarhad NGFW Umumiy Ko'rinishi
-=============================
+============================
+Tezkor boshlash
+============================
 
-Bu hujjat Sarhad NGFW mahsulotining asosiy xususiyatlari va arxitekturasi haqida umumiy ma'lumot beradi.
+Sarhad NGFW — yuqori unumdorlikka ega yangi avlod tarmoq xavfsizlik devori.
+Barcha sozlamalar HTTPS veb-interfeysi (``https://<ip>:8443``) orqali
+boshqariladi. Bu bo'lim qurilmani birinchi marta ishga tushirish uchun
+asosiy qadamlarni ketma-ket ko'rsatadi.
 
-Mahsulot haqida
----------------
+Birinchi sozlash qadamlari
+==========================
 
-Sarhad NGFW yangi avlod tarmoq xavfsizlik devori bo'lib, korporativ tarmoqlar uchun yanada kuchli himoya, tarmoq nazorati va trafik tahlilini taklif etadi. U kirish nazorati, ilova darajasida filtrlash, xavfsizlik siyosatlari va real vaqt monitoringi bilan birgalikda ishlaydi.
+1. Qurilmaga ulanish
+--------------------
 
-Tizim arxitekturasi
--------------------
+Qurilma birinchi yoqilganda boshqaruv (MGMT) interfeysiga IP manzil berish
+kerak. Buni qurilmaga ulangan fizik konsol (monitor/klaviatura) orqali
+bajariladi: konsol menyusida IP manzil va niqobni kiriting.
 
-Sarhad NGFW bir nechta qatlamli arxitekturaga ega:
+So'ngra shu tarmoqdagi kompyuter brauzeridan boshqaruv panelini oching:
 
-- Fizik tarmoq interfeyslari va VLANlar orqali tarmoq trafiğini boshqarish.
-- Paket filtrlash va IDS/IPS funksiyalari orqali tahdidlarga qarshi himoya.
-- Ilova darajasida xavfsizlik strategiyalari va siyosatlarni amalga oshirish.
-- VPN kanallari orqali xavfsiz ulanishlarni ta'minlash.
+.. code-block:: text
 
-Xavfsizlik funksiyalari
------------------------
+   https://<mgmt-ip>:8443
 
-Sarhad NGFW quyidagi xavfsizlik vositalarini taqdim etadi:
+2. Litsenziyani faollashtirish
+------------------------------
 
-- ACL va trafik qoidalari orqali kirish nazorati.
-- IDS/IPS tizimi orqali tarmoqdagi tahdidlarga qarshi real vaqt aniqlash.
-- Veb va port filtrlash orqali noto'g'ri trafikni bloklash.
-- VPN orqali shifrlangan tarmoq aloqalari.
+Litsenziya o'rnatilmagan bo'lsa, tizim avtomatik ``/license`` sahifasini
+ko'rsatadi. Qurilmaning **Machine ID** sini nusxalab, yetkazib beruvchidan
+litsenziya kalitini oling va uni faollashtiring.
 
-Deploy qilish va boshqaruv
---------------------------
+Batafsil: :doc:`/introduction/licensing`.
 
-Sarhad NGFW bir nechta joylashtirish rejimlarida ishlashi mumkin:
+3. Tizimga kirish va parolni almashtirish
+-----------------------------------------
 
-- Standalone rejim, kichik tarmoq bo'limlari uchun.
-- Cluster yoki yuqori mavjudlik rejimi, katta korporativ infratuzilmalarda.
+Standart hisob (``admin`` / ``admin123``) bilan kiring va birinchi ishda
+**root va admin parollarini darhol o'zgartiring**.
 
-Boshqaruv interfeysi orqali foydalanuvchi:
+Batafsil: :doc:`/introduction/login`, :doc:`/system/users`.
 
-- Tizim holatini kuzatishi mumkin.
-- Tarmoq sozlamalarini va xavfsizlik siyosatlarini o'zgartirishi mumkin.
-- Hisobotlar va jurnallar asosida tahlil olib borishi mumkin.
+4. Interfeys va zonalarni sozlash
+---------------------------------
 
-Monitoring va hisobot
+Tarmoq interfeyslariga zona (WAN/LAN/DMZ) tayinlang va IP manzillarni bering.
+WAN — internet tomon, LAN — ichki tarmoq.
+
+Batafsil: :doc:`/network/interface`.
+
+5. Marshrut va NAT
+------------------
+
+Internetga chiqish uchun standart marshrut (default gateway) qo'shing va ichki
+tarmoq internetga chiqishi uchun NAT (SNAT) ni sozlang.
+
+Batafsil: :doc:`/network/routing`, :doc:`/network/nat`.
+
+6. Firewall qoidalari
 ---------------------
 
-Sarhad NGFW tizimi trafigi, xavfsizlik hodisalari va tizim holati bo'yicha keng qamrovli monitoringni taqdim etadi. Bu monitoring:
+Tarmoqlar o'rtasidagi trafikni boshqarish uchun firewall qoidalarini yarating.
+Zonalar o'rtasidagi asosiy qoidalar avtomatik yaratiladi, qolganini o'zingiz
+qo'shasiz.
 
-- log yozuvlari va xatoliklar ro'yxatini yaratadi.
-- trafik statistikasini ko'rsatadi.
-- tahdidlarni aniqlash va tezkor javob berish imkonini beradi.
+Batafsil: :doc:`/policies/acl`.
+
+7. Qo'shimcha xizmatlar (ixtiyoriy)
+-----------------------------------
+
+Asosiy tarmoq ishlaganidan so'ng kerakli qo'shimcha funksiyalarni yoqing:
+
+- Masofaviy xodimlar uchun VPN: :doc:`/vpn/overview`
+- Hujumlarni aniqlash va to'sish: :doc:`/security/ids`
+- IP manzillarni avtomatik tarqatish: :doc:`/network/dhcp`
+
+Qo'llanma tuzilishi
+====================
+
+Qo'llanma quyidagi bo'limlardan iborat:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Bo'lim
+     - Mazmuni
+   * - **Kirish**
+     - Tizimga kirish, Dashboard va litsenziya.
+   * - **Tarmoq sozlamalari**
+     - Interfeyslar, marshrutlash, NAT, DHCP.
+   * - **Firewall qoidalari**
+     - ACL qoidalari, MAC filtr, trafik cheklash (Policer).
+   * - **Xavfsizlik**
+     - IDS/IPS, TLS tekshiruvi, sertifikatlar (PKI).
+   * - **VPN**
+     - Remote Access, Site-to-Site va umumiy sozlamalar.
+   * - **Tizim sozlamalari**
+     - Foydalanuvchilar va tizim vaqti.
+   * - **Monitoring**
+     - Jurnallar va trafik monitoringi.
+
+.. tip::
+
+   Har bir sozlash bosqichidan so'ng yuqori paneldagi **Konfiguratsiyani
+   saqlash** tugmasini bosing — shunda o'zgarishlar qurilma qayta ishga
+   tushganidan keyin ham saqlanib qoladi.

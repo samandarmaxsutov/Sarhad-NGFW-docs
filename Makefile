@@ -22,7 +22,7 @@ help:
 # Makefile faylining eng oxiriga qo'shing (E'tibor bering: buyruq boshidagi bo'shliqlar TAB tugmasi bilan qo'yilishi shart)
 pdf-build:
 	make simplepdf
-	cp "build/simplepdf/Sarhad NGFW.pdf" source/_static/SarhadNGFW.pdf
+	cp "build/simplepdf/SarhadNGFW.pdf" source/_static/SarhadNGFW.pdf
 	make html
 	@echo "========================================================="
 	@echo " PDF muvaffaqiyatli yaratildi va HTMLga ulandi!"

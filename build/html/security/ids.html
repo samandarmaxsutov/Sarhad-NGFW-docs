@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1. Intrusion Detection System (IDS) sozlamalari &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+  <title>1. Hujumlarni aniqlash va oldini olish (IDS/IPS) &mdash; Sarhad NGFW v2026.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Foydalanuvchilar boshqarishi" href="../system/users.html" />
-    <link rel="prev" title="1. Access Control List (ACL) boshqarish" href="../policies/acl.html" /> 
+    <link rel="next" title="2. TLS trafigini tekshirish (TLS Interception)" href="tls-interception.html" />
+    <link rel="prev" title="3. Trafik tezligini cheklash (Policer)" href="../policies/policer.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,34 +50,58 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish bo’yicha qo’llanma</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Routing sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Access Control List (ACL) boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">3. Trafik tezligini cheklash (Policer)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Intrusion Detection System (IDS) sozlamalari</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asosiy-tushunchalar">1.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ids-ips-ni-yoqish-va-sozlash">1.2. IDS/IPS ni yoqish va sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qoidalarni-boshqarish">1.3. Qoidalarni boshqarish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#qoidalar-manbalari-rule-sources">1.3.1. Qoidalar manbalari (Rule sources)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qoidalarni-yoqish-o-chirish">1.3.2. Qoidalarni yoqish/o’chirish</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avtomatik-qoidalar-boshqaruvi">1.3.3. Avtomatik qoidalar boshqaruvi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maxsus-qoidalar">1.3.4. Maxsus qoidalar</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilar boshqarishi</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ogohlantirishlar-alerts">1.4. Ogohlantirishlar (Alerts)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificates.html">3. Sertifikatlar va PKI</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/ipsec.html">1. IPsec sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../monitoring/logs.html">1. Loglanri boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/logs.html">1. Jurnallar (Logs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/flow.html">2. Trafik monitoringi (Flow / IPFIX)</a></li>
 </ul>
 
         </div>
@@ -94,7 +118,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">1. </span>Intrusion Detection System (IDS) sozlamalari</li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Hujumlarni aniqlash va oldini olish (IDS/IPS)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/security/ids.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -104,16 +128,106 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="intrusion-detection-system-ids-sozlamalari">
-<h1><span class="section-number">1. </span>Intrusion Detection System (IDS) sozlamalari<a class="headerlink" href="#intrusion-detection-system-ids-sozlamalari" title="Link to this heading"></a></h1>
+  <section id="hujumlarni-aniqlash-va-oldini-olish-ids-ips">
+<h1><span class="section-number">1. </span>Hujumlarni aniqlash va oldini olish (IDS/IPS)<a class="headerlink" href="#hujumlarni-aniqlash-va-oldini-olish-ids-ips" title="Link to this heading"></a></h1>
+<p>Sarhad NGFW tarmoqdagi shubhali va zararli faoliyatni aniqlash hamda to’sish
+uchun o’rnatilgan IDS/IPS tizimidan foydalanadi. Bu bo’limga o’tish uchun chap
+menyudagi <strong>Security → Intrusion Prevention</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/intrusion-prevention</span></code>).</p>
+<section id="asosiy-tushunchalar">
+<h2><span class="section-number">1.1. </span>Asosiy tushunchalar<a class="headerlink" href="#asosiy-tushunchalar" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>IDS (Intrusion Detection System)</strong> — hujumlarni <em>aniqlaydi</em> va ogohlantirish
+(alert) yaratadi, lekin trafikni to’smaydi.</p></li>
+<li><p><strong>IPS (Intrusion Prevention System)</strong> — hujumlarni aniqlash bilan birga
+zararli trafikni <em>to’sadi</em> (bloklaydi).</p></li>
+</ul>
+<p>Tizim tarmoq paketlarini maxsus <strong>qoidalar (rules)</strong> to’plamiga solishtiradi.
+Agar paket biror qoidaga mos kelsa (masalan, ma’lum bir virus yoki hujum
+imzosi), tizim ogohlantirish yaratadi yoki paketni bloklaydi.</p>
+</section>
+<section id="ids-ips-ni-yoqish-va-sozlash">
+<h2><span class="section-number">1.2. </span>IDS/IPS ni yoqish va sozlash<a class="headerlink" href="#ids-ips-ni-yoqish-va-sozlash" title="Link to this heading"></a></h2>
+<p>Konfiguratsiya bo’limida quyidagi asosiy parametrlarni sozlash mumkin:</p>
+<ul class="simple">
+<li><p><strong>Rejim</strong> — IDS (faqat aniqlash) yoki IPS (aniqlash va bloklash).</p></li>
+<li><p><strong>HOME_NET</strong> — himoyalanadigan ichki tarmoq(lar) (masalan,
+<code class="docutils literal notranslate"><span class="pre">192.168.0.0/16</span></code>). Tizim qaysi tarmoq “ichki” ekanligini shu orqali biladi.</p></li>
+<li><p><strong>EXTERNAL_NET</strong> — tashqi tarmoq ta’rifi (odatda HOME_NET’dan tashqari
+hammasi).</p></li>
+<li><p><strong>Jurnal rejimi</strong> — ogohlantirishlarni qanday yozib borish.</p></li>
+</ul>
+<p>Sozlashdan so’ng <strong>Saqlash</strong> tugmasini bosing va kerak bo’lsa IDS/IPS xizmatini
+qayta ishga tushiring (restart).</p>
+</section>
+<section id="qoidalarni-boshqarish">
+<h2><span class="section-number">1.3. </span>Qoidalarni boshqarish<a class="headerlink" href="#qoidalarni-boshqarish" title="Link to this heading"></a></h2>
+<section id="qoidalar-manbalari-rule-sources">
+<h3><span class="section-number">1.3.1. </span>Qoidalar manbalari (Rule sources)<a class="headerlink" href="#qoidalar-manbalari-rule-sources" title="Link to this heading"></a></h3>
+<p>Tizim qoidalarni tashqi manbalardan yuklab oladi va muntazam yangilab turadi.
+Quyidagi manbalar qo’llab-quvvatlanadi:</p>
+<ul class="simple">
+<li><p><strong>Jamoaviy (Community) qoidalar</strong> — bepul, ochiq qoidalar to’plami.</p></li>
+<li><p><strong>Obuna (Subscriber) qoidalar</strong> — ro’yxatdan o’tgan foydalanuvchilar uchun
+qoidalar (obuna kaliti talab qiladi).</p></li>
+<li><p><strong>Maxsus (custom) manbalar</strong> — boshqa tashqi qoida manbalari.</p></li>
+</ul>
+<p>Manba qo’shish uchun:</p>
+<ol class="arabic simple">
+<li><p><strong>Manba qo’shish (Add Source)</strong> tugmasini bosing.</p></li>
+<li><p>Manba URL manzili va kerak bo’lsa <strong>obuna kaliti</strong> ni kiriting.</p></li>
+<li><p>Yangilanish jadvalini (avtomatik yoki qo’lda) tanlang.</p></li>
+</ol>
+</section>
+<section id="qoidalarni-yoqish-o-chirish">
+<h3><span class="section-number">1.3.2. </span>Qoidalarni yoqish/o’chirish<a class="headerlink" href="#qoidalarni-yoqish-o-chirish" title="Link to this heading"></a></h3>
+<p>Qoidalar toifalarga (kategoriyalarga) bo’lingan (masalan, malware, exploit,
+veb-hujumlar). Har bir toifani alohida yoqish yoki o’chirish mumkin. Bu
+keraksiz ogohlantirishlarni kamaytirish va tizim yukini optimallashtirish
+imkonini beradi.</p>
+</section>
+<section id="avtomatik-qoidalar-boshqaruvi">
+<h3><span class="section-number">1.3.3. </span>Avtomatik qoidalar boshqaruvi<a class="headerlink" href="#avtomatik-qoidalar-boshqaruvi" title="Link to this heading"></a></h3>
+<p>Tizim qoidalarni avtomatik yuklab olish, yangilash va birlashtirish imkonini
+beradi. U eskirgan qoidalarni almashtiradi va manbalar o’rtasidagi qoidalarni
+muvofiqlashtiradi. Avtomatik yangilanishni yoqib qo’ysangiz, qoidalar muntazam
+ravishda o’zi yangilanib turadi.</p>
+</section>
+<section id="maxsus-qoidalar">
+<h3><span class="section-number">1.3.4. </span>Maxsus qoidalar<a class="headerlink" href="#maxsus-qoidalar" title="Link to this heading"></a></h3>
+<p>Tashqi manbalardan tashqari, o’zingizning maxsus qoidalaringizni ham
+qo’shishingiz mumkin. Bu o’ziga xos tahdidlarga qarshi maxsus himoya yaratish
+uchun foydali.</p>
+</section>
+</section>
+<section id="ogohlantirishlar-alerts">
+<h2><span class="section-number">1.4. </span>Ogohlantirishlar (Alerts)<a class="headerlink" href="#ogohlantirishlar-alerts" title="Link to this heading"></a></h2>
+<p><strong>Alerts</strong> bo’limida tizim aniqlagan barcha hodisalar ko’rsatiladi:</p>
+<ul class="simple">
+<li><p><strong>Vaqt (Timestamp)</strong> — hodisa qachon sodir bo’lgani.</p></li>
+<li><p><strong>Imzo (Signature / SID)</strong> — ishga tushgan qoidaning identifikatori.</p></li>
+<li><p><strong>Xabar (Message)</strong> — hodisaning tavsifi.</p></li>
+<li><p><strong>Muhimlik (Priority)</strong> — tahdidning xavf darajasi.</p></li>
+<li><p><strong>Manba/Manzil</strong> — hujumning kelib chiqishi va nishoni.</p></li>
+</ul>
+<p>Ogohlantirishlarni muhimlik darajasi yoki vaqt bo’yicha filtrlash va tashqi
+faylga (CSV) eksport qilish mumkin.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IPS rejimida noto’g’ri sozlangan qoidalar haqiqiy (zararsiz) trafikni
+bloklab qo’yishi mumkin (false positive). Yangi qoidalarni avval IDS
+(faqat aniqlash) rejimida sinab ko’rib, so’ngra IPS rejimiga o’tkazish
+tavsiya etiladi.</p>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../policies/acl.html" class="btn btn-neutral float-left" title="1. Access Control List (ACL) boshqarish" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../system/users.html" class="btn btn-neutral float-right" title="1. Foydalanuvchilar boshqarishi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../policies/policer.html" class="btn btn-neutral float-left" title="3. Trafik tezligini cheklash (Policer)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tls-interception.html" class="btn btn-neutral float-right" title="2. TLS trafigini tekshirish (TLS Interception)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

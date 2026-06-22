@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. MAC manzili bo’yicha filtrlash &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=9fed09df"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Trafik tezligini cheklash (Policer)" href="policer.html" />
+    <link rel="prev" title="1. Firewall qoidalari (Firewall Policies / ACL)" href="acl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Sarhad NGFW
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW umumiy ko’rinishi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. MAC manzili bo’yicha filtrlash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qachon-ishlatiladi">2.1. Qachon ishlatiladi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mac-qoidasi-qo-shish">2.2. MAC qoidasi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ishlash-tartibi">2.3. Ishlash tartibi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policer.html">3. Trafik tezligini cheklash (Policer)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/logs.html">1. Jurnallar (Logs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/flow.html">2. Trafik monitoringi (Flow / IPFIX)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sarhad NGFW</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>MAC manzili bo’yicha filtrlash</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/policies/mac-filter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mac-manzili-bo-yicha-filtrlash">
+<h1><span class="section-number">2. </span>MAC manzili bo’yicha filtrlash<a class="headerlink" href="#mac-manzili-bo-yicha-filtrlash" title="Link to this heading"></a></h1>
+<p>MAC filtrlash qurilmaning fizik (MAC) manzili asosida tarmoqqa kirishini
+ruxsat berish yoki taqiqlash imkonini beradi. Bu IP manzildan farqli ravishda
+qurilmaning o’ziga (tarmoq adapteriga) bog’langan nazorat usulidir. Bu bo’limga
+o’tish uchun chap menyudagi <strong>Firewall → MAC Filter</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/mac-filter</span></code>).</p>
+<section id="qachon-ishlatiladi">
+<h2><span class="section-number">2.1. </span>Qachon ishlatiladi<a class="headerlink" href="#qachon-ishlatiladi" title="Link to this heading"></a></h2>
+<p>MAC filtrlash quyidagi holatlarda foydali:</p>
+<ul class="simple">
+<li><p>Faqat ma’lum (ro’yxatga olingan) qurilmalarga tarmoqqa ulanishga ruxsat
+berish.</p></li>
+<li><p>Aniq bir qurilmani (masalan, ruxsatsiz noutbukni) tarmoqdan bloklash.</p></li>
+<li><p>IP manzilini o’zgartirib aylanib o’tishga urinadigan qurilmalarni nazorat
+qilish.</p></li>
+</ul>
+</section>
+<section id="mac-qoidasi-qo-shish">
+<h2><span class="section-number">2.2. </span>MAC qoidasi qo’shish<a class="headerlink" href="#mac-qoidasi-qo-shish" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Qoida qo’shish (Add Rule)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>MAC manzil</strong> — qurilmaning fizik manzili
+(masalan, <code class="docutils literal notranslate"><span class="pre">00:1A:2B:3C:4D:5E</span></code>).</p></li>
+<li><p><strong>Amal (Action)</strong> — <code class="docutils literal notranslate"><span class="pre">Permit</span></code> (ruxsat) yoki <code class="docutils literal notranslate"><span class="pre">Deny</span></code> (taqiq).</p></li>
+<li><p><strong>Interfeys</strong> — qoida qaysi interfeysda amal qilishi.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="ishlash-tartibi">
+<h2><span class="section-number">2.3. </span>Ishlash tartibi<a class="headerlink" href="#ishlash-tartibi" title="Link to this heading"></a></h2>
+<p>MAC qoidalari ham firewall qoidalari kabi yuqoridan pastga tekshiriladi.
+Ikki asosiy strategiya mavjud:</p>
+<ul class="simple">
+<li><p><strong>Oq ro’yxat (whitelist)</strong> — ruxsat etilgan MAC’larni sanab, qolganlarini
+bloklash. Eng xavfsiz, lekin har bir yangi qurilmani qo’lda qo’shish kerak.</p></li>
+<li><p><strong>Qora ro’yxat (blacklist)</strong> — faqat aniq qurilmalarni bloklab, qolganlariga
+ruxsat berish.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MAC manzilini ba’zi qurilmalarda almashtirish (spoofing) mumkin, shuning
+uchun MAC filtrlashni yagona himoya chorasi sifatida emas, balki qo’shimcha
+xavfsizlik qatlami sifatida ishlatish tavsiya etiladi.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="acl.html" class="btn btn-neutral float-left" title="1. Firewall qoidalari (Firewall Policies / ACL)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="policer.html" class="btn btn-neutral float-right" title="3. Trafik tezligini cheklash (Policer)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Sarhad NGFW Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versiyalar va Eksport</span>
+    v2026.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Hujjat Versiyalari</dt>
+      <dd><a href="#">v2026.1.0 (Stabil)</a></dd>
+    </dl>
+    <dl>
+      <dt>Yuklab olish (Eksport)</dt>
+      <dd><a href="_static/SarhadNGFW.pdf" download>PDF formatida yuklash</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

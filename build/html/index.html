@@ -25,7 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Sarhad NGFW Umumiy Ko’rinishi" href="overview.html" /> 
+    <link rel="next" title="1. Tezkor boshlash" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,34 +49,46 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Tezkor boshlash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction/login.html">2. Tizimga kirish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction/dashboard.html">3. Dashboard oynasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish bo’yicha qo’llanma</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network/routing.html">2. Routing sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/routing.html">2. Marshrutlash (Routing)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/nat.html">3. NAT (Manzil almashtirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/dhcp.html">4. DHCP server va relay</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policies/acl.html">1. Access Control List (ACL) boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies/policer.html">3. Trafik tezligini cheklash (Policer)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="security/ids.html">1. Intrusion Detection System (IDS) sozlamalari</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="system/users.html">1. Foydalanuvchilar boshqarishi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/certificates.html">3. Sertifikatlar va PKI</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="vpn/ipsec.html">1. IPsec sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="monitoring/logs.html">1. Loglanri boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring/logs.html">1. Jurnallar (Logs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring/flow.html">2. Trafik monitoringi (Flow / IPFIX)</a></li>
 </ul>
 
         </div>
@@ -111,12 +123,9 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#mahsulot-haqida">1.1. Mahsulot haqida</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#tizim-arxitekturasi">1.2. Tizim arxitekturasi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#xavfsizlik-funksiyalari">1.3. Xavfsizlik funksiyalari</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#deploy-qilish-va-boshqaruv">1.4. Deploy qilish va boshqaruv</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#monitoring-va-hisobot">1.5. Monitoring va hisobot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Tezkor boshlash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#birinchi-sozlash-qadamlari">1.1. Birinchi sozlash qadamlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#qo-llanma-tuzilishi">1.2. Qo’llanma tuzilishi</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="introduction/login.html">2. Tizimga kirish</a><ul>
@@ -124,10 +133,16 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="introduction/dashboard.html">3. Dashboard oynasi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="introduction/dashboard.html#asosiy-ko-rinish">3.1. Asosiy ko’rinish</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction/dashboard.html#sidebar-menyusi">3.2. Sidebar menyusi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction/dashboard.html#top-bar-funksiyalari">3.3. Top bar funksiyalari</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction/dashboard.html#dashboarddan-foydalanish">3.4. Dashboarddan foydalanish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/dashboard.html#statistika-kartalari">3.1. Statistika kartalari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/dashboard.html#interfeys-grafiklari-va-statistikasi">3.2. Interfeys grafiklari va statistikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/dashboard.html#navigatsiya">3.3. Navigatsiya</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/licensing.html">4. Litsenziya va faollashtirish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction/licensing.html#qanday-ishlaydi">4.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/licensing.html#litsenziyani-faollashtirish">4.2. Litsenziyani faollashtirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/licensing.html#litsenziya-muddati">4.3. Litsenziya muddati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction/licensing.html#litsenziyani-uzaytirish">4.4. Litsenziyani uzaytirish</a></li>
 </ul>
 </li>
 </ul>
@@ -135,38 +150,156 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish bo’yicha qo’llanma</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network/routing.html">2. Routing sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/interface.html#umumiy-ma-lumot">1.1. Umumiy ma’lumot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/interface.html#interfeys-zonalari-rollari">1.2. Interfeys zonalari (rollari)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/interface.html#interfeyslar-ro-yxatini-ko-rish">1.3. Interfeyslar ro’yxatini ko’rish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/interface.html#interfeysni-sozlash">1.4. Interfeysni sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/interface.html#vlan-qo-shish">1.5. VLAN qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/interface.html#muhim-eslatmalar">1.6. Muhim eslatmalar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/routing.html">2. Marshrutlash (Routing)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/routing.html#marshrutlash-jadvali">2.1. Marshrutlash jadvali</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/routing.html#statik-marshrut-qo-shish">2.2. Statik marshrut qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/routing.html#marshrutni-o-chirish">2.3. Marshrutni o’chirish</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/nat.html">3. NAT (Manzil almashtirish)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/nat.html#nat-turlari">3.1. NAT turlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/nat.html#interfeyslarni-sozlash-inside-outside">3.2. Interfeyslarni sozlash (inside / outside)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/nat.html#manzillar-puli-address-pool">3.3. Manzillar puli (Address pool)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/nat.html#dnat-port-forwarding-qoidasi-qo-shish">3.4. DNAT (Port forwarding) qoidasi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/nat.html#faol-sessiyalar-nat-sessions">3.5. Faol sessiyalar (NAT Sessions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/nat.html#qo-shimcha-sozlamalar">3.6. Qo’shimcha sozlamalar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network/dhcp.html">4. DHCP server va relay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network/dhcp.html#dhcp-server">4.1. DHCP server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network/dhcp.html#dhcp-relay">4.2. DHCP relay</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policies/acl.html">1. Access Control List (ACL) boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policies/acl.html#qoidalar-qanday-ishlaydi">1.1. Qoidalar qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/acl.html#qoida-tarkibi">1.2. Qoida tarkibi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/acl.html#yangi-qoida-qo-shish">1.3. Yangi qoida qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/acl.html#qoidalar-tartibini-o-zgartirish">1.4. Qoidalar tartibini o’zgartirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/acl.html#qoidani-tahrirlash-va-o-chirish">1.5. Qoidani tahrirlash va o’chirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/acl.html#bog-liq-bo-limlar">1.6. Bog’liq bo’limlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policies/mac-filter.html#qachon-ishlatiladi">2.1. Qachon ishlatiladi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/mac-filter.html#mac-qoidasi-qo-shish">2.2. MAC qoidasi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/mac-filter.html#ishlash-tartibi">2.3. Ishlash tartibi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="policies/policer.html">3. Trafik tezligini cheklash (Policer)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="policies/policer.html#qanday-ishlaydi">3.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/policer.html#policer-profili-yaratish">3.2. Policer profili yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="policies/policer.html#profilni-interfeysga-bog-lash">3.3. Profilni interfeysga bog’lash</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="security/ids.html">1. Intrusion Detection System (IDS) sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security/ids.html#asosiy-tushunchalar">1.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/ids.html#ids-ips-ni-yoqish-va-sozlash">1.2. IDS/IPS ni yoqish va sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/ids.html#qoidalarni-boshqarish">1.3. Qoidalarni boshqarish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/ids.html#ogohlantirishlar-alerts">1.4. Ogohlantirishlar (Alerts)</a></li>
 </ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="system/users.html">1. Foydalanuvchilar boshqarishi</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security/tls-interception.html#qanday-ishlaydi">2.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/tls-interception.html#sozlash">2.2. Sozlash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security/certificates.html">3. Sertifikatlar va PKI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security/certificates.html#asosiy-tushunchalar">3.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/certificates.html#sertifikat-markazini-ca-yaratish">3.2. Sertifikat markazini (CA) yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/certificates.html#sertifikat-berish-issue">3.3. Sertifikat berish (issue)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/certificates.html#tls-interception-uchun-ca">3.4. TLS Interception uchun CA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security/certificates.html#sertifikatni-bekor-qilish-revoke">3.5. Sertifikatni bekor qilish (revoke)</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="vpn/ipsec.html">1. IPsec sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/overview.html">1. VPN — Umumiy ko’rinish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vpn/overview.html#vpn-turlari">1.1. VPN turlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/overview.html#vpn-holati-dashboardi">1.2. VPN holati dashboardi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/overview.html#tayyorgarlik">1.3. Tayyorgarlik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/overview.html#keyingi-qadamlar">1.4. Keyingi qadamlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vpn/ra.html#sozlash-bosqichlari">2.1. Sozlash bosqichlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/ra.html#gateway-yaratish">2.2. 1. Gateway yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/ra.html#guruh-va-foydalanuvchi-qo-shish">2.3. 2. Guruh va foydalanuvchi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/ra.html#ulanish-to-plamini-tarqatish-bundle">2.4. 3. Ulanish to’plamini tarqatish (Bundle)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/ra.html#faol-sessiyalarni-kuzatish">2.5. Faol sessiyalarni kuzatish</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vpn/s2s.html#tunnel-yaratish">3.1. Tunnel yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/s2s.html#tunnelni-boshqarish">3.2. Tunnelni boshqarish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/s2s.html#holatni-kuzatish">3.3. Holatni kuzatish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/s2s.html#qo-shimcha-parametrlar">3.4. Qo’shimcha parametrlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vpn/settings.html#asosiy-sozlamalar">4.1. Asosiy sozlamalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/settings.html#ipsec-va-nat">4.2. IPsec va NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vpn/settings.html#sertifikatlar-bilan-bog-liqlik">4.3. Sertifikatlar bilan bog’liqlik</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="system/users.html">1. Foydalanuvchilarni boshqarish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="system/users.html#foydalanuvchi-rollari">1.1. Foydalanuvchi rollari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system/users.html#yangi-foydalanuvchi-qo-shish">1.2. Yangi foydalanuvchi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system/users.html#parolni-o-zgartirish">1.3. Parolni o’zgartirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system/users.html#foydalanuvchini-tahrirlash-va-o-chirish">1.4. Foydalanuvchini tahrirlash va o’chirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system/users.html#xavfsizlik-tavsiyalari">1.5. Xavfsizlik tavsiyalari</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="system/time.html">2. Tizim vaqti va NTP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="system/time.html#vaqtni-sozlash">2.1. Vaqtni sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system/time.html#ntp-serverlarini-sozlash">2.2. NTP serverlarini sozlash</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="monitoring/logs.html">1. Loglanri boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring/logs.html">1. Jurnallar (Logs)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/logs.html#jurnal-toifalari">1.1. Jurnal toifalari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/logs.html#jurnal-yozuvi-tarkibi">1.2. Jurnal yozuvi tarkibi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/logs.html#jurnallarni-filtrlash-va-eksport-qilish">1.3. Jurnallarni filtrlash va eksport qilish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/logs.html#saqlash-muddati-retention">1.4. Saqlash muddati (Retention)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/logs.html#bog-liq-bo-limlar">1.5. Bog’liq bo’limlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="monitoring/flow.html">2. Trafik monitoringi (Flow / IPFIX)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/flow.html#asosiy-tushunchalar">2.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/flow.html#flow-eksportini-sozlash">2.2. Flow eksportini sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monitoring/flow.html#nimaga-foydali">2.3. Nimaga foydali</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -175,7 +308,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="overview.html" class="btn btn-neutral float-right" title="1. Sarhad NGFW Umumiy Ko’rinishi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="1. Tezkor boshlash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

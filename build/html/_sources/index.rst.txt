@@ -18,6 +18,7 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    overview
    introduction/login
    introduction/dashboard
+   introduction/licensing
 
 
 .. toctree::
@@ -27,6 +28,8 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
 
    network/interface
    network/routing
+   network/nat
+   network/dhcp
 
 .. toctree::
    :maxdepth: 2
@@ -34,6 +37,8 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    :numbered:
 
    policies/acl
+   policies/mac-filter
+   policies/policer
 
 .. toctree::
    :maxdepth: 2
@@ -41,6 +46,18 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    :numbered:
 
    security/ids
+   security/tls-interception
+   security/certificates
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Virtual Private Network (VPN)
+   :numbered:
+
+   vpn/overview
+   vpn/ra
+   vpn/s2s
+   vpn/settings
 
 .. toctree::
    :maxdepth: 2
@@ -48,13 +65,7 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    :numbered:
 
    system/users
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Virtual Private Network (VPN)
-   :numbered:
-
-   vpn/ipsec
+   system/time
 
 .. toctree::
    :maxdepth: 2
@@ -62,4 +73,5 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    :numbered:
 
    monitoring/logs
+   monitoring/flow
 

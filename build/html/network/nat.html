@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. NAT (Manzil almashtirish) &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=9fed09df"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=b8b12719"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. DHCP server va relay" href="dhcp.html" />
+    <link rel="prev" title="2. Marshrutlash (Routing)" href="routing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Sarhad NGFW
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="routing.html">2. Marshrutlash (Routing)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. NAT (Manzil almashtirish)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nat-turlari">3.1. NAT turlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interfeyslarni-sozlash-inside-outside">3.2. Interfeyslarni sozlash (inside / outside)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manzillar-puli-address-pool">3.3. Manzillar puli (Address pool)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dnat-port-forwarding-qoidasi-qo-shish">3.4. DNAT (Port forwarding) qoidasi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faol-sessiyalar-nat-sessions">3.5. Faol sessiyalar (NAT Sessions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qo-shimcha-sozlamalar">3.6. Qo’shimcha sozlamalar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">4. DHCP server va relay</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">3. Trafik tezligini cheklash (Policer)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/logs.html">1. Jurnallar (Logs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../monitoring/flow.html">2. Trafik monitoringi (Flow / IPFIX)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Sarhad NGFW</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>NAT (Manzil almashtirish)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/network/nat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nat-manzil-almashtirish">
+<h1><span class="section-number">3. </span>NAT (Manzil almashtirish)<a class="headerlink" href="#nat-manzil-almashtirish" title="Link to this heading"></a></h1>
+<p>NAT (Network Address Translation — tarmoq manzilini almashtirish) ichki
+tarmoqdagi xususiy IP manzillarni tashqi (ommaviy) IP manzilga aylantirish
+imkonini beradi. Bu bo’limga o’tish uchun chap menyudagi <strong>Network → NAT</strong>
+bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/nat</span></code>).</p>
+<section id="nat-turlari">
+<h2><span class="section-number">3.1. </span>NAT turlari<a class="headerlink" href="#nat-turlari" title="Link to this heading"></a></h2>
+<p>Sarhad NGFW quyidagi NAT rejimlarini qo’llab-quvvatlaydi:</p>
+<ul class="simple">
+<li><p><strong>Source NAT (SNAT)</strong> — ichki tarmoqdan internetga chiquvchi trafikning
+manba (source) manzilini WAN manziliga almashtiradi. Bu eng keng tarqalgan
+rejim: ichki foydalanuvchilar bitta ommaviy IP orqali internetga chiqadi.</p></li>
+<li><p><strong>Destination NAT (DNAT)</strong> — tashqaridan kelgan trafikni ichki serverga
+yo’naltiradi (port forwarding). Masalan, WAN’ning 443-portiga kelgan trafik
+ichki veb-serverga uzatiladi.</p></li>
+<li><p><strong>Statik tasvirlash (Static mapping)</strong> — bitta ichki IP manzilni bitta
+tashqi IP manzilga doimiy ravishda bog’laydi (1:1).</p></li>
+</ul>
+</section>
+<section id="interfeyslarni-sozlash-inside-outside">
+<h2><span class="section-number">3.2. </span>Interfeyslarni sozlash (inside / outside)<a class="headerlink" href="#interfeyslarni-sozlash-inside-outside" title="Link to this heading"></a></h2>
+<p>NAT ishlashi uchun har bir interfeys “ichki” yoki “tashqi” deb belgilanishi
+kerak:</p>
+<ul class="simple">
+<li><p><strong>Inside (ichki)</strong> — LAN tomonidagi interfeyslar. Bu interfeyslardan
+kelgan trafik manzili almashtiriladi.</p></li>
+<li><p><strong>Outside (tashqi)</strong> — WAN tomonidagi interfeys. Almashtirilgan trafik shu
+interfeys orqali chiqadi.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Aksariyat hollarda zona (WAN/LAN) tayinlanganda tizim mos NAT
+interfeyslarini avtomatik sozlaydi. Qo’shimcha qoidalar qo’shilganda kerakli
+ichki interfeyslar avtomatik qo’shiladi.</p>
+</div>
+</section>
+<section id="manzillar-puli-address-pool">
+<h2><span class="section-number">3.3. </span>Manzillar puli (Address pool)<a class="headerlink" href="#manzillar-puli-address-pool" title="Link to this heading"></a></h2>
+<p>SNAT uchun tashqi (ommaviy) IP manzillar puli belgilanadi. Trafik shu puldagi
+manzillar orqali tashqariga chiqariladi. Pulga bitta yoki bir nechta IP manzil
+diapazoni qo’shilishi mumkin.</p>
+</section>
+<section id="dnat-port-forwarding-qoidasi-qo-shish">
+<h2><span class="section-number">3.4. </span>DNAT (Port forwarding) qoidasi qo’shish<a class="headerlink" href="#dnat-port-forwarding-qoidasi-qo-shish" title="Link to this heading"></a></h2>
+<p>Tashqaridan ichki serverga kirishni ochish uchun:</p>
+<ol class="arabic simple">
+<li><p><strong>DNAT qoidasi qo’shish (Add DNAT Rule)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Tashqi manzil/port</strong> — WAN IP va port (masalan, <code class="docutils literal notranslate"><span class="pre">203.0.113.5:443</span></code>).</p></li>
+<li><p><strong>Ichki manzil/port</strong> — paket yo’naltiriladigan ichki server
+(masalan, <code class="docutils literal notranslate"><span class="pre">192.168.10.20:443</span></code>).</p></li>
+<li><p><strong>Protokol</strong> — TCP yoki UDP.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="faol-sessiyalar-nat-sessions">
+<h2><span class="section-number">3.5. </span>Faol sessiyalar (NAT Sessions)<a class="headerlink" href="#faol-sessiyalar-nat-sessions" title="Link to this heading"></a></h2>
+<p><strong>NAT Sessions</strong> bo’limida ayni paytda faol bo’lgan barcha NAT ulanishlari
+ko’rsatiladi: manba va manzil manzillari, portlar, protokol va sessiya
+davomiyligi. Kerak bo’lganda alohida sessiyani yoki barcha sessiyalarni
+tozalash (clear) mumkin.</p>
+</section>
+<section id="qo-shimcha-sozlamalar">
+<h2><span class="section-number">3.6. </span>Qo’shimcha sozlamalar<a class="headerlink" href="#qo-shimcha-sozlamalar" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Vaqt chegaralari (Timeouts)</strong> — TCP, UDP va boshqa protokollar uchun
+sessiyaning bo’sh turish vaqtini sozlash.</p></li>
+<li><p><strong>IPFIX jurnali</strong> — NAT hodisalarini Netflow orqali tashqi yig’uvchiga
+(collector) yuborish (qarang: <a class="reference internal" href="../monitoring/flow.html"><span class="doc">Trafik monitoringi (Flow / IPFIX)</span></a>).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NAT qoidalari firewall qoidalari bilan birga ishlaydi. DNAT qoidasi
+trafikni ichki serverga yo’naltirsa-da, trafik o’tishi uchun firewall’da
+ham mos ruxsat qoidasi bo’lishi kerak (qarang: <a class="reference internal" href="../policies/acl.html"><span class="doc">Firewall qoidalari (Firewall Policies / ACL)</span></a>).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="routing.html" class="btn btn-neutral float-left" title="2. Marshrutlash (Routing)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dhcp.html" class="btn btn-neutral float-right" title="4. DHCP server va relay" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Sarhad NGFW Team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Versiyalar va Eksport</span>
+    v2026.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Hujjat Versiyalari</dt>
+      <dd><a href="#">v2026.1.0 (Stabil)</a></dd>
+    </dl>
+    <dl>
+      <dt>Yuklab olish (Eksport)</dt>
+      <dd><a href="_static/SarhadNGFW.pdf" download>PDF formatida yuklash</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

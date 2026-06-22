@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Sarhad NGFW v2026.1.0 documentation</title>
 <link href="_static/pygments.css?v=d75fae25" rel="stylesheet" type="text/css"/>
-<link href="_static/main.css?v=4859e035" rel="stylesheet" type="text/css"/>
+<link href="_static/main.css?v=0171bc6c" rel="stylesheet" type="text/css"/>
 <link href="_static/togglebutton.css?v=9c3e77be" rel="stylesheet" type="text/css"/>
 <script src="_static/documentation_options.js?v=c39c2aab"></script>
 <script src="_static/doctools.js?v=fd6eb6e6"></script>
@@ -51,33 +51,171 @@
 <h3><a href="#">Table of Contents</a></h3>
 <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="#document-introduction/login">1. Login</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#document-introduction/dashboard">2. Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-overview">1. Tezkor boshlash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-overview#birinchi-sozlash-qadamlari">1.1. Birinchi sozlash qadamlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-overview#qo-llanma-tuzilishi">1.2. Qo’llanma tuzilishi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-introduction/login">2. Tizimga kirish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/login#foydalanuvchi-rollari">2.1. Foydalanuvchi rollari</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-introduction/dashboard">3. Dashboard oynasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/dashboard#statistika-kartalari">3.1. Statistika kartalari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/dashboard#interfeys-grafiklari-va-statistikasi">3.2. Interfeys grafiklari va statistikasi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/dashboard#navigatsiya">3.3. Navigatsiya</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-introduction/licensing">4. Litsenziya va faollashtirish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/licensing#qanday-ishlaydi">4.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/licensing#litsenziyani-faollashtirish">4.2. Litsenziyani faollashtirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/licensing#litsenziya-muddati">4.3. Litsenziya muddati</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-introduction/licensing#litsenziyani-uzaytirish">4.4. Litsenziyani uzaytirish</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="#document-network/interface">1. Tarmoq interfeyslarini sozlash va boshqarish bo’yicha qo’llanma</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#document-network/routing">2. Routing sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-network/interface">1. Tarmoq interfeyslarini sozlash va boshqarish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/interface#umumiy-ma-lumot">1.1. Umumiy ma’lumot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/interface#interfeys-zonalari-rollari">1.2. Interfeys zonalari (rollari)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/interface#interfeyslar-ro-yxatini-ko-rish">1.3. Interfeyslar ro’yxatini ko’rish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/interface#interfeysni-sozlash">1.4. Interfeysni sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/interface#vlan-qo-shish">1.5. VLAN qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/interface#muhim-eslatmalar">1.6. Muhim eslatmalar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-network/routing">2. Marshrutlash (Routing)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/routing#marshrutlash-jadvali">2.1. Marshrutlash jadvali</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/routing#statik-marshrut-qo-shish">2.2. Statik marshrut qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/routing#marshrutni-o-chirish">2.3. Marshrutni o’chirish</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-network/nat">3. NAT (Manzil almashtirish)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/nat#nat-turlari">3.1. NAT turlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/nat#interfeyslarni-sozlash-inside-outside">3.2. Interfeyslarni sozlash (inside / outside)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/nat#manzillar-puli-address-pool">3.3. Manzillar puli (Address pool)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/nat#dnat-port-forwarding-qoidasi-qo-shish">3.4. DNAT (Port forwarding) qoidasi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/nat#faol-sessiyalar-nat-sessions">3.5. Faol sessiyalar (NAT Sessions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/nat#qo-shimcha-sozlamalar">3.6. Qo’shimcha sozlamalar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-network/dhcp">4. DHCP server va relay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/dhcp#dhcp-server">4.1. DHCP server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-network/dhcp#dhcp-relay">4.2. DHCP relay</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="#document-policies/acl">1. Access Control List (ACL) boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-policies/acl">1. Firewall qoidalari (Firewall Policies / ACL)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/acl#qoidalar-qanday-ishlaydi">1.1. Qoidalar qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/acl#qoida-tarkibi">1.2. Qoida tarkibi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/acl#yangi-qoida-qo-shish">1.3. Yangi qoida qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/acl#qoidalar-tartibini-o-zgartirish">1.4. Qoidalar tartibini o’zgartirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/acl#qoidani-tahrirlash-va-o-chirish">1.5. Qoidani tahrirlash va o’chirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/acl#bog-liq-bo-limlar">1.6. Bog’liq bo’limlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-policies/mac-filter">2. MAC manzili bo’yicha filtrlash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/mac-filter#qachon-ishlatiladi">2.1. Qachon ishlatiladi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/mac-filter#mac-qoidasi-qo-shish">2.2. MAC qoidasi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/mac-filter#ishlash-tartibi">2.3. Ishlash tartibi</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-policies/policer">3. Trafik tezligini cheklash (Policer)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/policer#qanday-ishlaydi">3.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/policer#policer-profili-yaratish">3.2. Policer profili yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-policies/policer#profilni-interfeysga-bog-lash">3.3. Profilni interfeysga bog’lash</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="#document-security/ids">1. Intrusion Detection System (IDS) sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-security/ids">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/ids#asosiy-tushunchalar">1.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/ids#ids-ips-ni-yoqish-va-sozlash">1.2. IDS/IPS ni yoqish va sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/ids#qoidalarni-boshqarish">1.3. Qoidalarni boshqarish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/ids#ogohlantirishlar-alerts">1.4. Ogohlantirishlar (Alerts)</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="#document-system/users">1. Foydalanuvchilar boshqarishi</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-security/tls-interception">2. TLS trafigini tekshirish (TLS Interception)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/tls-interception#qanday-ishlaydi">2.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/tls-interception#sozlash">2.2. Sozlash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-security/certificates">3. Sertifikatlar va PKI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/certificates#asosiy-tushunchalar">3.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/certificates#sertifikat-markazini-ca-yaratish">3.2. Sertifikat markazini (CA) yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/certificates#sertifikat-berish-issue">3.3. Sertifikat berish (issue)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/certificates#tls-interception-uchun-ca">3.4. TLS Interception uchun CA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-security/certificates#sertifikatni-bekor-qilish-revoke">3.5. Sertifikatni bekor qilish (revoke)</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="#document-vpn/ipsec">1. IPsec sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-vpn/overview">1. VPN — Umumiy ko’rinish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/overview#vpn-turlari">1.1. VPN turlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/overview#vpn-holati-dashboardi">1.2. VPN holati dashboardi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/overview#tayyorgarlik">1.3. Tayyorgarlik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/overview#keyingi-qadamlar">1.4. Keyingi qadamlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-vpn/ra">2. Remote Access VPN (Masofaviy kirish)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/ra#sozlash-bosqichlari">2.1. Sozlash bosqichlari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/ra#gateway-yaratish">2.2. 1. Gateway yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/ra#guruh-va-foydalanuvchi-qo-shish">2.3. 2. Guruh va foydalanuvchi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/ra#ulanish-to-plamini-tarqatish-bundle">2.4. 3. Ulanish to’plamini tarqatish (Bundle)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/ra#faol-sessiyalarni-kuzatish">2.5. Faol sessiyalarni kuzatish</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-vpn/s2s">3. Site-to-Site VPN (Ofislararo tunnel)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/s2s#tunnel-yaratish">3.1. Tunnel yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/s2s#tunnelni-boshqarish">3.2. Tunnelni boshqarish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/s2s#holatni-kuzatish">3.3. Holatni kuzatish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/s2s#qo-shimcha-parametrlar">3.4. Qo’shimcha parametrlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-vpn/settings">4. VPN umumiy sozlamalari (IPsec Settings)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/settings#asosiy-sozlamalar">4.1. Asosiy sozlamalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/settings#ipsec-va-nat">4.2. IPsec va NAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-vpn/settings#sertifikatlar-bilan-bog-liqlik">4.3. Sertifikatlar bilan bog’liqlik</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-system/users">1. Foydalanuvchilarni boshqarish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-system/users#foydalanuvchi-rollari">1.1. Foydalanuvchi rollari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-system/users#yangi-foydalanuvchi-qo-shish">1.2. Yangi foydalanuvchi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-system/users#parolni-o-zgartirish">1.3. Parolni o’zgartirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-system/users#foydalanuvchini-tahrirlash-va-o-chirish">1.4. Foydalanuvchini tahrirlash va o’chirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-system/users#xavfsizlik-tavsiyalari">1.5. Xavfsizlik tavsiyalari</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-system/time">2. Tizim vaqti va NTP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-system/time#vaqtni-sozlash">2.1. Vaqtni sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-system/time#ntp-serverlarini-sozlash">2.2. NTP serverlarini sozlash</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="#document-monitoring/logs">1. Loglanri boshqarish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-monitoring/logs">1. Jurnallar (Logs)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/logs#jurnal-toifalari">1.1. Jurnal toifalari</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/logs#jurnal-yozuvi-tarkibi">1.2. Jurnal yozuvi tarkibi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/logs#jurnallarni-filtrlash-va-eksport-qilish">1.3. Jurnallarni filtrlash va eksport qilish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/logs#saqlash-muddati-retention">1.4. Saqlash muddati (Retention)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/logs#bog-liq-bo-limlar">1.5. Bog’liq bo’limlar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#document-monitoring/flow">2. Trafik monitoringi (Flow / IPFIX)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/flow#asosiy-tushunchalar">2.1. Asosiy tushunchalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/flow#flow-eksportini-sozlash">2.2. Flow eksportini sozlash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#document-monitoring/flow#nimaga-foydali">2.3. Nimaga foydali</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -92,51 +230,1734 @@
 <a class="reference internal image-reference" href="_images/test_ar.png"><img alt="Sarhad NGFW Tizim Sxemasi" class="align-center" src="_images/test_ar.png" style="width: 100%;"/>
 </a>
 <div class="toctree-wrapper compound">
-<span id="document-introduction/login"></span><section id="login">
-<h2><span class="section-number">1. </span>Login<a class="headerlink" href="#login" title="Link to this heading">¶</a></h2>
-<p>Bu bo’limda siz tizimga qanday kirish haqida ma’lumot olasiz. Kirish jarayoni oddiy va xavfsizdir, bu sizning shaxsiy ma’lumotlaringizni himoya qilishga yordam beradi.</p>
-<a class="reference internal image-reference" href="_images/login_page.png"><img alt="Login Screen" class="align-center" src="_images/login_page.png" style="width: 100%;"/>
+<span id="document-overview"></span><section id="tezkor-boshlash">
+<h2><span class="section-number">1. </span>Tezkor boshlash<a class="headerlink" href="#tezkor-boshlash" title="Link to this heading">¶</a></h2>
+<p>Sarhad NGFW — yuqori unumdorlikka ega yangi avlod tarmoq xavfsizlik devori.
+Barcha sozlamalar HTTPS veb-interfeysi (<code class="docutils literal notranslate"><span class="pre">https://&lt;ip&gt;:8443</span></code>) orqali
+boshqariladi. Bu bo’lim qurilmani birinchi marta ishga tushirish uchun
+asosiy qadamlarni ketma-ket ko’rsatadi.</p>
+<section id="birinchi-sozlash-qadamlari">
+<h3><span class="section-number">1.1. </span>Birinchi sozlash qadamlari<a class="headerlink" href="#birinchi-sozlash-qadamlari" title="Link to this heading">¶</a></h3>
+<section id="qurilmaga-ulanish">
+<h4><span class="section-number">1.1.1. </span>1. Qurilmaga ulanish<a class="headerlink" href="#qurilmaga-ulanish" title="Link to this heading">¶</a></h4>
+<p>Qurilma birinchi yoqilganda boshqaruv (MGMT) interfeysiga IP manzil berish
+kerak. Buni qurilmaga ulangan fizik konsol (monitor/klaviatura) orqali
+bajariladi: konsol menyusida IP manzil va niqobni kiriting.</p>
+<p>So’ngra shu tarmoqdagi kompyuter brauzeridan boshqaruv panelini oching:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://&lt;mgmt-ip&gt;:8443
+</pre></div>
+</div>
+</section>
+<section id="litsenziyani-faollashtirish">
+<h4><span class="section-number">1.1.2. </span>2. Litsenziyani faollashtirish<a class="headerlink" href="#litsenziyani-faollashtirish" title="Link to this heading">¶</a></h4>
+<p>Litsenziya o’rnatilmagan bo’lsa, tizim avtomatik <code class="docutils literal notranslate"><span class="pre">/license</span></code> sahifasini
+ko’rsatadi. Qurilmaning <strong>Machine ID</strong> sini nusxalab, yetkazib beruvchidan
+litsenziya kalitini oling va uni faollashtiring.</p>
+<p>Batafsil: <a class="reference internal" href="#document-introduction/licensing"><span class="doc">Litsenziya va faollashtirish</span></a>.</p>
+</section>
+<section id="tizimga-kirish-va-parolni-almashtirish">
+<h4><span class="section-number">1.1.3. </span>3. Tizimga kirish va parolni almashtirish<a class="headerlink" href="#tizimga-kirish-va-parolni-almashtirish" title="Link to this heading">¶</a></h4>
+<p>Standart hisob (<code class="docutils literal notranslate"><span class="pre">admin</span></code> / <code class="docutils literal notranslate"><span class="pre">admin123</span></code>) bilan kiring va birinchi ishda
+<strong>root va admin parollarini darhol o’zgartiring</strong>.</p>
+<p>Batafsil: <a class="reference internal" href="#document-introduction/login"><span class="doc">Tizimga kirish</span></a>, <a class="reference internal" href="#document-system/users"><span class="doc">Foydalanuvchilarni boshqarish</span></a>.</p>
+</section>
+<section id="interfeys-va-zonalarni-sozlash">
+<h4><span class="section-number">1.1.4. </span>4. Interfeys va zonalarni sozlash<a class="headerlink" href="#interfeys-va-zonalarni-sozlash" title="Link to this heading">¶</a></h4>
+<p>Tarmoq interfeyslariga zona (WAN/LAN/DMZ) tayinlang va IP manzillarni bering.
+WAN — internet tomon, LAN — ichki tarmoq.</p>
+<p>Batafsil: <a class="reference internal" href="#document-network/interface"><span class="doc">Tarmoq interfeyslarini sozlash va boshqarish</span></a>.</p>
+</section>
+<section id="marshrut-va-nat">
+<h4><span class="section-number">1.1.5. </span>5. Marshrut va NAT<a class="headerlink" href="#marshrut-va-nat" title="Link to this heading">¶</a></h4>
+<p>Internetga chiqish uchun standart marshrut (default gateway) qo’shing va ichki
+tarmoq internetga chiqishi uchun NAT (SNAT) ni sozlang.</p>
+<p>Batafsil: <a class="reference internal" href="#document-network/routing"><span class="doc">Marshrutlash (Routing)</span></a>, <a class="reference internal" href="#document-network/nat"><span class="doc">NAT (Manzil almashtirish)</span></a>.</p>
+</section>
+<section id="firewall-qoidalari">
+<h4><span class="section-number">1.1.6. </span>6. Firewall qoidalari<a class="headerlink" href="#firewall-qoidalari" title="Link to this heading">¶</a></h4>
+<p>Tarmoqlar o’rtasidagi trafikni boshqarish uchun firewall qoidalarini yarating.
+Zonalar o’rtasidagi asosiy qoidalar avtomatik yaratiladi, qolganini o’zingiz
+qo’shasiz.</p>
+<p>Batafsil: <a class="reference internal" href="#document-policies/acl"><span class="doc">Firewall qoidalari (Firewall Policies / ACL)</span></a>.</p>
+</section>
+<section id="qo-shimcha-xizmatlar-ixtiyoriy">
+<h4><span class="section-number">1.1.7. </span>7. Qo’shimcha xizmatlar (ixtiyoriy)<a class="headerlink" href="#qo-shimcha-xizmatlar-ixtiyoriy" title="Link to this heading">¶</a></h4>
+<p>Asosiy tarmoq ishlaganidan so’ng kerakli qo’shimcha funksiyalarni yoqing:</p>
+<ul class="simple">
+<li><p>Masofaviy xodimlar uchun VPN: <a class="reference internal" href="#document-vpn/overview"><span class="doc">VPN — Umumiy ko’rinish</span></a></p></li>
+<li><p>Hujumlarni aniqlash va to’sish: <a class="reference internal" href="#document-security/ids"><span class="doc">Hujumlarni aniqlash va oldini olish (IDS/IPS)</span></a></p></li>
+<li><p>IP manzillarni avtomatik tarqatish: <a class="reference internal" href="#document-network/dhcp"><span class="doc">DHCP server va relay</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="qo-llanma-tuzilishi">
+<h3><span class="section-number">1.2. </span>Qo’llanma tuzilishi<a class="headerlink" href="#qo-llanma-tuzilishi" title="Link to this heading">¶</a></h3>
+<p>Qo’llanma quyidagi bo’limlardan iborat:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%"/>
+<col style="width: 70.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bo’lim</p></th>
+<th class="head"><p>Mazmuni</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Kirish</strong></p></td>
+<td><p>Tizimga kirish, Dashboard va litsenziya.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tarmoq sozlamalari</strong></p></td>
+<td><p>Interfeyslar, marshrutlash, NAT, DHCP.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Firewall qoidalari</strong></p></td>
+<td><p>ACL qoidalari, MAC filtr, trafik cheklash (Policer).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Xavfsizlik</strong></p></td>
+<td><p>IDS/IPS, TLS tekshiruvi, sertifikatlar (PKI).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>VPN</strong></p></td>
+<td><p>Remote Access, Site-to-Site va umumiy sozlamalar.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tizim sozlamalari</strong></p></td>
+<td><p>Foydalanuvchilar va tizim vaqti.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Monitoring</strong></p></td>
+<td><p>Jurnallar va trafik monitoringi.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Har bir sozlash bosqichidan so’ng yuqori paneldagi <strong>Konfiguratsiyani
+saqlash</strong> tugmasini bosing — shunda o’zgarishlar qurilma qayta ishga
+tushganidan keyin ham saqlanib qoladi.</p>
+</div>
+</section>
+</section>
+<span id="document-introduction/login"></span><section id="tizimga-kirish">
+<h2><span class="section-number">2. </span>Tizimga kirish<a class="headerlink" href="#tizimga-kirish" title="Link to this heading">¶</a></h2>
+<p>Sarhad NGFW boshqaruvi veb-brauzer orqali amalga oshiriladi. Kirish sahifasi
+manzili:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://&lt;ip&gt;:8443/login
+</pre></div>
+</div>
+<p>Masalan: <code class="docutils literal notranslate"><span class="pre">https://192.168.1.1:8443/login</span></code></p>
+<p>Tizimda standart (bootstrap) holatda ikkita hisob yaratiladi. Ikkalasining
+ham boshlang’ich paroli bir xil:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%"/>
+<col style="width: 30.0%"/>
+<col style="width: 40.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Foydalanuvchi nomi</p></th>
+<th class="head"><p>Parol</p></th>
+<th class="head"><p>Rol</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">root</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admin123</span></code></p></td>
+<td><p>root (to’liq huquq)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">admin123</span></code></p></td>
+<td><p>admin (boshqaruv)</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">readonly</span></code> rolidagi hisoblar standart holda yaratilmaydi — ularni root yoki
+admin qo’lda qo’shadi (qarang: <a class="reference internal" href="#document-system/users"><span class="doc">Foydalanuvchilarni boshqarish</span></a>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Birinchi kirishdan so’ng <strong>ikkala</strong> hisobning (<code class="docutils literal notranslate"><span class="pre">root</span></code> va <code class="docutils literal notranslate"><span class="pre">admin</span></code>)
+standart parolini darhol o’zgartiring — aks holda tizim jiddiy xavf
+ostida qoladi.</p>
+</div>
+<section id="foydalanuvchi-rollari">
+<h3><span class="section-number">2.1. </span>Foydalanuvchi rollari<a class="headerlink" href="#foydalanuvchi-rollari" title="Link to this heading">¶</a></h3>
+<p>Tizimda uchta rol mavjud:</p>
+<dl class="simple">
+<dt><strong>root</strong></dt><dd><p>Barcha huquqlarga ega: tizimni to’liq boshqarish, konfiguratsiyani
+o’zgartirish, foydalanuvchilar va litsenziyani boshqarish.</p>
+</dd>
+<dt><strong>admin</strong></dt><dd><p>Konfiguratsiyani ko’rish va o’zgartirish hamda foydalanuvchilarni boshqarish
+huquqiga ega. Ayrim tizim darajasidagi amallar faqat root uchun.</p>
+</dd>
+<dt><strong>readonly</strong></dt><dd><p>Faqat ko’rish huquqi: tizim holati, statistika va hisobotlarni ko’radi,
+lekin sozlamalarni o’zgartira olmaydi.</p>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/login_page.png"><img alt="Kirish sahifasi" class="align-center" src="_images/login_page.png" style="width: 100%;"/>
 </a>
 </section>
-<span id="document-introduction/dashboard"></span><section id="dashboard">
-<h2><span class="section-number">2. </span>Dashboard<a class="headerlink" href="#dashboard" title="Link to this heading">¶</a></h2>
-<p>Bu bo’limda sizning dashboardingiz haqida ma’lumotlar mavjud. Dashboard sizning hisobingizning umumiy ko’rinishini taqdim etadi va sizga muhim ma’lumotlarni tezda ko’rish imkonini beradi. Dashboardda sizning hisobingizdagi faoliyat, statistikalar, va boshqa muhim ma’lumotlar ko’rsatiladi. Bu bo’limda siz dashboardingizni qanday sozlash va undan qanday foydalanish haqida ma’lumot olishingiz mumkin.</p>
-<a class="reference internal image-reference" href="_images/dashboard.png"><img alt="Dashboard Tizim Sxemasi" class="align-center" src="_images/dashboard.png" style="width: 100%;"/>
+</section>
+<span id="document-introduction/dashboard"></span><section id="dashboard-oynasi">
+<h2><span class="section-number">3. </span>Dashboard oynasi<a class="headerlink" href="#dashboard-oynasi" title="Link to this heading">¶</a></h2>
+<p>Tizimga muvaffaqiyatli kirgandan so’ng siz avtomatik ravishda <strong>Dashboard</strong>
+sahifasiga o’tasiz. Bu — boshqaruv panelining bosh sahifasi bo’lib, qurilmaning
+umumiy holatini va tarmoq faoliyatini bir qarashda ko’rish imkonini beradi.
+Sahifadagi ma’lumotlar real vaqtda, bir necha soniyada bir avtomatik yangilanib
+turadi.</p>
+<a class="reference internal image-reference" href="_images/dashboard.png"><img alt="Dashboard" class="align-center" src="_images/dashboard.png" style="width: 100%;"/>
+</a>
+<section id="statistika-kartalari">
+<h3><span class="section-number">3.1. </span>Statistika kartalari<a class="headerlink" href="#statistika-kartalari" title="Link to this heading">¶</a></h3>
+<p>Sahifaning yuqori qismida qurilmaning asosiy holati to’rtta karta ko’rinishida
+ko’rsatiladi:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%"/>
+<col style="width: 65.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ko’rsatkich</p></th>
+<th class="head"><p>Nimani bildiradi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Active Interfaces</strong> (Faol interfeyslar)</p></td>
+<td><p>Ayni paytda faol (UP holatdagi) tarmoq interfeyslari soni.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CPU Usage</strong> (CPU yuki)</p></td>
+<td><p>Protsessorning band qilingan qismi (foizda). Doimiy yuqori qiymat
+qurilma chegaraga yaqinlashayotganini bildiradi.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Memory Usage</strong> (Xotira)</p></td>
+<td><p>Ishlatilayotgan operativ xotira (RAM) miqdori.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>System Uptime</strong> (Ish vaqti)</p></td>
+<td><p>Qurilma so’nggi qayta yuklanishdan beri uzluksiz necha vaqtdan beri
+ishlayotgani.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interfeys-grafiklari-va-statistikasi">
+<h3><span class="section-number">3.2. </span>Interfeys grafiklari va statistikasi<a class="headerlink" href="#interfeys-grafiklari-va-statistikasi" title="Link to this heading">¶</a></h3>
+<p>Kartalardan pastda tarmoq trafigi ikki ko’rinishda taqdim etiladi.</p>
+<p><strong>Trafik grafiklari</strong> — interfeyslar bo’yicha trafikning vaqt davomida
+o’zgarishini ko’rsatadigan real vaqtdagi grafiklar. Ular orqali qaysi interfeys
+qancha yuklanganini va trafikdagi keskin o’zgarishlarni (masalan, kutilmagan
+portlashlarni) tezda payqash mumkin.</p>
+<p><strong>Interface Statistics jadvali</strong> — har bir interfeys uchun aniq raqamli
+ko’rsatkichlar:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%"/>
+<col style="width: 70.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ustun</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>RX Bytes / TX Bytes</strong></p></td>
+<td><p>Qabul qilingan (RX) va yuborilgan (TX) ma’lumot hajmi (baytlarda).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>RX Pkts / TX Pkts</strong></p></td>
+<td><p>Qabul qilingan va yuborilgan paketlar soni.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Drops</strong></p></td>
+<td><p>Tashlab yuborilgan (qabul qilinmagan) paketlar soni. Yuqori qiymat
+tarmoqda muammo borligidan dalolat berishi mumkin.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="navigatsiya">
+<h3><span class="section-number">3.3. </span>Navigatsiya<a class="headerlink" href="#navigatsiya" title="Link to this heading">¶</a></h3>
+<section id="sidebar-chap-menyu">
+<h4><span class="section-number">3.3.1. </span>Sidebar (chap menyu)<a class="headerlink" href="#sidebar-chap-menyu" title="Link to this heading">¶</a></h4>
+<p>Chap tomondagi menyu orqali tizimning barcha bo’limlariga o’tiladi:</p>
+<ul class="simple">
+<li><p><strong>Tarmoq (Network)</strong> — interfeyslar, marshrutlash, NAT, DHCP.</p></li>
+<li><p><strong>Firewall</strong> — ACL qoidalari, MAC filtr, Policer.</p></li>
+<li><p><strong>Xavfsizlik (Security)</strong> — IDS/IPS, TLS tekshiruvi, sertifikatlar.</p></li>
+<li><p><strong>VPN</strong> — Remote Access, Site-to-Site, sozlamalar.</p></li>
+<li><p><strong>Tizim (System)</strong> — foydalanuvchilar, vaqt.</p></li>
+<li><p><strong>Monitoring</strong> — jurnallar va trafik monitoringi.</p></li>
+</ul>
+</section>
+<section id="yuqori-panel-top-bar">
+<h4><span class="section-number">3.3.2. </span>Yuqori panel (Top bar)<a class="headerlink" href="#yuqori-panel-top-bar" title="Link to this heading">¶</a></h4>
+<p>Yuqori o’ng burchakda quyidagi elementlar joylashgan:</p>
+<ul class="simple">
+<li><p><strong>Save</strong> — joriy sozlamalarni doimiy saqlash (qurilma qayta yuklanganda
+yo’qolmasligi uchun).</p></li>
+<li><p><strong>Restore</strong> — saqlangan oldingi sozlamalarga qaytarish.</p></li>
+<li><p><strong>Mavzu (Theme)</strong> — yorug’ va qorong’i ko’rinish o’rtasida almashtirgich.</p></li>
+<li><p><strong>Foydalanuvchi menyusi</strong> — joriy foydalanuvchi nomi, profil va xavfsizlik
+sozlamalari (Profile &amp; Security) hamda tizimdan chiqish (Sign out).</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Dashboard kuzatuv uchun qulay boshlang’ich nuqta: agar biror ko’rsatkich
+(masalan, CPU yuki yoki trafik) odatdagidan keskin farq qilsa, tegishli
+bo’limga (interfeyslar, jurnallar yoki IDS/IPS) o’tib batafsil tekshiring.</p>
+</div>
+</section>
+</section>
+</section>
+<span id="document-introduction/licensing"></span><section id="litsenziya-va-faollashtirish">
+<h2><span class="section-number">4. </span>Litsenziya va faollashtirish<a class="headerlink" href="#litsenziya-va-faollashtirish" title="Link to this heading">¶</a></h2>
+<p>Sarhad NGFW litsenziyalangan mahsulot bo’lib, boshqaruv interfeysidan
+foydalanish uchun amaldagi litsenziya talab qilinadi. Litsenziya har bir
+qurilmaga alohida bog’lanadi va internetga ulanishsiz (offline) tekshiriladi.</p>
+<section id="qanday-ishlaydi">
+<h3><span class="section-number">4.1. </span>Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Har bir qurilma o’zining noyob <strong>Machine ID</strong> (qurilma identifikatori) sini
+hisoblaydi. U asbob-uskuna (anakart, tizim) ma’lumotlaridan kelib chiqadi va
+<code class="docutils literal notranslate"><span class="pre">XXXX-XXXX-XXXX-XXXX</span></code> ko’rinishida ko’rsatiladi.</p></li>
+<li><p>Litsenziya aynan shu Machine ID ga bog’lab beriladi va boshqa qurilmada
+ishlamaydi.</p></li>
+<li><p>Tizim litsenziyani to’liq oflayn tekshiradi — hech qanday litsenziya
+serveriga ulanish shart emas.</p></li>
+<li><p>Litsenziya amal qilmagunicha, boshqaruv paneli faqat <strong>faollashtirish
+sahifasini</strong> (<code class="docutils literal notranslate"><span class="pre">/license</span></code>) ko’rsatadi; qolgan barcha bo’limlar yopiq bo’ladi.</p></li>
+</ul>
+</section>
+<section id="litsenziyani-faollashtirish">
+<h3><span class="section-number">4.2. </span>Litsenziyani faollashtirish<a class="headerlink" href="#litsenziyani-faollashtirish" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Tizimga kirgach, agar litsenziya o’rnatilmagan bo’lsa, avtomatik ravishda
+<code class="docutils literal notranslate"><span class="pre">/license</span></code> sahifasiga yo’naltirilasiz.</p></li>
+<li><p>Sahifada ko’rsatilgan <strong>Machine ID</strong> ni nusxalang.</p></li>
+<li><p>Bu Machine ID ni mahsulot yetkazib beruvchiga (vendor) yuboring.</p></li>
+<li><p>Yetkazib beruvchi sizning qurilmangiz uchun litsenziya kalitini (token)
+yaratib beradi.</p></li>
+<li><p>Olingan litsenziya kalitini sahifadagi maydonga joylang va
+<strong>Faollashtirish (Activate)</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Litsenziya to’g’ri bo’lsa, tizim darhol ochiladi va barcha bo’limlardan
+foydalanish mumkin bo’ladi.</p>
+</section>
+<section id="litsenziya-muddati">
+<h3><span class="section-number">4.3. </span>Litsenziya muddati<a class="headerlink" href="#litsenziya-muddati" title="Link to this heading">¶</a></h3>
+<p>Litsenziya ikki turda bo’lishi mumkin:</p>
+<ul class="simple">
+<li><p><strong>Muddatli (time-boxed)</strong> — belgilangan kunlardan keyin amal qilishi tugaydi.
+Muddat tugashidan oldin yangi litsenziya bilan uzaytirish kerak.</p></li>
+<li><p><strong>Doimiy (perpetual)</strong> — muddati cheklanmagan.</p></li>
+</ul>
+<p>Litsenziya holatini (amal qilish muddati, xususiyatlar) <code class="docutils literal notranslate"><span class="pre">/license</span></code> sahifasida
+ko’rishingiz mumkin.</p>
+</section>
+<section id="litsenziyani-uzaytirish">
+<h3><span class="section-number">4.4. </span>Litsenziyani uzaytirish<a class="headerlink" href="#litsenziyani-uzaytirish" title="Link to this heading">¶</a></h3>
+<p>Muddatli litsenziyani uzaytirish uchun yetkazib beruvchidan yangi litsenziya
+kaliti oling va uni <code class="docutils literal notranslate"><span class="pre">/license</span></code> sahifasida joylang. Buni joriy litsenziya
+hali amal qilayotgan paytda bajarish mumkin.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Anakartni almashtirish yoki operatsion tizimni qayta o’rnatish Machine ID
+ni o’zgartiradi — bu holda mavjud litsenziya ishlamay qoladi va yangi
+Machine ID uchun yangi litsenziya kerak bo’ladi.</p>
+</div>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-network/interface"></span><section id="tarmoq-interfeyslarini-sozlash-va-boshqarish">
+<h2><span class="section-number">1. </span>Tarmoq interfeyslarini sozlash va boshqarish<a class="headerlink" href="#tarmoq-interfeyslarini-sozlash-va-boshqarish" title="Link to this heading">¶</a></h2>
+<p>Bu bo’limda Sarhad NGFW tizimida tarmoq interfeyslarini ko’rish, sozlash
+va boshqarish bo’yicha to’liq qo’llanma keltirilgan. Interfeyslar bo’limiga
+o’tish uchun chap menyudagi <strong>Network → Interfaces</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/interfaces</span></code>).</p>
+<section id="umumiy-ma-lumot">
+<h3><span class="section-number">1.1. </span>Umumiy ma’lumot<a class="headerlink" href="#umumiy-ma-lumot" title="Link to this heading">¶</a></h3>
+<p>Sarhad NGFW ikki turdagi tarmoq interfeyslarini boshqaradi:</p>
+<ul class="simple">
+<li><p><strong>MGMT (boshqaruv) interfeysi</strong> — tizimni boshqarish uchun ajratilgan
+interfeys. Boshqaruv veb-paneli (<code class="docutils literal notranslate"><span class="pre">https://&lt;ip&gt;:8443</span></code>) aynan shu interfeys
+orqali ishlaydi. Bu interfeys himoyalangan: uni ma’lumotlar interfeysiga
+aylantirib bo’lmaydi, shuning uchun boshqaruv aloqasi hech qachon yo’qolmaydi.</p></li>
+<li><p><strong>Ma’lumotlar interfeyslari</strong> — tarmoq trafigini tashuvchi interfeyslar.
+Aynan shu interfeyslar orqali tarmoq trafigi filtrlanadi, marshrutlanadi va
+himoyalanadi.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/interfaces.png"><img alt="Interfeyslar ro'yxati" class="align-center" src="_images/interfaces.png" style="width: 100%;"/>
 </a>
 </section>
+<section id="interfeys-zonalari-rollari">
+<h3><span class="section-number">1.2. </span>Interfeys zonalari (rollari)<a class="headerlink" href="#interfeys-zonalari-rollari" title="Link to this heading">¶</a></h3>
+<p>Har bir ma’lumotlar interfeysiga <strong>zona (rol)</strong> tayinlanadi. Zona interfeysning
+xavfsizlik darajasini va unga avtomatik qo’llaniladigan qoidalarni belgilaydi:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%"/>
+<col style="width: 80.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Zona</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>WAN</strong></p></td>
+<td><p>Tashqi (internet) tomonga ulangan interfeys. Eng past ishonch darajasiga
+ega. Odatda NAT va kiruvchi trafikni cheklash shu interfeysga qo’llaniladi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LAN</strong></p></td>
+<td><p>Ichki (lokal) tarmoq interfeysi. Yuqori ishonch darajasiga ega ishonchli
+foydalanuvchilar tarmog’i.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DMZ</strong></p></td>
+<td><p>Demilitarizatsiya zonasi — tashqaridan ko’rinadigan serverlar (veb,
+pochta) uchun oraliq xavfsizlik zonasi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MGMT</strong></p></td>
+<td><p>Boshqaruv interfeysi. Faqat tizimni boshqarish uchun ishlatiladi.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Zonalar o’rtasidagi trafik uchun tizim avtomatik ravishda asosiy ruxsat/taqiq
+qoidalarini (zone ACL) yaratadi. Masalan, LAN’dan WAN’ga chiquvchi trafik
+odatda ruxsat etiladi, WAN’dan LAN’ga kiruvchi trafik esa standart holatda
+bloklanadi.</p>
+</section>
+<section id="interfeyslar-ro-yxatini-ko-rish">
+<h3><span class="section-number">1.3. </span>Interfeyslar ro’yxatini ko’rish<a class="headerlink" href="#interfeyslar-ro-yxatini-ko-rish" title="Link to this heading">¶</a></h3>
+<p>Interfeyslar sahifasida har bir interfeys uchun quyidagi ma’lumotlar
+ko’rsatiladi:</p>
+<ul class="simple">
+<li><p>Interfeys nomi (masalan, <code class="docutils literal notranslate"><span class="pre">GigabitEthernet0/8/0</span></code>) va foydalanuvchi bergan
+taxallus (alias).</p></li>
+<li><p>Holati: <strong>UP</strong> (faol) yoki <strong>DOWN</strong> (o’chiq).</p></li>
+<li><p>Tayinlangan zona (WAN/LAN/DMZ/MGMT).</p></li>
+<li><p>IP manzil(lar)i va tarmoq niqobi (subnet mask).</p></li>
+<li><p>MAC manzili va interfeys turi.</p></li>
+<li><p>Real vaqtdagi statistika: qabul qilingan (RX) va yuborilgan (TX) baytlar,
+paketlar va tashlab yuborilgan (drop) paketlar soni.</p></li>
+</ul>
+<p>Statistika har soniyada avtomatik yangilanib turadi.</p>
+</section>
+<section id="interfeysni-sozlash">
+<h3><span class="section-number">1.4. </span>Interfeysni sozlash<a class="headerlink" href="#interfeysni-sozlash" title="Link to this heading">¶</a></h3>
+<p>Interfeysni sozlash uchun ro’yxatdagi kerakli interfeys yonidagi
+<strong>Sozlash (Configure)</strong> tugmasini bosing.</p>
+<a class="reference internal image-reference" href="_images/interface_config.png"><img alt="Interfeysni sozlash oynasi" class="align-center" src="_images/interface_config.png" style="width: 100%;"/>
+</a>
+<p>Sozlash oynasida quyidagi parametrlarni o’zgartirishingiz mumkin:</p>
+<section id="zonani-tayinlash">
+<h4><span class="section-number">1.4.1. </span>Zonani tayinlash<a class="headerlink" href="#zonani-tayinlash" title="Link to this heading">¶</a></h4>
+<p>Interfeysga WAN, LAN yoki DMZ zonasini tanlang. Zona o’zgarganda tizim
+shu interfeysga tegishli avtomatik xavfsizlik qoidalarini qaytadan hisoblaydi.</p>
+</section>
+<section id="ip-manzilni-sozlash">
+<h4><span class="section-number">1.4.2. </span>IP manzilni sozlash<a class="headerlink" href="#ip-manzilni-sozlash" title="Link to this heading">¶</a></h4>
+<p>Interfeysga manzil ikki usulda beriladi:</p>
+<ul class="simple">
+<li><p><strong>Statik IP</strong> — qo’lda kiritilgan IP manzil va niqob (masalan,
+<code class="docutils literal notranslate"><span class="pre">192.168.10.1/24</span></code>). Bir interfeysga bir nechta IP manzil qo’shish mumkin.</p></li>
+<li><p><strong>DHCP mijozi (DHCP client)</strong> — interfeys manzilni tashqi DHCP serverdan
+avtomatik oladi. Odatda WAN interfeysi internet-provayderdan manzil olishi
+uchun ishlatiladi.</p></li>
+</ul>
+<p>IP manzilni kiritib, <strong>Saqlash (Save)</strong> tugmasini bosing.</p>
+</section>
+<section id="interfeys-holatini-boshqarish">
+<h4><span class="section-number">1.4.3. </span>Interfeys holatini boshqarish<a class="headerlink" href="#interfeys-holatini-boshqarish" title="Link to this heading">¶</a></h4>
+<p>Interfeysni <strong>UP</strong> (yoqish) yoki <strong>DOWN</strong> (o’chirish) holatiga o’tkazishingiz
+mumkin. Texnik xizmat ko’rsatish paytida interfeysni vaqtincha o’chirib
+qo’yish qulay.</p>
+</section>
+<section id="taxallus-alias-berish">
+<h4><span class="section-number">1.4.4. </span>Taxallus (alias) berish<a class="headerlink" href="#taxallus-alias-berish" title="Link to this heading">¶</a></h4>
+<p>Har bir interfeysga eslab qolish oson bo’lgan nom berishingiz mumkin
+(masalan, <code class="docutils literal notranslate"><span class="pre">Internet-WAN</span></code> yoki <code class="docutils literal notranslate"><span class="pre">Ofis-LAN</span></code>). Bu nom barcha sahifalarda
+ko’rsatiladi va tizim qayta ishga tushganidan keyin ham saqlanib qoladi.</p>
+</section>
+</section>
+<section id="vlan-qo-shish">
+<h3><span class="section-number">1.5. </span>VLAN qo’shish<a class="headerlink" href="#vlan-qo-shish" title="Link to this heading">¶</a></h3>
+<p>VLAN (Virtual LAN, 802.1Q) bir fizik interfeysni bir nechta mantiqiy tarmoqqa
+bo’lish imkonini beradi. VLAN qo’shish uchun <strong>VLAN qo’shish (Add VLAN)</strong>
+tugmasini bosing.</p>
+<a class="reference internal image-reference" href="_images/add_vlan.png"><img alt="VLAN qo'shish oynasi" class="align-center" src="_images/add_vlan.png" style="width: 100%;"/>
+</a>
+<p>Quyidagi maydonlarni to’ldiring:</p>
+<ul class="simple">
+<li><p><strong>Asosiy interfeys (Parent interface)</strong> — VLAN qaysi fizik interfeys ustida
+yaratilishini tanlang.</p></li>
+<li><p><strong>VLAN ID</strong> — 1 dan 4094 gacha bo’lgan tartib raqami (masalan, <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p></li>
+<li><p><strong>IP manzil</strong> — VLAN interfeysining manzili (ixtiyoriy).</p></li>
+</ul>
+<p>VLAN yaratilgandan so’ng u alohida interfeys sifatida ro’yxatda paydo bo’ladi
+va unga zona hamda qoidalar tayinlash mumkin.</p>
+</section>
+<section id="muhim-eslatmalar">
+<h3><span class="section-number">1.6. </span>Muhim eslatmalar<a class="headerlink" href="#muhim-eslatmalar" title="Link to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Boshqaruv (MGMT) interfeysini o’zgartirishda ehtiyot bo’ling. Agar boshqaruv
+interfeysining IP manzili noto’g’ri o’zgartirilsa, veb-panelga ulanish
+yo’qolishi mumkin. Bunday holatda fizik konsol (tty1) orqali IP manzilni
+qayta sozlash kerak bo’ladi.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Barcha o’zgarishlarni kiritgandan so’ng yuqori paneldagi <strong>Konfiguratsiyani
+saqlash</strong> tugmasini bosing — shunda sozlamalar tizim qayta ishga
+tushganidan keyin ham saqlanib qoladi.</p>
+</div>
+</section>
+</section>
+<span id="document-network/routing"></span><section id="marshrutlash-routing">
+<h2><span class="section-number">2. </span>Marshrutlash (Routing)<a class="headerlink" href="#marshrutlash-routing" title="Link to this heading">¶</a></h2>
+<p>Marshrutlash bo’limi tarmoq paketlarining qaysi yo’nalish (interfeys yoki
+keyingi tugun — next-hop) orqali yuborilishini belgilaydi. Bu bo’limga
+o’tish uchun chap menyudagi <strong>Network → Routes</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/routes</span></code>).</p>
+<a class="reference internal image-reference" href="_images/routing.png"><img alt="Marshrutlash jadvali" class="align-center" src="_images/routing.png" style="width: 100%;"/>
+</a>
+<section id="marshrutlash-jadvali">
+<h3><span class="section-number">2.1. </span>Marshrutlash jadvali<a class="headerlink" href="#marshrutlash-jadvali" title="Link to this heading">¶</a></h3>
+<p>Sahifaning asosiy qismida joriy marshrutlash jadvali (FIB) ko’rsatiladi.
+Har bir yozuv quyidagi ustunlardan iborat:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%"/>
+<col style="width: 70.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Ustun</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Manzil tarmog’i (Destination)</strong></p></td>
+<td><p>Marshrut qaysi tarmoqqa tegishli ekanligi, CIDR ko’rinishida
+(masalan, <code class="docutils literal notranslate"><span class="pre">10.20.0.0/16</span></code>). <code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> — bu standart marshrut
+(default route), ya’ni barcha boshqa marshrutlarga to’g’ri kelmaydigan
+trafik.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Keyingi tugun (Next-hop)</strong></p></td>
+<td><p>Paket yuboriladigan keyingi gateway IP manzili
+(masalan, <code class="docutils literal notranslate"><span class="pre">192.168.1.254</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Chiquvchi interfeys (Interface)</strong></p></td>
+<td><p>Paket qaysi interfeys orqali chiqishi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Manba (Protocol)</strong></p></td>
+<td><p>Marshrut qanday paydo bo’lgani: statik (qo’lda kiritilgan) yoki ulangan
+(connected — interfeys IP manzilidan kelib chiqqan).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="statik-marshrut-qo-shish">
+<h3><span class="section-number">2.2. </span>Statik marshrut qo’shish<a class="headerlink" href="#statik-marshrut-qo-shish" title="Link to this heading">¶</a></h3>
+<p>Yangi marshrut qo’shish uchun <strong>Marshrut qo’shish (Add Route)</strong> tugmasini
+bosing va quyidagi maydonlarni to’ldiring:</p>
+<ul class="simple">
+<li><p><strong>Manzil tarmog’i</strong> — yo’naltirilishi kerak bo’lgan tarmoq, CIDR ko’rinishida
+(masalan, <code class="docutils literal notranslate"><span class="pre">172.16.0.0/24</span></code>).</p></li>
+<li><p><strong>Keyingi tugun (Next-hop)</strong> — paket yuboriladigan gateway IP manzili.</p></li>
+<li><p><strong>Interfeys</strong> — (ixtiyoriy) paket chiqishi kerak bo’lgan aniq interfeys.</p></li>
+</ul>
+<p>So’ngra <strong>Saqlash (Save)</strong> tugmasini bosing. Marshrut darhol kuchga kiradi
+va jadvalda paydo bo’ladi.</p>
+<section id="standart-marshrut-default-gateway">
+<h4><span class="section-number">2.2.1. </span>Standart marshrut (Default Gateway)<a class="headerlink" href="#standart-marshrut-default-gateway" title="Link to this heading">¶</a></h4>
+<p>Internetga chiqish uchun odatda standart marshrut sozlanadi:</p>
+<ul class="simple">
+<li><p><strong>Manzil tarmog’i:</strong> <code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code></p></li>
+<li><p><strong>Keyingi tugun:</strong> internet-provayder gateway manzili (yoki WAN interfeys
+gateway).</p></li>
+</ul>
+<p>Agar WAN interfeysi DHCP orqali manzil olsa, standart marshrut ko’pincha
+avtomatik tarzda qo’shiladi.</p>
+</section>
+</section>
+<section id="marshrutni-o-chirish">
+<h3><span class="section-number">2.3. </span>Marshrutni o’chirish<a class="headerlink" href="#marshrutni-o-chirish" title="Link to this heading">¶</a></h3>
+<p>Marshrutni jadvaldan o’chirish uchun kerakli yozuv yonidagi <strong>O’chirish
+(Delete)</strong> tugmasini bosing. Ulangan (connected) marshrutlarni qo’lda
+o’chirib bo’lmaydi — ular interfeys IP manzili o’zgarganda yoki o’chirilganda
+avtomatik yangilanadi.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Marshrutlash faqat paketning yo’nalishini belgilaydi. Trafikning ruxsat
+etilishi yoki bloklanishi esa firewall qoidalari (ACL) orqali nazorat
+qilinadi. To’liq ishlashi uchun marshrut va firewall qoidalari birga
+sozlanishi kerak.</p>
+</div>
+</section>
+</section>
+<span id="document-network/nat"></span><section id="nat-manzil-almashtirish">
+<h2><span class="section-number">3. </span>NAT (Manzil almashtirish)<a class="headerlink" href="#nat-manzil-almashtirish" title="Link to this heading">¶</a></h2>
+<p>NAT (Network Address Translation — tarmoq manzilini almashtirish) ichki
+tarmoqdagi xususiy IP manzillarni tashqi (ommaviy) IP manzilga aylantirish
+imkonini beradi. Bu bo’limga o’tish uchun chap menyudagi <strong>Network → NAT</strong>
+bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/nat</span></code>).</p>
+<section id="nat-turlari">
+<h3><span class="section-number">3.1. </span>NAT turlari<a class="headerlink" href="#nat-turlari" title="Link to this heading">¶</a></h3>
+<p>Sarhad NGFW quyidagi NAT rejimlarini qo’llab-quvvatlaydi:</p>
+<ul class="simple">
+<li><p><strong>Source NAT (SNAT)</strong> — ichki tarmoqdan internetga chiquvchi trafikning
+manba (source) manzilini WAN manziliga almashtiradi. Bu eng keng tarqalgan
+rejim: ichki foydalanuvchilar bitta ommaviy IP orqali internetga chiqadi.</p></li>
+<li><p><strong>Destination NAT (DNAT)</strong> — tashqaridan kelgan trafikni ichki serverga
+yo’naltiradi (port forwarding). Masalan, WAN’ning 443-portiga kelgan trafik
+ichki veb-serverga uzatiladi.</p></li>
+<li><p><strong>Statik tasvirlash (Static mapping)</strong> — bitta ichki IP manzilni bitta
+tashqi IP manzilga doimiy ravishda bog’laydi (1:1).</p></li>
+</ul>
+</section>
+<section id="interfeyslarni-sozlash-inside-outside">
+<h3><span class="section-number">3.2. </span>Interfeyslarni sozlash (inside / outside)<a class="headerlink" href="#interfeyslarni-sozlash-inside-outside" title="Link to this heading">¶</a></h3>
+<p>NAT ishlashi uchun har bir interfeys “ichki” yoki “tashqi” deb belgilanishi
+kerak:</p>
+<ul class="simple">
+<li><p><strong>Inside (ichki)</strong> — LAN tomonidagi interfeyslar. Bu interfeyslardan
+kelgan trafik manzili almashtiriladi.</p></li>
+<li><p><strong>Outside (tashqi)</strong> — WAN tomonidagi interfeys. Almashtirilgan trafik shu
+interfeys orqali chiqadi.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Aksariyat hollarda zona (WAN/LAN) tayinlanganda tizim mos NAT
+interfeyslarini avtomatik sozlaydi. Qo’shimcha qoidalar qo’shilganda kerakli
+ichki interfeyslar avtomatik qo’shiladi.</p>
+</div>
+</section>
+<section id="manzillar-puli-address-pool">
+<h3><span class="section-number">3.3. </span>Manzillar puli (Address pool)<a class="headerlink" href="#manzillar-puli-address-pool" title="Link to this heading">¶</a></h3>
+<p>SNAT uchun tashqi (ommaviy) IP manzillar puli belgilanadi. Trafik shu puldagi
+manzillar orqali tashqariga chiqariladi. Pulga bitta yoki bir nechta IP manzil
+diapazoni qo’shilishi mumkin.</p>
+</section>
+<section id="dnat-port-forwarding-qoidasi-qo-shish">
+<h3><span class="section-number">3.4. </span>DNAT (Port forwarding) qoidasi qo’shish<a class="headerlink" href="#dnat-port-forwarding-qoidasi-qo-shish" title="Link to this heading">¶</a></h3>
+<p>Tashqaridan ichki serverga kirishni ochish uchun:</p>
+<ol class="arabic simple">
+<li><p><strong>DNAT qoidasi qo’shish (Add DNAT Rule)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Tashqi manzil/port</strong> — WAN IP va port (masalan, <code class="docutils literal notranslate"><span class="pre">203.0.113.5:443</span></code>).</p></li>
+<li><p><strong>Ichki manzil/port</strong> — paket yo’naltiriladigan ichki server
+(masalan, <code class="docutils literal notranslate"><span class="pre">192.168.10.20:443</span></code>).</p></li>
+<li><p><strong>Protokol</strong> — TCP yoki UDP.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="faol-sessiyalar-nat-sessions">
+<h3><span class="section-number">3.5. </span>Faol sessiyalar (NAT Sessions)<a class="headerlink" href="#faol-sessiyalar-nat-sessions" title="Link to this heading">¶</a></h3>
+<p><strong>NAT Sessions</strong> bo’limida ayni paytda faol bo’lgan barcha NAT ulanishlari
+ko’rsatiladi: manba va manzil manzillari, portlar, protokol va sessiya
+davomiyligi. Kerak bo’lganda alohida sessiyani yoki barcha sessiyalarni
+tozalash (clear) mumkin.</p>
+</section>
+<section id="qo-shimcha-sozlamalar">
+<h3><span class="section-number">3.6. </span>Qo’shimcha sozlamalar<a class="headerlink" href="#qo-shimcha-sozlamalar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Vaqt chegaralari (Timeouts)</strong> — TCP, UDP va boshqa protokollar uchun
+sessiyaning bo’sh turish vaqtini sozlash.</p></li>
+<li><p><strong>IPFIX jurnali</strong> — NAT hodisalarini Netflow orqali tashqi yig’uvchiga
+(collector) yuborish (qarang: <a class="reference internal" href="#document-monitoring/flow"><span class="doc">Trafik monitoringi (Flow / IPFIX)</span></a>).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NAT qoidalari firewall qoidalari bilan birga ishlaydi. DNAT qoidasi
+trafikni ichki serverga yo’naltirsa-da, trafik o’tishi uchun firewall’da
+ham mos ruxsat qoidasi bo’lishi kerak (qarang: <a class="reference internal" href="#document-policies/acl"><span class="doc">Firewall qoidalari (Firewall Policies / ACL)</span></a>).</p>
+</div>
+</section>
+</section>
+<span id="document-network/dhcp"></span><section id="dhcp-server-va-relay">
+<h2><span class="section-number">4. </span>DHCP server va relay<a class="headerlink" href="#dhcp-server-va-relay" title="Link to this heading">¶</a></h2>
+<p>DHCP (Dynamic Host Configuration Protocol) tarmoqdagi qurilmalarga IP
+manzillarni avtomatik tarqatish imkonini beradi. Sarhad NGFW ichki <strong>DHCP
+server</strong> hamda <strong>DHCP relay</strong> funksiyalarini taqdim etadi.
+Bu bo’limga o’tish uchun chap menyudagi <strong>Network → DHCP Server</strong> bo’limini
+tanlang (<code class="docutils literal notranslate"><span class="pre">/dhcp-server</span></code>).</p>
+<section id="dhcp-server">
+<h3><span class="section-number">4.1. </span>DHCP server<a class="headerlink" href="#dhcp-server" title="Link to this heading">¶</a></h3>
+<p>DHCP server ichki tarmoqdagi mijozlarga IP manzil, tarmoq niqobi, gateway va
+DNS server kabi sozlamalarni avtomatik tarqatadi.</p>
+<section id="subnet-tarmoq-qo-shish">
+<h4><span class="section-number">4.1.1. </span>Subnet (tarmoq) qo’shish<a class="headerlink" href="#subnet-tarmoq-qo-shish" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Subnet qo’shish (Add Subnet)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Tarmoq (Subnet)</strong> — CIDR ko’rinishida (masalan, <code class="docutils literal notranslate"><span class="pre">192.168.10.0/24</span></code>).</p></li>
+<li><p><strong>Manzillar diapazoni (Pool)</strong> — tarqatiladigan IP manzillar oralig’i
+(masalan, <code class="docutils literal notranslate"><span class="pre">192.168.10.100</span></code> — <code class="docutils literal notranslate"><span class="pre">192.168.10.200</span></code>).</p></li>
+<li><p><strong>Gateway</strong> — mijozlar uchun standart shlyuz (odatda interfeys IP manzili).</p></li>
+<li><p><strong>DNS serverlar</strong> — mijozlarga beriladigan DNS manzillari.</p></li>
+<li><p><strong>Ijara muddati (Lease time)</strong> — IP manzil mijozga necha vaqtga beriladi.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="ijaralar-leases">
+<h4><span class="section-number">4.1.2. </span>Ijaralar (Leases)<a class="headerlink" href="#ijaralar-leases" title="Link to this heading">¶</a></h4>
+<p><strong>Leases</strong> bo’limida ayni paytda tarqatilgan IP manzillar ro’yxati
+ko’rsatiladi: mijoz MAC manzili, berilgan IP, qurilma nomi (hostname) va
+ijara tugash vaqti. Bu orqali tarmoqqa ulangan qurilmalarni kuzatish mumkin.</p>
+</section>
+</section>
+<section id="dhcp-relay">
+<h3><span class="section-number">4.2. </span>DHCP relay<a class="headerlink" href="#dhcp-relay" title="Link to this heading">¶</a></h3>
+<p>Agar markaziy DHCP server boshqa tarmoqda joylashgan bo’lsa, DHCP relay
+mijozlarning so’rovlarini shu serverga uzatadi. Bu, ayniqsa, VLANlarga
+bo’lingan tarmoqlarda foydali — har bir VLAN’da alohida server saqlash shart
+emas.</p>
+<p>Relayni sozlash uchun:</p>
+<ul class="simple">
+<li><p><strong>Tinglovchi interfeys</strong> — DHCP so’rovlari keladigan ichki interfeys yoki VLAN.</p></li>
+<li><p><strong>DHCP server manzili</strong> — so’rovlar uzatiladigan markaziy server IP manzili.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Bitta tarmoqda DHCP server va DHCP relay bir vaqtning o’zida ishlamasligi
+kerak — ulardan faqat bittasini tanlang.</p>
+</div>
+</section>
+</section>
 </div>
 <div class="toctree-wrapper compound">
-<span id="document-network/interface"></span><section id="tarmoq-interfeyslarini-sozlash-va-boshqarish-bo-yicha-qo-llanma">
-<h2><span class="section-number">1. </span>Tarmoq interfeyslarini sozlash va boshqarish bo’yicha qo’llanma<a class="headerlink" href="#tarmoq-interfeyslarini-sozlash-va-boshqarish-bo-yicha-qo-llanma" title="Link to this heading">¶</a></h2>
+<span id="document-policies/acl"></span><section id="firewall-qoidalari-firewall-policies-acl">
+<h2><span class="section-number">1. </span>Firewall qoidalari (Firewall Policies / ACL)<a class="headerlink" href="#firewall-qoidalari-firewall-policies-acl" title="Link to this heading">¶</a></h2>
+<p>Firewall qoidalari tarmoq trafigining qaysi qismi ruxsat etilishi (permit)
+yoki bloklanishi (deny) kerakligini belgilaydi. Sarhad NGFW da bu qoidalar
+<strong>siyosatlar (policies)</strong> ko’rinishida boshqariladi va ular avtomatik ravishda
+interfeyslarga qo’llaniladi. Bu bo’limga o’tish uchun chap menyudagi
+<strong>Firewall → ACL</strong> bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/acl</span></code>).</p>
+<section id="qoidalar-qanday-ishlaydi">
+<h3><span class="section-number">1.1. </span>Qoidalar qanday ishlaydi<a class="headerlink" href="#qoidalar-qanday-ishlaydi" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Har bir siyosat (policy) — nomlangan, tartiblangan qoida bo’lib, u trafikning
+ma’lum belgilariga mos kelganda ma’lum amalni bajaradi.</p></li>
+<li><p>Qoidalar <strong>yuqoridan pastga</strong> qarab tekshiriladi. Trafik birinchi mos kelgan
+qoidaning amalini oladi (permit yoki deny), keyingi qoidalar tekshirilmaydi.</p></li>
+<li><p>Ro’yxat oxirida yashirin “barchasini taqiqlash” (implicit deny) qoidasi
+amal qiladi: hech qaysi qoidaga mos kelmagan trafik bloklanadi.</p></li>
+<li><p>Bundan tashqari, zonalar (WAN/LAN/DMZ) o’rtasidagi trafik uchun tizim
+avtomatik <strong>zona qoidalarini</strong> yaratadi.</p></li>
+</ul>
 </section>
-<span id="document-network/routing"></span><section id="routing-sozlamalari">
-<h2><span class="section-number">2. </span>Routing sozlamalari<a class="headerlink" href="#routing-sozlamalari" title="Link to this heading">¶</a></h2>
+<section id="qoida-tarkibi">
+<h3><span class="section-number">1.2. </span>Qoida tarkibi<a class="headerlink" href="#qoida-tarkibi" title="Link to this heading">¶</a></h3>
+<p>Har bir firewall qoidasi quyidagi maydonlardan iborat:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%"/>
+<col style="width: 75.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Maydon</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Nom (Name)</strong></p></td>
+<td><p>Qoidaning tushunarli nomi (masalan, <code class="docutils literal notranslate"><span class="pre">Veb-serverga</span> <span class="pre">ruxsat</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Amal (Action)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Permit</span></code> (ruxsat) yoki <code class="docutils literal notranslate"><span class="pre">Deny</span></code> (taqiq).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Manba (Source)</strong></p></td>
+<td><p>Trafik qayerdan kelishi: IP manzil yoki tarmoq (CIDR).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Manzil (Destination)</strong></p></td>
+<td><p>Trafik qayerga borishi: IP manzil yoki tarmoq (CIDR).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Protokol</strong></p></td>
+<td><p>TCP, UDP, ICMP yoki “barchasi” (any).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Portlar</strong></p></td>
+<td><p>Manba va/yoki manzil portlari (masalan, <code class="docutils literal notranslate"><span class="pre">80</span></code>, <code class="docutils literal notranslate"><span class="pre">443</span></code>,
+<code class="docutils literal notranslate"><span class="pre">1000-2000</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Holati (Enabled)</strong></p></td>
+<td><p>Qoida yoqilgan yoki o’chirilgan. O’chirilgan qoida o’chirilmasdan
+vaqtincha ishlamay turadi.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="yangi-qoida-qo-shish">
+<h3><span class="section-number">1.3. </span>Yangi qoida qo’shish<a class="headerlink" href="#yangi-qoida-qo-shish" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Qoida qo’shish (Add Rule)</strong> tugmasini bosing.</p></li>
+<li><p>Yuqorida keltirilgan maydonlarni to’ldiring.</p></li>
+<li><p>Amalni (Permit yoki Deny) tanlang.</p></li>
+<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Qoida darhol kuchga kiradi va kerakli interfeyslarga avtomatik bog’lanadi.</p>
+<section id="misol-tashqaridan-veb-serverga-ruxsat-berish">
+<h4><span class="section-number">1.3.1. </span>Misol: Tashqaridan veb-serverga ruxsat berish<a class="headerlink" href="#misol-tashqaridan-veb-serverga-ruxsat-berish" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><strong>Nom:</strong> <code class="docutils literal notranslate"><span class="pre">HTTPS</span> <span class="pre">ruxsat</span></code></p></li>
+<li><p><strong>Amal:</strong> Permit</p></li>
+<li><p><strong>Manba:</strong> <code class="docutils literal notranslate"><span class="pre">any</span></code> (istalgan manzil)</p></li>
+<li><p><strong>Manzil:</strong> <code class="docutils literal notranslate"><span class="pre">192.168.10.20</span></code> (ichki veb-server)</p></li>
+<li><p><strong>Protokol:</strong> TCP</p></li>
+<li><p><strong>Manzil porti:</strong> <code class="docutils literal notranslate"><span class="pre">443</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="qoidalar-tartibini-o-zgartirish">
+<h3><span class="section-number">1.4. </span>Qoidalar tartibini o’zgartirish<a class="headerlink" href="#qoidalar-tartibini-o-zgartirish" title="Link to this heading">¶</a></h3>
+<p>Qoidalar tartibi muhim ahamiyatga ega, chunki trafik birinchi mos kelgan
+qoidaga bo’ysunadi. Qoidani yuqoriga yoki pastga surish uchun ro’yxatdagi
+strelkalardan (yoki sudrab tashlash — drag and drop) foydalaning.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Aniqroq (spetsifik) qoidalarni ro’yxatning yuqorisiga, umumiyroq qoidalarni
+pastiga joylashtiring. Masalan, “bitta IP’ni bloklash” qoidasini “butun
+tarmoqqa ruxsat berish” qoidasidan yuqoriga qo’ying.</p>
+</div>
+</section>
+<section id="qoidani-tahrirlash-va-o-chirish">
+<h3><span class="section-number">1.5. </span>Qoidani tahrirlash va o’chirish<a class="headerlink" href="#qoidani-tahrirlash-va-o-chirish" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Tahrirlash (Edit)</strong> — mavjud qoidaning parametrlarini o’zgartirish.</p></li>
+<li><p><strong>O’chirish (Delete)</strong> — qoidani butunlay olib tashlash.</p></li>
+<li><p><strong>Yoqish/O’chirish (Enable/Disable)</strong> — qoidani o’chirmasdan vaqtincha
+faolsizlantirish.</p></li>
+</ul>
+</section>
+<section id="bog-liq-bo-limlar">
+<h3><span class="section-number">1.6. </span>Bog’liq bo’limlar<a class="headerlink" href="#bog-liq-bo-limlar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>MAC manzillari bo’yicha filtrlash: <a class="reference internal" href="#document-policies/mac-filter"><span class="doc">MAC manzili bo’yicha filtrlash</span></a></p></li>
+<li><p>Trafik tezligini cheklash: <a class="reference internal" href="#document-policies/policer"><span class="doc">Trafik tezligini cheklash (Policer)</span></a></p></li>
+</ul>
+</section>
+</section>
+<span id="document-policies/mac-filter"></span><section id="mac-manzili-bo-yicha-filtrlash">
+<h2><span class="section-number">2. </span>MAC manzili bo’yicha filtrlash<a class="headerlink" href="#mac-manzili-bo-yicha-filtrlash" title="Link to this heading">¶</a></h2>
+<p>MAC filtrlash qurilmaning fizik (MAC) manzili asosida tarmoqqa kirishini
+ruxsat berish yoki taqiqlash imkonini beradi. Bu IP manzildan farqli ravishda
+qurilmaning o’ziga (tarmoq adapteriga) bog’langan nazorat usulidir. Bu bo’limga
+o’tish uchun chap menyudagi <strong>Firewall → MAC Filter</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/mac-filter</span></code>).</p>
+<section id="qachon-ishlatiladi">
+<h3><span class="section-number">2.1. </span>Qachon ishlatiladi<a class="headerlink" href="#qachon-ishlatiladi" title="Link to this heading">¶</a></h3>
+<p>MAC filtrlash quyidagi holatlarda foydali:</p>
+<ul class="simple">
+<li><p>Faqat ma’lum (ro’yxatga olingan) qurilmalarga tarmoqqa ulanishga ruxsat
+berish.</p></li>
+<li><p>Aniq bir qurilmani (masalan, ruxsatsiz noutbukni) tarmoqdan bloklash.</p></li>
+<li><p>IP manzilini o’zgartirib aylanib o’tishga urinadigan qurilmalarni nazorat
+qilish.</p></li>
+</ul>
+</section>
+<section id="mac-qoidasi-qo-shish">
+<h3><span class="section-number">2.2. </span>MAC qoidasi qo’shish<a class="headerlink" href="#mac-qoidasi-qo-shish" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Qoida qo’shish (Add Rule)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>MAC manzil</strong> — qurilmaning fizik manzili
+(masalan, <code class="docutils literal notranslate"><span class="pre">00:1A:2B:3C:4D:5E</span></code>).</p></li>
+<li><p><strong>Amal (Action)</strong> — <code class="docutils literal notranslate"><span class="pre">Permit</span></code> (ruxsat) yoki <code class="docutils literal notranslate"><span class="pre">Deny</span></code> (taqiq).</p></li>
+<li><p><strong>Interfeys</strong> — qoida qaysi interfeysda amal qilishi.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="ishlash-tartibi">
+<h3><span class="section-number">2.3. </span>Ishlash tartibi<a class="headerlink" href="#ishlash-tartibi" title="Link to this heading">¶</a></h3>
+<p>MAC qoidalari ham firewall qoidalari kabi yuqoridan pastga tekshiriladi.
+Ikki asosiy strategiya mavjud:</p>
+<ul class="simple">
+<li><p><strong>Oq ro’yxat (whitelist)</strong> — ruxsat etilgan MAC’larni sanab, qolganlarini
+bloklash. Eng xavfsiz, lekin har bir yangi qurilmani qo’lda qo’shish kerak.</p></li>
+<li><p><strong>Qora ro’yxat (blacklist)</strong> — faqat aniq qurilmalarni bloklab, qolganlariga
+ruxsat berish.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MAC manzilini ba’zi qurilmalarda almashtirish (spoofing) mumkin, shuning
+uchun MAC filtrlashni yagona himoya chorasi sifatida emas, balki qo’shimcha
+xavfsizlik qatlami sifatida ishlatish tavsiya etiladi.</p>
+</div>
+</section>
+</section>
+<span id="document-policies/policer"></span><section id="trafik-tezligini-cheklash-policer">
+<h2><span class="section-number">3. </span>Trafik tezligini cheklash (Policer)<a class="headerlink" href="#trafik-tezligini-cheklash-policer" title="Link to this heading">¶</a></h2>
+<p>Policer (trafik cheklovchi) tarmoq trafigining tezligini (bandwidth)
+cheklash imkonini beradi. Bu orqali ayrim interfeyslar yoki ulanishlar tarmoq
+resurslarini haddan tashqari band qilib qo’yishining oldi olinadi. Bu bo’limga
+o’tish uchun chap menyudagi <strong>Firewall → Policer</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/policer</span></code>).</p>
+<section id="qanday-ishlaydi">
+<h3><span class="section-number">3.1. </span>Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Link to this heading">¶</a></h3>
+<p>Policer “token bucket” (token chelaki) algoritmidan foydalanadi: trafik
+belgilangan tezlikdan oshib ketsa, ortiqcha paketlar yo belgilanadi (mark) yoki
+tashlab yuboriladi (drop). Bu interfeysga kiruvchi yoki chiquvchi trafikning
+maksimal tezligini kafolatlash imkonini beradi.</p>
+</section>
+<section id="policer-profili-yaratish">
+<h3><span class="section-number">3.2. </span>Policer profili yaratish<a class="headerlink" href="#policer-profili-yaratish" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Profil qo’shish (Add Policer)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagi parametrlarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Nom (Name)</strong> — profilning tushunarli nomi (masalan, <code class="docutils literal notranslate"><span class="pre">Mehmon-tarmoq-10M</span></code>).</p></li>
+<li><p><strong>CIR (Committed Information Rate)</strong> — kafolatlangan o’rtacha tezlik
+(masalan, 10 Mbit/s).</p></li>
+<li><p><strong>CBS (Committed Burst Size)</strong> — bir vaqtning o’zida ruxsat etilgan
+maksimal portlash hajmi (baytlarda).</p></li>
+<li><p><strong>Amal (Action)</strong> — chegaradan oshgan trafik bilan nima qilish:
+<code class="docutils literal notranslate"><span class="pre">drop</span></code> (tashlab yuborish) yoki <code class="docutils literal notranslate"><span class="pre">mark</span></code> (belgilash).</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="profilni-interfeysga-bog-lash">
+<h3><span class="section-number">3.3. </span>Profilni interfeysga bog’lash<a class="headerlink" href="#profilni-interfeysga-bog-lash" title="Link to this heading">¶</a></h3>
+<p>Profil yaratilgandan so’ng uni bir yoki bir nechta interfeysga bog’lash kerak:</p>
+<ul class="simple">
+<li><p><strong>Yo’nalish (Direction)</strong> — kiruvchi (ingress) yoki chiquvchi (egress)
+trafikni cheklash.</p></li>
+<li><p><strong>Interfeys</strong> — profil qaysi interfeysga qo’llanishi.</p></li>
+</ul>
+<section id="misol-mehmon-tarmog-ini-cheklash">
+<h4><span class="section-number">3.3.1. </span>Misol: Mehmon tarmog’ini cheklash<a class="headerlink" href="#misol-mehmon-tarmog-ini-cheklash" title="Link to this heading">¶</a></h4>
+<p>Mehmon foydalanuvchilari tarmog’i internetning butun kanalini band qilmasligi
+uchun unga 10 Mbit/s lik cheklov qo’yish mumkin. Buning uchun <code class="docutils literal notranslate"><span class="pre">CIR</span> <span class="pre">=</span> <span class="pre">10</span> <span class="pre">Mbit/s</span></code>
+bo’lgan profil yaratib, uni mehmon VLAN interfeysiga chiquvchi yo’nalishda
+bog’lang.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Policer trafikni cheklaydi, lekin uni navbatga qo’yib kechiktirmaydi
+(shaping emas). Chegaradan oshgan paketlar darhol belgilanadi yoki tashlab
+yuboriladi.</p>
+</div>
+</section>
+</section>
 </section>
 </div>
 <div class="toctree-wrapper compound">
-<span id="document-policies/acl"></span><section id="access-control-list-acl-boshqarish">
-<h2><span class="section-number">1. </span>Access Control List (ACL) boshqarish<a class="headerlink" href="#access-control-list-acl-boshqarish" title="Link to this heading">¶</a></h2>
+<span id="document-security/ids"></span><section id="hujumlarni-aniqlash-va-oldini-olish-ids-ips">
+<h2><span class="section-number">1. </span>Hujumlarni aniqlash va oldini olish (IDS/IPS)<a class="headerlink" href="#hujumlarni-aniqlash-va-oldini-olish-ids-ips" title="Link to this heading">¶</a></h2>
+<p>Sarhad NGFW tarmoqdagi shubhali va zararli faoliyatni aniqlash hamda to’sish
+uchun o’rnatilgan IDS/IPS tizimidan foydalanadi. Bu bo’limga o’tish uchun chap
+menyudagi <strong>Security → Intrusion Prevention</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/intrusion-prevention</span></code>).</p>
+<section id="asosiy-tushunchalar">
+<h3><span class="section-number">1.1. </span>Asosiy tushunchalar<a class="headerlink" href="#asosiy-tushunchalar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>IDS (Intrusion Detection System)</strong> — hujumlarni <em>aniqlaydi</em> va ogohlantirish
+(alert) yaratadi, lekin trafikni to’smaydi.</p></li>
+<li><p><strong>IPS (Intrusion Prevention System)</strong> — hujumlarni aniqlash bilan birga
+zararli trafikni <em>to’sadi</em> (bloklaydi).</p></li>
+</ul>
+<p>Tizim tarmoq paketlarini maxsus <strong>qoidalar (rules)</strong> to’plamiga solishtiradi.
+Agar paket biror qoidaga mos kelsa (masalan, ma’lum bir virus yoki hujum
+imzosi), tizim ogohlantirish yaratadi yoki paketni bloklaydi.</p>
+</section>
+<section id="ids-ips-ni-yoqish-va-sozlash">
+<h3><span class="section-number">1.2. </span>IDS/IPS ni yoqish va sozlash<a class="headerlink" href="#ids-ips-ni-yoqish-va-sozlash" title="Link to this heading">¶</a></h3>
+<p>Konfiguratsiya bo’limida quyidagi asosiy parametrlarni sozlash mumkin:</p>
+<ul class="simple">
+<li><p><strong>Rejim</strong> — IDS (faqat aniqlash) yoki IPS (aniqlash va bloklash).</p></li>
+<li><p><strong>HOME_NET</strong> — himoyalanadigan ichki tarmoq(lar) (masalan,
+<code class="docutils literal notranslate"><span class="pre">192.168.0.0/16</span></code>). Tizim qaysi tarmoq “ichki” ekanligini shu orqali biladi.</p></li>
+<li><p><strong>EXTERNAL_NET</strong> — tashqi tarmoq ta’rifi (odatda HOME_NET’dan tashqari
+hammasi).</p></li>
+<li><p><strong>Jurnal rejimi</strong> — ogohlantirishlarni qanday yozib borish.</p></li>
+</ul>
+<p>Sozlashdan so’ng <strong>Saqlash</strong> tugmasini bosing va kerak bo’lsa IDS/IPS xizmatini
+qayta ishga tushiring (restart).</p>
+</section>
+<section id="qoidalarni-boshqarish">
+<h3><span class="section-number">1.3. </span>Qoidalarni boshqarish<a class="headerlink" href="#qoidalarni-boshqarish" title="Link to this heading">¶</a></h3>
+<section id="qoidalar-manbalari-rule-sources">
+<h4><span class="section-number">1.3.1. </span>Qoidalar manbalari (Rule sources)<a class="headerlink" href="#qoidalar-manbalari-rule-sources" title="Link to this heading">¶</a></h4>
+<p>Tizim qoidalarni tashqi manbalardan yuklab oladi va muntazam yangilab turadi.
+Quyidagi manbalar qo’llab-quvvatlanadi:</p>
+<ul class="simple">
+<li><p><strong>Jamoaviy (Community) qoidalar</strong> — bepul, ochiq qoidalar to’plami.</p></li>
+<li><p><strong>Obuna (Subscriber) qoidalar</strong> — ro’yxatdan o’tgan foydalanuvchilar uchun
+qoidalar (obuna kaliti talab qiladi).</p></li>
+<li><p><strong>Maxsus (custom) manbalar</strong> — boshqa tashqi qoida manbalari.</p></li>
+</ul>
+<p>Manba qo’shish uchun:</p>
+<ol class="arabic simple">
+<li><p><strong>Manba qo’shish (Add Source)</strong> tugmasini bosing.</p></li>
+<li><p>Manba URL manzili va kerak bo’lsa <strong>obuna kaliti</strong> ni kiriting.</p></li>
+<li><p>Yangilanish jadvalini (avtomatik yoki qo’lda) tanlang.</p></li>
+</ol>
+</section>
+<section id="qoidalarni-yoqish-o-chirish">
+<h4><span class="section-number">1.3.2. </span>Qoidalarni yoqish/o’chirish<a class="headerlink" href="#qoidalarni-yoqish-o-chirish" title="Link to this heading">¶</a></h4>
+<p>Qoidalar toifalarga (kategoriyalarga) bo’lingan (masalan, malware, exploit,
+veb-hujumlar). Har bir toifani alohida yoqish yoki o’chirish mumkin. Bu
+keraksiz ogohlantirishlarni kamaytirish va tizim yukini optimallashtirish
+imkonini beradi.</p>
+</section>
+<section id="avtomatik-qoidalar-boshqaruvi">
+<h4><span class="section-number">1.3.3. </span>Avtomatik qoidalar boshqaruvi<a class="headerlink" href="#avtomatik-qoidalar-boshqaruvi" title="Link to this heading">¶</a></h4>
+<p>Tizim qoidalarni avtomatik yuklab olish, yangilash va birlashtirish imkonini
+beradi. U eskirgan qoidalarni almashtiradi va manbalar o’rtasidagi qoidalarni
+muvofiqlashtiradi. Avtomatik yangilanishni yoqib qo’ysangiz, qoidalar muntazam
+ravishda o’zi yangilanib turadi.</p>
+</section>
+<section id="maxsus-qoidalar">
+<h4><span class="section-number">1.3.4. </span>Maxsus qoidalar<a class="headerlink" href="#maxsus-qoidalar" title="Link to this heading">¶</a></h4>
+<p>Tashqi manbalardan tashqari, o’zingizning maxsus qoidalaringizni ham
+qo’shishingiz mumkin. Bu o’ziga xos tahdidlarga qarshi maxsus himoya yaratish
+uchun foydali.</p>
+</section>
+</section>
+<section id="ogohlantirishlar-alerts">
+<h3><span class="section-number">1.4. </span>Ogohlantirishlar (Alerts)<a class="headerlink" href="#ogohlantirishlar-alerts" title="Link to this heading">¶</a></h3>
+<p><strong>Alerts</strong> bo’limida tizim aniqlagan barcha hodisalar ko’rsatiladi:</p>
+<ul class="simple">
+<li><p><strong>Vaqt (Timestamp)</strong> — hodisa qachon sodir bo’lgani.</p></li>
+<li><p><strong>Imzo (Signature / SID)</strong> — ishga tushgan qoidaning identifikatori.</p></li>
+<li><p><strong>Xabar (Message)</strong> — hodisaning tavsifi.</p></li>
+<li><p><strong>Muhimlik (Priority)</strong> — tahdidning xavf darajasi.</p></li>
+<li><p><strong>Manba/Manzil</strong> — hujumning kelib chiqishi va nishoni.</p></li>
+</ul>
+<p>Ogohlantirishlarni muhimlik darajasi yoki vaqt bo’yicha filtrlash va tashqi
+faylga (CSV) eksport qilish mumkin.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IPS rejimida noto’g’ri sozlangan qoidalar haqiqiy (zararsiz) trafikni
+bloklab qo’yishi mumkin (false positive). Yangi qoidalarni avval IDS
+(faqat aniqlash) rejimida sinab ko’rib, so’ngra IPS rejimiga o’tkazish
+tavsiya etiladi.</p>
+</div>
+</section>
+</section>
+<span id="document-security/tls-interception"></span><section id="tls-trafigini-tekshirish-tls-interception">
+<h2><span class="section-number">2. </span>TLS trafigini tekshirish (TLS Interception)<a class="headerlink" href="#tls-trafigini-tekshirish-tls-interception" title="Link to this heading">¶</a></h2>
+<p>Bugungi kunda internet trafigining katta qismi shifrlangan (HTTPS/TLS).
+Bu xavfsizlikni oshirsa-da, zararli dasturlar ham o’z aloqasini shu shifr
+ostida yashirishi mumkin. <strong>TLS Interception</strong> funksiyasi shifrlangan
+trafikni vaqtincha ochib, tekshirib, qaytadan shifrlash imkonini beradi —
+shunda IDS/IPS va filtrlash tizimlari shifrlangan trafik ichini ham ko’ra
+oladi. Bu bo’limga o’tish uchun chap menyudagi <strong>Security → TLS Interception</strong>
+bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/tls-interception</span></code>).</p>
+<section id="qanday-ishlaydi">
+<h3><span class="section-number">2.1. </span>Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Link to this heading">¶</a></h3>
+<p>TLS Interception “o’rtadagi ishonchli vositachi” (man-in-the-middle) tamoyili
+asosida ishlaydi:</p>
+<ol class="arabic simple">
+<li><p>Mijoz qurilmasi HTTPS sayt bilan bog’lanmoqchi bo’ladi.</p></li>
+<li><p>Sarhad NGFW ulanishni ushlab, o’zining sertifikati bilan mijozga ulanadi
+va alohida ravishda haqiqiy sayt bilan ulanadi.</p></li>
+<li><p>Trafik tizim ichida ochilib tekshiriladi, so’ngra qaytadan shifrlanadi.</p></li>
+</ol>
+<p>Ishlashi uchun mijoz qurilmalariga tizimning <strong>CA sertifikati</strong> ishonchli
+sifatida o’rnatilgan bo’lishi shart (qarang: <a class="reference internal" href="#document-security/certificates"><span class="doc">Sertifikatlar va PKI</span></a>).</p>
+</section>
+<section id="sozlash">
+<h3><span class="section-number">2.2. </span>Sozlash<a class="headerlink" href="#sozlash" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>TLS Interception</strong> sahifasiga o’ting.</p></li>
+<li><p>Funksiyani <strong>yoqing (Enable)</strong>.</p></li>
+<li><p>Quyidagilarni sozlang:</p>
+<ul class="simple">
+<li><p><strong>CA sertifikati</strong> — trafikni qaytadan shifrlash uchun ishlatiladigan
+sertifikat to’plami. Uni <a class="reference internal" href="#document-security/certificates"><span class="doc">Sertifikatlar va PKI</span></a> bo’limida yuklang.</p></li>
+<li><p><strong>Tekshiriladigan interfeyslar</strong> — qaysi LAN interfeyslari trafigi
+tekshirilishi.</p></li>
+<li><p><strong>Tarmoq (Subnet) override</strong> — kerak bo’lsa, interfeysning standart
+tarmog’i o’rniga maxsus tarmoqni ko’rsatish.</p></li>
+<li><p><strong>QUIC bloklash</strong> — HTTP/3 (QUIC, UDP) protokolini bloklash. Bu brauzerlarni
+tekshirilishi mumkin bo’lgan oddiy HTTPS (TCP) ga qaytishga majbur qiladi.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TLS Interception maxfiylikka ta’sir qiluvchi sezgir funksiya. Uni yoqishdan
+oldin tashkilotingizning xavfsizlik siyosati va qonuniy talablariga rioya
+qilinishiga ishonch hosil qiling. Bank, sog’liqni saqlash kabi maxfiy
+saytlar trafigini tekshirishdan istisno qilish tavsiya etiladi.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ba’zi ilovalar sertifikatni qattiq tekshiradi (certificate pinning) va
+TLS Interception yoqilganda ishlamay qolishi mumkin. Bunday ilovalar uchun
+istisno (bypass) qoidalarini qo’shing.</p>
+</div>
+</section>
+</section>
+<span id="document-security/certificates"></span><section id="sertifikatlar-va-pki">
+<h2><span class="section-number">3. </span>Sertifikatlar va PKI<a class="headerlink" href="#sertifikatlar-va-pki" title="Link to this heading">¶</a></h2>
+<p>Sarhad NGFW raqamli sertifikatlarni boshqarish uchun ichki <strong>PKI</strong> (Public Key
+Infrastructure — ochiq kalitlar infratuzilmasi) tizimiga ega. Sertifikatlar
+TLS trafigini tekshirish hamda VPN ulanishlarini autentifikatsiya qilish uchun
+ishlatiladi. Bu bo’limga o’tish uchun chap menyudagi <strong>Security → Certificates</strong>
+yoki <strong>PKI → Authorities</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/certificates</span></code>, <code class="docutils literal notranslate"><span class="pre">/pki/authorities</span></code>).</p>
+<section id="asosiy-tushunchalar">
+<h3><span class="section-number">3.1. </span>Asosiy tushunchalar<a class="headerlink" href="#asosiy-tushunchalar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>CA (Certificate Authority)</strong> — sertifikat beruvchi markaz. CA boshqa
+sertifikatlarni imzolaydi va ularning haqiqiyligini tasdiqlaydi.</p></li>
+<li><p><strong>Server sertifikati</strong> — server (masalan, VPN gateway) o’zini tasdiqlash
+uchun ishlatadigan sertifikat.</p></li>
+<li><p><strong>Mijoz sertifikati</strong> — foydalanuvchi yoki qurilmani tasdiqlash uchun
+ishlatiladigan sertifikat.</p></li>
+<li><p><strong>CRL (Certificate Revocation List)</strong> — bekor qilingan sertifikatlar ro’yxati.</p></li>
+</ul>
+</section>
+<section id="sertifikat-markazini-ca-yaratish">
+<h3><span class="section-number">3.2. </span>Sertifikat markazini (CA) yaratish<a class="headerlink" href="#sertifikat-markazini-ca-yaratish" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>PKI → Authorities</strong> sahifasiga o’ting.</p></li>
+<li><p><strong>CA yaratish (Create CA)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Nom (CN — Common Name)</strong> — CA nomi (masalan, <code class="docutils literal notranslate"><span class="pre">Sarhad-Root-CA</span></code>).</p></li>
+<li><p><strong>Tashkilot (Organization)</strong> — tashkilot nomi.</p></li>
+<li><p><strong>Amal qilish muddati</strong> — sertifikat necha kun amal qilishi.</p></li>
+</ul>
+</li>
+<li><p><strong>Yaratish</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Mavjud CA’ni import qilish ham mumkin — buning uchun PEM formatidagi
+sertifikat va maxfiy kalit fayllarini yuklang.</p>
+</section>
+<section id="sertifikat-berish-issue">
+<h3><span class="section-number">3.3. </span>Sertifikat berish (issue)<a class="headerlink" href="#sertifikat-berish-issue" title="Link to this heading">¶</a></h3>
+<p>CA yaratilgandan so’ng undan server yoki mijoz sertifikatlarini berishingiz
+mumkin:</p>
+<ol class="arabic simple">
+<li><p>CA’ni tanlang va <strong>Sertifikat berish (Issue Certificate)</strong> tugmasini bosing.</p></li>
+<li><p>Sertifikat turini (server yoki mijoz) va CN (egasi nomi) ni kiriting.</p></li>
+<li><p>Amal qilish muddatini belgilang va <strong>Berish</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Berilgan sertifikatni yuklab olish (download) yoki VPN sozlamalarida ishlatish
+mumkin.</p>
+</section>
+<section id="tls-interception-uchun-ca">
+<h3><span class="section-number">3.4. </span>TLS Interception uchun CA<a class="headerlink" href="#tls-interception-uchun-ca" title="Link to this heading">¶</a></h3>
+<p>TLS trafigini tekshirish (<a class="reference internal" href="#document-security/tls-interception"><span class="doc">TLS trafigini tekshirish (TLS Interception)</span></a>) uchun maxsus CA
+sertifikati kerak. Bu sertifikatni <strong>Certificates</strong> sahifasida yuklang
+(upload) yoki PKI orqali yarating. So’ngra bu CA sertifikatini barcha mijoz
+qurilmalariga <strong>ishonchli</strong> sifatida o’rnating — aks holda foydalanuvchilar
+brauzerda sertifikat xatoliklarini ko’radi.</p>
+</section>
+<section id="sertifikatni-bekor-qilish-revoke">
+<h3><span class="section-number">3.5. </span>Sertifikatni bekor qilish (revoke)<a class="headerlink" href="#sertifikatni-bekor-qilish-revoke" title="Link to this heading">¶</a></h3>
+<p>Agar sertifikat xavf ostida qolsa yoki kerak bo’lmasa, uni bekor qilish
+mumkin:</p>
+<ol class="arabic simple">
+<li><p>Sertifikatlar ro’yxatidan kerakli sertifikatni tanlang.</p></li>
+<li><p><strong>Bekor qilish (Revoke)</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Bekor qilingan sertifikat CRL’ga qo’shiladi va undan keyin ishonchsiz deb
+hisoblanadi.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CA’ning maxfiy kalitini xavfsiz saqlang. Agar maxfiy kalit o’g’irlansa,
+tajovuzkor soxta sertifikatlar yaratishi mumkin. Shubha tug’ilsa, CA’ni
+bekor qilib, yangisini yarating.</p>
+</div>
+</section>
 </section>
 </div>
 <div class="toctree-wrapper compound">
-<span id="document-security/ids"></span><section id="intrusion-detection-system-ids-sozlamalari">
-<h2><span class="section-number">1. </span>Intrusion Detection System (IDS) sozlamalari<a class="headerlink" href="#intrusion-detection-system-ids-sozlamalari" title="Link to this heading">¶</a></h2>
+<span id="document-vpn/overview"></span><section id="vpn-umumiy-ko-rinish">
+<h2><span class="section-number">1. </span>VPN — Umumiy ko’rinish<a class="headerlink" href="#vpn-umumiy-ko-rinish" title="Link to this heading">¶</a></h2>
+<p>VPN (Virtual Private Network — virtual xususiy tarmoq) ochiq internet orqali
+xavfsiz, shifrlangan ulanish yaratish imkonini beradi. Sarhad NGFW <strong>IPsec
+(IKEv2)</strong> protokoli asosida ikki turdagi VPN’ni qo’llab-quvvatlaydi.
+Bu bo’limga o’tish uchun chap menyudagi <strong>VPN → Overview</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/vpn</span></code>).</p>
+<section id="vpn-turlari">
+<h3><span class="section-number">1.1. </span>VPN turlari<a class="headerlink" href="#vpn-turlari" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%"/>
+<col style="width: 70.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tur</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Remote Access (RA)</strong></p></td>
+<td><p>Alohida foydalanuvchilar (masalan, masofadan ishlovchi xodimlar)
+o’z qurilmasidan korporativ tarmoqqa xavfsiz ulanadi.
+Qarang: <a class="reference internal" href="#document-vpn/ra"><span class="doc">Remote Access VPN (Masofaviy kirish)</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Site-to-Site (S2S)</strong></p></td>
+<td><p>Ikki ofis yoki tarmoqni internet orqali doimiy xavfsiz tunnel bilan
+bog’laydi. Qarang: <a class="reference internal" href="#document-vpn/s2s"><span class="doc">Site-to-Site VPN (Ofislararo tunnel)</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vpn-holati-dashboardi">
+<h3><span class="section-number">1.2. </span>VPN holati dashboardi<a class="headerlink" href="#vpn-holati-dashboardi" title="Link to this heading">¶</a></h3>
+<p>Overview sahifasida VPN tizimining umumiy holati ko’rsatiladi:</p>
+<ul class="simple">
+<li><p><strong>Faol sessiyalar</strong> — ayni paytda ulangan foydalanuvchilar va tunnellar soni.</p></li>
+<li><p><strong>Tunnel holati</strong> — har bir Site-to-Site tunnelning holati (UP/DOWN).</p></li>
+<li><p><strong>Statistika</strong> — uzatilgan va qabul qilingan ma’lumotlar hajmi.</p></li>
+<li><p><strong>So’nggi hodisalar</strong> — autentifikatsiya va ulanish hodisalari.</p></li>
+</ul>
+</section>
+<section id="tayyorgarlik">
+<h3><span class="section-number">1.3. </span>Tayyorgarlik<a class="headerlink" href="#tayyorgarlik" title="Link to this heading">¶</a></h3>
+<p>VPN’ni sozlashdan oldin quyidagilarni tayyorlang:</p>
+<ol class="arabic simple">
+<li><p><strong>Sertifikatlar (PKI)</strong> — VPN autentifikatsiyasi uchun CA va server
+sertifikatlari kerak. Qarang: <a class="reference internal" href="#document-security/certificates"><span class="doc">Sertifikatlar va PKI</span></a>.</p></li>
+<li><p><strong>WAN interfeysi</strong> — VPN tashqi internetdan ulanishlarni qabul qiladigan
+interfeys. Qarang: <a class="reference internal" href="#document-vpn/settings"><span class="doc">VPN umumiy sozlamalari (IPsec Settings)</span></a>.</p></li>
+<li><p><strong>Firewall qoidalari</strong> — VPN trafigi uchun mos ruxsatlar (odatda tizim
+avtomatik yaratadi).</p></li>
+</ol>
+</section>
+<section id="keyingi-qadamlar">
+<h3><span class="section-number">1.4. </span>Keyingi qadamlar<a class="headerlink" href="#keyingi-qadamlar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Masofaviy foydalanuvchilar uchun: <a class="reference internal" href="#document-vpn/ra"><span class="doc">Remote Access VPN (Masofaviy kirish)</span></a></p></li>
+<li><p>Ofislarni bog’lash uchun: <a class="reference internal" href="#document-vpn/s2s"><span class="doc">Site-to-Site VPN (Ofislararo tunnel)</span></a></p></li>
+<li><p>Umumiy VPN sozlamalari: <a class="reference internal" href="#document-vpn/settings"><span class="doc">VPN umumiy sozlamalari (IPsec Settings)</span></a></p></li>
+</ul>
+</section>
+</section>
+<span id="document-vpn/ra"></span><section id="remote-access-vpn-masofaviy-kirish">
+<h2><span class="section-number">2. </span>Remote Access VPN (Masofaviy kirish)<a class="headerlink" href="#remote-access-vpn-masofaviy-kirish" title="Link to this heading">¶</a></h2>
+<p>Remote Access (RA) VPN alohida foydalanuvchilarga o’z qurilmasidan (noutbuk,
+telefon) korporativ tarmoqqa xavfsiz ulanish imkonini beradi. Sarhad NGFW
+<strong>IKEv2</strong> protokoli va EAP autentifikatsiyasidan foydalanadi. Bu bo’limga
+o’tish uchun chap menyudagi <strong>VPN → Remote Access</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/vpn/ra</span></code>).</p>
+<section id="sozlash-bosqichlari">
+<h3><span class="section-number">2.1. </span>Sozlash bosqichlari<a class="headerlink" href="#sozlash-bosqichlari" title="Link to this heading">¶</a></h3>
+<p>RA VPN’ni ishga tushirish uchun uchta asosiy qadam bajariladi:</p>
+<ol class="arabic simple">
+<li><p><strong>Gateway</strong> (kirish nuqtasi) yaratish.</p></li>
+<li><p><strong>Guruhlar</strong> va <strong>foydalanuvchilar</strong> qo’shish.</p></li>
+<li><p>Foydalanuvchilarga <strong>ulanish to’plamini (bundle)</strong> tarqatish.</p></li>
+</ol>
+</section>
+<section id="gateway-yaratish">
+<h3><span class="section-number">2.2. </span>1. Gateway yaratish<a class="headerlink" href="#gateway-yaratish" title="Link to this heading">¶</a></h3>
+<p>Gateway — foydalanuvchilar ulanadigan VPN kirish nuqtasi.</p>
+<ol class="arabic simple">
+<li><p><strong>Gateway qo’shish (Add Gateway)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Nom (Name)</strong> — gateway nomi.</p></li>
+<li><p><strong>Tinglovchi interfeys</strong> — odatda WAN interfeysi (tashqi ulanishlarni
+qabul qiladi).</p></li>
+<li><p><strong>Server sertifikati</strong> — gateway o’zini tasdiqlaydigan sertifikat
+(PKI’dan, qarang: <a class="reference internal" href="#document-security/certificates"><span class="doc">Sertifikatlar va PKI</span></a>).</p></li>
+<li><p><strong>Manzillar puli (Client pool)</strong> — ulangan mijozlarga beriladigan ichki
+IP manzillar diapazoni (masalan, <code class="docutils literal notranslate"><span class="pre">10.10.10.0/24</span></code>).</p></li>
+<li><p><strong>DNS serverlar</strong> — mijozlarga beriladigan DNS manzillari.</p></li>
+<li><p><strong>Shifrlash algoritmlari</strong> — IKE va ESP uchun shifrlash to’plamlari
+(standart qiymatlar tavsiya etiladi).</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="guruh-va-foydalanuvchi-qo-shish">
+<h3><span class="section-number">2.3. </span>2. Guruh va foydalanuvchi qo’shish<a class="headerlink" href="#guruh-va-foydalanuvchi-qo-shish" title="Link to this heading">¶</a></h3>
+<section id="guruhlar">
+<h4><span class="section-number">2.3.1. </span>Guruhlar<a class="headerlink" href="#guruhlar" title="Link to this heading">¶</a></h4>
+<p>Guruhlar foydalanuvchilarni birlashtiradi va ularga qaysi ichki tarmoqlarga
+kirish ruxsat etilishini belgilaydi. Masalan, <code class="docutils literal notranslate"><span class="pre">Buxgalteriya</span></code> guruhi faqat
+buxgalteriya serverlariga kira oladi.</p>
+<ol class="arabic simple">
+<li><p><strong>Guruh qo’shish (Add Group)</strong> tugmasini bosing.</p></li>
+<li><p>Guruh nomi va ruxsat etilgan tarmoqlarni (allowed subnets) kiriting.</p></li>
+</ol>
+</section>
+<section id="foydalanuvchilar">
+<h4><span class="section-number">2.3.2. </span>Foydalanuvchilar<a class="headerlink" href="#foydalanuvchilar" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Foydalanuvchi qo’shish (Add User)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Foydalanuvchi nomi (Username)</strong>.</p></li>
+<li><p><strong>Parol (Password)</strong> — EAP autentifikatsiyasi uchun.</p></li>
+<li><p><strong>Guruh</strong> — foydalanuvchi qaysi guruhga tegishli.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+</section>
+<section id="ulanish-to-plamini-tarqatish-bundle">
+<h3><span class="section-number">2.4. </span>3. Ulanish to’plamini tarqatish (Bundle)<a class="headerlink" href="#ulanish-to-plamini-tarqatish-bundle" title="Link to this heading">¶</a></h3>
+<p>Har bir foydalanuvchi uchun tizim avtomatik <strong>ulanish to’plamini</strong> (bundle)
+yaratadi. Bu to’plam mijoz qurilmasiga VPN’ni sozlash uchun kerakli barcha
+ma’lumotlarni o’z ichiga oladi:</p>
+<ul class="simple">
+<li><p>Mijoz sertifikati (<code class="docutils literal notranslate"><span class="pre">.p12</span></code> fayli).</p></li>
+<li><p>macOS/iOS uchun avtomatik sozlash profili (<code class="docutils literal notranslate"><span class="pre">.mobileconfig</span></code>).</p></li>
+<li><p>Server manzili va ulanish parametrlari.</p></li>
+</ul>
+<p>To’plamni yuklab olish uchun foydalanuvchi yonidagi <strong>To’plamni yuklab olish
+(Download Bundle)</strong> tugmasini bosing va uni foydalanuvchiga xavfsiz yo’l bilan
+yetkazing.</p>
+</section>
+<section id="faol-sessiyalarni-kuzatish">
+<h3><span class="section-number">2.5. </span>Faol sessiyalarni kuzatish<a class="headerlink" href="#faol-sessiyalarni-kuzatish" title="Link to this heading">¶</a></h3>
+<p>Sahifaning quyi qismida ayni paytda ulangan foydalanuvchilar ko’rsatiladi:</p>
+<ul class="simple">
+<li><p>Foydalanuvchi nomi.</p></li>
+<li><p>Berilgan virtual IP manzil.</p></li>
+<li><p>Mijozning haqiqiy (tashqi) IP manzili.</p></li>
+<li><p>Uzatilgan/qabul qilingan ma’lumot hajmi.</p></li>
+<li><p>Ulanish vaqti.</p></li>
+</ul>
+<p>Kerak bo’lganda foydalanuvchini majburan uzish (disconnect) mumkin.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Foydalanuvchi parolini yoki sertifikatini bekor qilsangiz, uning faol
+sessiyasini ham uzishni unutmang — aks holda u keyingi qayta ulanishgacha
+tarmoqda qoladi.</p>
+</div>
+</section>
+</section>
+<span id="document-vpn/s2s"></span><section id="site-to-site-vpn-ofislararo-tunnel">
+<h2><span class="section-number">3. </span>Site-to-Site VPN (Ofislararo tunnel)<a class="headerlink" href="#site-to-site-vpn-ofislararo-tunnel" title="Link to this heading">¶</a></h2>
+<p>Site-to-Site (S2S) VPN ikki tarmoqni (masalan, bosh ofis va filial) internet
+orqali doimiy shifrlangan tunnel bilan bog’laydi. Ikkala tomon foydalanuvchilari
+xuddi bitta lokal tarmoqdagidek bir-biri bilan aloqa qila oladi. Bu bo’limga
+o’tish uchun chap menyudagi <strong>VPN → Site-to-Site</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/vpn/s2s</span></code>).</p>
+<section id="tunnel-yaratish">
+<h3><span class="section-number">3.1. </span>Tunnel yaratish<a class="headerlink" href="#tunnel-yaratish" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p><strong>Tunnel qo’shish (Add Tunnel)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagi parametrlarni kiriting:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%"/>
+<col style="width: 70.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Maydon</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Nom (Name)</strong></p></td>
+<td><p>Tunnelning tushunarli nomi (masalan, <code class="docutils literal notranslate"><span class="pre">Bosh-ofis—Filial</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Masofaviy gateway (Peer IP)</strong></p></td>
+<td><p>Ikkinchi tomon (filial) qurilmasining ommaviy IP manzili.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Local subnet</strong></p></td>
+<td><p>Bu tomondagi (mahalliy) tarmoq, CIDR ko’rinishida.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Remote subnet</strong></p></td>
+<td><p>Narigi tomondagi (masofaviy) tarmoq, CIDR ko’rinishida.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Autentifikatsiya</strong></p></td>
+<td><p>Oldindan kelishilgan kalit (PSK) yoki sertifikat.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Shifrlash algoritmlari</strong></p></td>
+<td><p>IKE va ESP shifrlash to’plamlari. Ikkala tomonda bir xil bo’lishi
+shart.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Tunnel ishlashi uchun ikkala tomonning sozlamalari bir-biriga mos kelishi
+shart: bir tomonning “local subnet”i ikkinchi tomonning “remote subnet”i
+bo’lishi, autentifikatsiya kaliti va shifrlash algoritmlari bir xil bo’lishi
+kerak.</p>
+</div>
+</section>
+<section id="tunnelni-boshqarish">
+<h3><span class="section-number">3.2. </span>Tunnelni boshqarish<a class="headerlink" href="#tunnelni-boshqarish" title="Link to this heading">¶</a></h3>
+<p>Yaratilgan tunnellar ro’yxatida har biri uchun quyidagi amallar mavjud:</p>
+<ul class="simple">
+<li><p><strong>Yoqish/O’chirish (Enable/Disable)</strong> — tunnelni o’chirmasdan vaqtincha
+faolsizlantirish.</p></li>
+<li><p><strong>Ishga tushirish (Initiate)</strong> — tunnelni qo’lda ko’tarish.</p></li>
+<li><p><strong>To’xtatish (Terminate)</strong> — tunnelni qo’lda tushirish.</p></li>
+<li><p><strong>Tahrirlash / O’chirish</strong> — parametrlarni o’zgartirish yoki tunnelni
+o’chirish.</p></li>
+</ul>
+</section>
+<section id="holatni-kuzatish">
+<h3><span class="section-number">3.3. </span>Holatni kuzatish<a class="headerlink" href="#holatni-kuzatish" title="Link to this heading">¶</a></h3>
+<p>Har bir tunnel uchun joriy holat ko’rsatiladi:</p>
+<ul class="simple">
+<li><p><strong>UP</strong> — tunnel faol, shifrlangan aloqa o’rnatilgan.</p></li>
+<li><p><strong>DOWN</strong> — tunnel ishlamayapti (sozlamalar mosligini va peer mavjudligini
+tekshiring).</p></li>
+<li><p><strong>Connecting</strong> — ulanish o’rnatilmoqda.</p></li>
+</ul>
+</section>
+<section id="qo-shimcha-parametrlar">
+<h3><span class="section-number">3.4. </span>Qo’shimcha parametrlar<a class="headerlink" href="#qo-shimcha-parametrlar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>DPD (Dead Peer Detection)</strong> — narigi tomon javob bermay qolsa, buni
+aniqlash va tunnelni qayta tiklash.</p></li>
+<li><p><strong>Avtomatik kalit yangilash (Rekey)</strong> — xavfsizlik kalitlarini belgilangan
+vaqt oralig’ida avtomatik almashtirish.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Agar tunnel “DOWN” holatida qolsa, eng ko’p uchraydigan sabablar: ikki
+tomondagi shifrlash algoritmlarining mos kelmasligi, noto’g’ri PSK, yoki
+WAN tomonidagi firewall IPsec portlarini (UDP 500 va 4500) bloklab
+qo’ygani.</p>
+</div>
+</section>
+</section>
+<span id="document-vpn/settings"></span><section id="vpn-umumiy-sozlamalari-ipsec-settings">
+<h2><span class="section-number">4. </span>VPN umumiy sozlamalari (IPsec Settings)<a class="headerlink" href="#vpn-umumiy-sozlamalari-ipsec-settings" title="Link to this heading">¶</a></h2>
+<p>Bu bo’limda barcha VPN ulanishlariga (Remote Access va Site-to-Site) taalluqli
+umumiy sozlamalar boshqariladi. Bu bo’limga o’tish uchun chap menyudagi
+<strong>VPN → Settings</strong> bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/vpn/settings</span></code>).</p>
+<section id="asosiy-sozlamalar">
+<h3><span class="section-number">4.1. </span>Asosiy sozlamalar<a class="headerlink" href="#asosiy-sozlamalar" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%"/>
+<col style="width: 65.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sozlama</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Tinglovchi interfeys (WAN)</strong></p></td>
+<td><p>VPN tashqi ulanishlarni qabul qiladigan interfeys. Odatda WAN
+interfeysi tanlanadi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>IKE versiyasi</strong></p></td>
+<td><p>Kalit almashinuvi protokoli versiyasi (tavsiya etiladigan — IKEv2).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Shifrlash algoritmlari</strong></p></td>
+<td><p>Standart shifrlash to’plamlari: shifr (AES-128/192/256), xesh
+(SHA-256), Diffie-Hellman guruhi.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DPD (Dead Peer Detection)</strong></p></td>
+<td><p>Javob bermayotgan ulanishlarni aniqlash uchun tekshirish davri.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Kalit yangilash muddati (Rekey)</strong></p></td>
+<td><p>Xavfsizlik kalitlari avtomatik almashtirilish oralig’i.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ipsec-va-nat">
+<h3><span class="section-number">4.2. </span>IPsec va NAT<a class="headerlink" href="#ipsec-va-nat" title="Link to this heading">¶</a></h3>
+<p>Agar VPN trafigi NAT ortida joylashgan tarmoqdan o’tsa, <strong>NAT Traversal
+(NAT-T)</strong> funksiyasi avtomatik ishlaydi va trafikni UDP 4500-port orqali
+uzatadi. IPsec trafigining NAT bilan to’qnashmasligi uchun tizim mos bypass
+qoidalarini avtomatik yaratadi.</p>
+</section>
+<section id="sertifikatlar-bilan-bog-liqlik">
+<h3><span class="section-number">4.3. </span>Sertifikatlar bilan bog’liqlik<a class="headerlink" href="#sertifikatlar-bilan-bog-liqlik" title="Link to this heading">¶</a></h3>
+<p>VPN autentifikatsiyasi sertifikatlarga tayanadi. Server va mijoz
+sertifikatlarini PKI bo’limida boshqaring:
+<a class="reference internal" href="#document-security/certificates"><span class="doc">Sertifikatlar va PKI</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Shifrlash algoritmlarini o’zgartirishda ehtiyot bo’ling: Remote Access
+mijozlari va Site-to-Site peer’lari shu algoritmlarni qo’llab-quvvatlashi
+shart. Mos kelmaslik ulanishlarning uzilishiga olib keladi. Shubha tug’ilsa,
+standart (tavsiya etilgan) qiymatlarni qoldiring.</p>
+</div>
+</section>
 </section>
 </div>
 <div class="toctree-wrapper compound">
-<span id="document-system/users"></span><section id="foydalanuvchilar-boshqarishi">
-<h2><span class="section-number">1. </span>Foydalanuvchilar boshqarishi<a class="headerlink" href="#foydalanuvchilar-boshqarishi" title="Link to this heading">¶</a></h2>
+<span id="document-system/users"></span><section id="foydalanuvchilarni-boshqarish">
+<h2><span class="section-number">1. </span>Foydalanuvchilarni boshqarish<a class="headerlink" href="#foydalanuvchilarni-boshqarish" title="Link to this heading">¶</a></h2>
+<p>Bu bo’limda veb-panelga kirish huquqiga ega foydalanuvchi hisoblarini
+yaratish, tahrirlash va o’chirish bo’yicha qo’llanma keltirilgan. Bu bo’limga
+o’tish uchun chap menyudagi <strong>System → User Management</strong> bo’limini tanlang
+(<code class="docutils literal notranslate"><span class="pre">/user-mgmt</span></code>).</p>
+<section id="foydalanuvchi-rollari">
+<h3><span class="section-number">1.1. </span>Foydalanuvchi rollari<a class="headerlink" href="#foydalanuvchi-rollari" title="Link to this heading">¶</a></h3>
+<p>Sarhad NGFW da uchta rol mavjud bo’lib, har biri turli huquqlarni beradi:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%"/>
+<col style="width: 80.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Rol</p></th>
+<th class="head"><p>Huquqlar</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>root</strong></p></td>
+<td><p>Eng yuqori huquq. Barcha sozlamalarni o’zgartirish, foydalanuvchilarni
+boshqarish, litsenziyani boshqarish va tizim darajasidagi amallarni
+bajarish mumkin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>admin</strong></p></td>
+<td><p>Konfiguratsiyani ko’rish va o’zgartirish, foydalanuvchilar yaratish va
+boshqarish mumkin. Ba’zi tizim darajasidagi amallar faqat root uchun.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>readonly (user)</strong></p></td>
+<td><p>Faqat ko’rish huquqi. Tizim holati, statistika va hisobotlarni ko’rish
+mumkin, lekin hech narsani o’zgartira olmaydi.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="yangi-foydalanuvchi-qo-shish">
+<h3><span class="section-number">1.2. </span>Yangi foydalanuvchi qo’shish<a class="headerlink" href="#yangi-foydalanuvchi-qo-shish" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Foydalanuvchi qo’shish (Add User)</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni kiriting:</p>
+<ul class="simple">
+<li><p><strong>Foydalanuvchi nomi (Username)</strong> — kirish uchun noyob nom.</p></li>
+<li><p><strong>Parol (Password)</strong> — kuchli parol tanlang (qarang quyidagi tavsiyalar).</p></li>
+<li><p><strong>Rol (Role)</strong> — root, admin yoki readonly.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="parolni-o-zgartirish">
+<h3><span class="section-number">1.3. </span>Parolni o’zgartirish<a class="headerlink" href="#parolni-o-zgartirish" title="Link to this heading">¶</a></h3>
+<p>O’z parolingizni o’zgartirish uchun:</p>
+<ol class="arabic simple">
+<li><p><strong>Parolni o’zgartirish (Change Password)</strong> bo’limini oching.</p></li>
+<li><p>Joriy parolni va yangi parolni ikki marta kiriting.</p></li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Administrator boshqa foydalanuvchining parolini ham o’zgartirishi mumkin.</p>
+</section>
+<section id="foydalanuvchini-tahrirlash-va-o-chirish">
+<h3><span class="section-number">1.4. </span>Foydalanuvchini tahrirlash va o’chirish<a class="headerlink" href="#foydalanuvchini-tahrirlash-va-o-chirish" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Tahrirlash (Edit)</strong> — foydalanuvchi rolini yoki sozlamalarini o’zgartirish.</p></li>
+<li><p><strong>O’chirish (Delete)</strong> — foydalanuvchi hisobini o’chirish.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>So’nggi <strong>root</strong> yoki <strong>admin</strong> hisobini o’chirib qo’ymang — aks holda
+tizimni boshqarish imkoniyatini yo’qotasiz.</p>
+</div>
+</section>
+<section id="xavfsizlik-tavsiyalari">
+<h3><span class="section-number">1.5. </span>Xavfsizlik tavsiyalari<a class="headerlink" href="#xavfsizlik-tavsiyalari" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Standart <code class="docutils literal notranslate"><span class="pre">admin</span></code> parolini birinchi kirishdayoq o’zgartiring.</p></li>
+<li><p>Kuchli parollardan foydalaning: kamida 12 ta belgi, katta-kichik harflar,
+raqamlar va maxsus belgilar aralashmasi.</p></li>
+<li><p>Har bir xodimga alohida hisob bering — umumiy hisoblardan foydalanmang.</p></li>
+<li><p>Faqat zarur huquqlarni bering: ko’rish kifoya bo’lsa, <code class="docutils literal notranslate"><span class="pre">readonly</span></code> rolini
+tanlang.</p></li>
+<li><p>Foydalanuvchilarning kirish/chiqish faoliyati <a class="reference internal" href="#document-monitoring/logs"><span class="doc">Jurnallar (Logs)</span></a>
+bo’limida qayd etiladi — uni muntazam tekshirib turing.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sessiyalar xavfsizlik uchun ma’lum vaqtdan keyin avtomatik tugaydi.
+Faolsizlikdan so’ng tizim sizdan qayta kirishni so’rashi mumkin.</p>
+</div>
+</section>
+</section>
+<span id="document-system/time"></span><section id="tizim-vaqti-va-ntp">
+<h2><span class="section-number">2. </span>Tizim vaqti va NTP<a class="headerlink" href="#tizim-vaqti-va-ntp" title="Link to this heading">¶</a></h2>
+<p>To’g’ri sozlangan tizim vaqti juda muhim: u jurnallardagi (log) vaqt
+belgilarining aniqligi, sertifikatlarning amal qilish muddatini tekshirish
+va VPN ulanishlarining barqarorligi uchun zarur. Bu bo’limga o’tish uchun chap
+menyudagi <strong>System → Time</strong> bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/time</span></code>).</p>
+<section id="vaqtni-sozlash">
+<h3><span class="section-number">2.1. </span>Vaqtni sozlash<a class="headerlink" href="#vaqtni-sozlash" title="Link to this heading">¶</a></h3>
+<p>Vaqtni ikki usulda sozlash mumkin:</p>
+<ul class="simple">
+<li><p><strong>Avtomatik (NTP)</strong> — tizim vaqtni internet orqali NTP (Network Time
+Protocol) serverlaridan avtomatik oladi va doimo aniq saqlab turadi.
+Tavsiya etiladigan usul.</p></li>
+<li><p><strong>Qo’lda (Manual)</strong> — sanani va vaqtni qo’lda kiritish.</p></li>
+</ul>
+</section>
+<section id="ntp-serverlarini-sozlash">
+<h3><span class="section-number">2.2. </span>NTP serverlarini sozlash<a class="headerlink" href="#ntp-serverlarini-sozlash" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>NTP</strong>’ni yoqing.</p></li>
+<li><p>Bir yoki bir nechta NTP server manzilini kiriting (masalan,
+<code class="docutils literal notranslate"><span class="pre">pool.ntp.org</span></code> yoki mahalliy server).</p></li>
+<li><p><strong>Vaqt mintaqasini (Timezone)</strong> tanlang (masalan, <code class="docutils literal notranslate"><span class="pre">Asia/Tashkent</span></code>).</p></li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+<p>Sozlangandan so’ng tizim vaqtni avtomatik sinxronlashtiradi.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Agar tizim vaqti noto’g’ri bo’lsa, VPN sertifikatlari “amal muddati
+tugagan” deb noto’g’ri baholanishi va ulanishlar uzilishi mumkin. Shuning
+uchun NTP’ni yoqib qo’yish tavsiya etiladi.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Vaqt mintaqasini to’g’ri tanlang — jurnal yozuvlaridagi vaqt belgilari shu
+mintaqaga mos ko’rsatiladi, bu hodisalarni tahlil qilishni osonlashtiradi.</p>
+</div>
+</section>
 </section>
 </div>
 <div class="toctree-wrapper compound">
-<span id="document-vpn/ipsec"></span><section id="ipsec-sozlamalari">
-<h2><span class="section-number">1. </span>IPsec sozlamalari<a class="headerlink" href="#ipsec-sozlamalari" title="Link to this heading">¶</a></h2>
+<span id="document-monitoring/logs"></span><section id="jurnallar-logs">
+<h2><span class="section-number">1. </span>Jurnallar (Logs)<a class="headerlink" href="#jurnallar-logs" title="Link to this heading">¶</a></h2>
+<p>Sarhad NGFW tizimda sodir bo’layotgan barcha muhim hodisalarni — sozlama
+o’zgarishlari, kirish urinishlari, xavfsizlik voqealari — batafsil yozib
+boradi. Bu jurnallar tizim faoliyatini kuzatish, muammolarni aniqlash va
+xavfsizlik tekshiruvlari uchun zarur. Bu bo’limga o’tish uchun chap menyudagi
+<strong>Monitoring → Logs</strong> bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/logs</span></code>).</p>
+<section id="jurnal-toifalari">
+<h3><span class="section-number">1.1. </span>Jurnal toifalari<a class="headerlink" href="#jurnal-toifalari" title="Link to this heading">¶</a></h3>
+<p>Hodisalar quyidagi toifalarga ajratilgan:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%"/>
+<col style="width: 75.0%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Toifa</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Config</strong></p></td>
+<td><p>Sozlamalardagi o’zgarishlar (firewall qoidalari, NAT, marshrutlar,
+interfeyslar va h.k.).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Auth</strong></p></td>
+<td><p>Tizimga kirish va chiqish, parol o’zgarishlari, muvaffaqiyatsiz kirish
+urinishlari.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Admin</strong></p></td>
+<td><p>Foydalanuvchilarni boshqarish amallari (yaratish, o’chirish, tahrirlash).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>System</strong></p></td>
+<td><p>Tizim hodisalari (qayta yuklash, xizmatlarning ishga tushishi/to’xtashi).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>VPN</strong></p></td>
+<td><p>VPN autentifikatsiyasi, sessiyalarning ochilishi va yopilishi.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
+<section id="jurnal-yozuvi-tarkibi">
+<h3><span class="section-number">1.2. </span>Jurnal yozuvi tarkibi<a class="headerlink" href="#jurnal-yozuvi-tarkibi" title="Link to this heading">¶</a></h3>
+<p>Har bir yozuv quyidagi ma’lumotlarni o’z ichiga oladi:</p>
+<ul class="simple">
+<li><p><strong>Vaqt (Timestamp)</strong> — hodisa qachon sodir bo’lgani.</p></li>
+<li><p><strong>Toifa va muhimlik</strong> — info, ogohlantirish (warn) yoki xato (error).</p></li>
+<li><p><strong>Aktyor (Actor)</strong> — amalni bajargan foydalanuvchi va uning IP manzili.</p></li>
+<li><p><strong>Hodisa va amal</strong> — nima sodir bo’lgani.</p></li>
+<li><p><strong>Nishon (Target)</strong> — hodisa qaysi obyektga taalluqli.</p></li>
+<li><p><strong>Natija (Status)</strong> — muvaffaqiyatli (success) yoki muvaffaqiyatsiz (failure).</p></li>
+</ul>
+</section>
+<section id="jurnallarni-filtrlash-va-eksport-qilish">
+<h3><span class="section-number">1.3. </span>Jurnallarni filtrlash va eksport qilish<a class="headerlink" href="#jurnallarni-filtrlash-va-eksport-qilish" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Filtrlash</strong> — toifa, sana oralig’i yoki kalit so’z bo’yicha yozuvlarni
+saralash.</p></li>
+<li><p><strong>Eksport</strong> — jurnallarni tashqi faylga (CSV yoki JSON) yuklab olish.
+Bu hisobotlar tayyorlash yoki tashqi tahlil tizimlariga uzatish uchun
+foydali.</p></li>
+</ul>
+</section>
+<section id="saqlash-muddati-retention">
+<h3><span class="section-number">1.4. </span>Saqlash muddati (Retention)<a class="headerlink" href="#saqlash-muddati-retention" title="Link to this heading">¶</a></h3>
+<p>Jurnallar vaqt o’tishi bilan ko’p joy egallaydi. <strong>Log Settings</strong>
+(<code class="docutils literal notranslate"><span class="pre">/logs/settings</span></code>) bo’limida saqlash siyosatini sozlashingiz mumkin:</p>
+<ul class="simple">
+<li><p><strong>Saqlash muddati</strong> — yozuvlar necha kun saqlanishi (masalan, 90 kun).
+Bundan eski yozuvlar avtomatik o’chiriladi.</p></li>
+<li><p><strong>Qo’lda tozalash</strong> — eski yozuvlarni darhol tozalash.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Muvaffaqiyatsiz kirish urinishlari (Auth toifasidagi “failure” yozuvlari)
+ni muntazam tekshirib turing — ko’p sonli muvaffaqiyatsiz urinishlar
+parolni topishga (brute-force) urinish belgisi bo’lishi mumkin.</p>
 </div>
-<div class="toctree-wrapper compound">
-<span id="document-monitoring/logs"></span><section id="loglanri-boshqarish">
-<h2><span class="section-number">1. </span>Loglanri boshqarish<a class="headerlink" href="#loglanri-boshqarish" title="Link to this heading">¶</a></h2>
-<p>Loglanri boshqarish</p>
+</section>
+<section id="bog-liq-bo-limlar">
+<h3><span class="section-number">1.5. </span>Bog’liq bo’limlar<a class="headerlink" href="#bog-liq-bo-limlar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Tarmoq trafigi statistikasi: <a class="reference internal" href="#document-monitoring/flow"><span class="doc">Trafik monitoringi (Flow / IPFIX)</span></a></p></li>
+<li><p>Xavfsizlik ogohlantirishlari (IDS/IPS): <a class="reference internal" href="#document-security/ids"><span class="doc">Hujumlarni aniqlash va oldini olish (IDS/IPS)</span></a></p></li>
+</ul>
+</section>
+</section>
+<span id="document-monitoring/flow"></span><section id="trafik-monitoringi-flow-ipfix">
+<h2><span class="section-number">2. </span>Trafik monitoringi (Flow / IPFIX)<a class="headerlink" href="#trafik-monitoringi-flow-ipfix" title="Link to this heading">¶</a></h2>
+<p>Flow monitoringi tarmoqdan o’tayotgan trafik haqida batafsil statistik
+ma’lumotlarni (oqimlarni) yig’adi va ularni tashqi tahlil tizimiga yuborishi
+mumkin. Bu tarmoqdan kim, qayerga va qancha ma’lumot uzatayotganini ko’rish
+imkonini beradi. Bu bo’limga o’tish uchun chap menyudagi
+<strong>Monitoring → Flow Monitoring</strong> bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/flow-monitoring</span></code>).</p>
+<section id="asosiy-tushunchalar">
+<h3><span class="section-number">2.1. </span>Asosiy tushunchalar<a class="headerlink" href="#asosiy-tushunchalar" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Flow (oqim)</strong> — bir xil belgilarga ega (manba/manzil IP, port, protokol)
+paketlar ketma-ketligi. Masalan, bitta kompyuterning bitta saytga ulanishi —
+bu bitta oqim.</p></li>
+<li><p><strong>IPFIX / NetFlow</strong> — oqimlar haqidagi ma’lumotni standart formatda tashqi
+yig’uvchiga (collector) uzatish protokoli.</p></li>
+<li><p><strong>Collector</strong> — oqim ma’lumotlarini qabul qilib, saqlaydigan va tahlil
+qiladigan tashqi server.</p></li>
+</ul>
+</section>
+<section id="flow-eksportini-sozlash">
+<h3><span class="section-number">2.2. </span>Flow eksportini sozlash<a class="headerlink" href="#flow-eksportini-sozlash" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Flow Monitoring</strong> sahifasiga o’ting.</p></li>
+<li><p>Quyidagilarni sozlang:</p>
+<ul class="simple">
+<li><p><strong>Interfeyslar</strong> — qaysi interfeyslar trafigi kuzatilishi.</p></li>
+<li><p><strong>Collector manzili</strong> — oqim ma’lumotlari yuboriladigan tashqi server
+IP manzili va porti (masalan, <code class="docutils literal notranslate"><span class="pre">192.168.1.50:4739</span></code>).</p></li>
+<li><p><strong>Vaqt chegaralari (Timeouts)</strong> — faol va passiv oqimlar uchun eksport
+oralig’i.</p></li>
+</ul>
+</li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
+</section>
+<section id="nimaga-foydali">
+<h3><span class="section-number">2.3. </span>Nimaga foydali<a class="headerlink" href="#nimaga-foydali" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Tarmoqdan foydalanishni tahlil qilish</strong> — qaysi qurilmalar va ilovalar
+eng ko’p trafik hosil qilayotganini aniqlash.</p></li>
+<li><p><strong>Anomaliyalarni aniqlash</strong> — odatdagidan ko’p trafik xavfsizlik hodisasi
+(masalan, ma’lumot sizib chiqishi yoki DDoS) belgisi bo’lishi mumkin.</p></li>
+<li><p><strong>Sig’imni rejalashtirish</strong> — tarmoq kanalini kengaytirish zarurligini
+baholash.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Flow monitoringi trafik <em>mazmunini</em> emas, balki uning <em>metama’lumotlarini</em>
+(kim, qayerga, qancha) yig’adi. Trafik mazmunini tekshirish uchun
+<a class="reference internal" href="#document-security/ids"><span class="doc">Hujumlarni aniqlash va oldini olish (IDS/IPS)</span></a> (IDS/IPS) yoki <a class="reference internal" href="#document-security/tls-interception"><span class="doc">TLS trafigini tekshirish (TLS Interception)</span></a>
+funksiyalaridan foydalaning.</p>
+</div>
+</section>
 </section>
 </div>
 </section>
