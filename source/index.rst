@@ -5,6 +5,11 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
 
 **Sarhad NGFW** — korporativ tarmoqlarni himoya qilish, murakkab kiber tahdidlarga qarshi turish va yuqori tezlikdagi tarmoq trafigini tahlil qilish uchun mo'ljallangan yangi avlod tarmoq xavfsizlik devori.
 
+.. note::
+
+   📥 Qo'llanmaning to'liq PDF versiyasini yuklab olish:
+   :download:`SarhadNGFW.pdf </_static/SarhadNGFW.pdf>`
+
 .. image:: /_static/test_ar.png
    :alt: Sarhad NGFW Tizim Sxemasi
    :align: center
