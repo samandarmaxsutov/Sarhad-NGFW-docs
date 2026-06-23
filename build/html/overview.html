@@ -25,7 +25,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Tizimga kirish" href="introduction/login.html" />
+    <link rel="next" title="2. Litsenziya va faollashtirish" href="introduction/licensing.html" />
     <link rel="prev" title="Sarhad Next-Generation Firewall (Sarhad NGFW)" href="index.html" /> 
 </head>
 
@@ -64,40 +64,41 @@
 <li class="toctree-l2"><a class="reference internal" href="#qo-llanma-tuzilishi">1.2. Qo’llanma tuzilishi</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="introduction/login.html">2. Tizimga kirish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction/dashboard.html">3. Dashboard oynasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/licensing.html">2. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/login.html">3. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction/dashboard.html">4. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/routing.html">2. Marshrutlash (Routing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="network/nat.html">3. NAT (Manzil almashtirish)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network/dhcp.html">4. DHCP server va relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network/dhcp.html">4. DHCP server</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies/policer.html">3. Trafik tezligini cheklash (Policer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies/abf.html">3. Manbaga asoslangan marshrutlash (ABF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policies/policer.html">4. Trafik tezligini cheklash (Traffic Policing / QoS)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="security/certificates.html">3. Sertifikatlar va PKI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security/certificates.html">3. Tekshiruv sertifikatlari (Inspection Certificates)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/overview.html">1. VPN — Umumiy ko’rinish (Dashboard)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/authorities.html">4. Sertifikat markazlari (PKI / Authorities)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vpn/settings.html">5. VPN umumiy sozlamalari (Settings)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
@@ -139,9 +140,9 @@ asosiy qadamlarni ketma-ket ko’rsatadi.</p>
 <h2><span class="section-number">1.1. </span>Birinchi sozlash qadamlari<a class="headerlink" href="#birinchi-sozlash-qadamlari" title="Link to this heading"></a></h2>
 <section id="qurilmaga-ulanish">
 <h3><span class="section-number">1.1.1. </span>1. Qurilmaga ulanish<a class="headerlink" href="#qurilmaga-ulanish" title="Link to this heading"></a></h3>
-<p>Qurilma birinchi yoqilganda boshqaruv (MGMT) interfeysiga IP manzil berish
-kerak. Buni qurilmaga ulangan fizik konsol (monitor/klaviatura) orqali
-bajariladi: konsol menyusida IP manzil va niqobni kiriting.</p>
+<p>Qurilma birinchi marta yoqilganda boshqaruv (MGMT) interfeysiga IP manzil
+berish kerak. Buni qurilmaga ulangan fizik konsol (monitor/klaviatura) orqali
+bajaring: konsol menyusida IP manzil va niqobni kiriting.</p>
 <p>So’ngra shu tarmoqdagi kompyuter brauzeridan boshqaruv panelini oching:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://&lt;mgmt-ip&gt;:8443
 </pre></div>
@@ -183,9 +184,9 @@ qo’shasiz.</p>
 <h3><span class="section-number">1.1.7. </span>7. Qo’shimcha xizmatlar (ixtiyoriy)<a class="headerlink" href="#qo-shimcha-xizmatlar-ixtiyoriy" title="Link to this heading"></a></h3>
 <p>Asosiy tarmoq ishlaganidan so’ng kerakli qo’shimcha funksiyalarni yoqing:</p>
 <ul class="simple">
-<li><p>Masofaviy xodimlar uchun VPN: <a class="reference internal" href="vpn/overview.html"><span class="doc">VPN — Umumiy ko’rinish</span></a></p></li>
-<li><p>Hujumlarni aniqlash va to’sish: <a class="reference internal" href="security/ids.html"><span class="doc">Hujumlarni aniqlash va oldini olish (IDS/IPS)</span></a></p></li>
-<li><p>IP manzillarni avtomatik tarqatish: <a class="reference internal" href="network/dhcp.html"><span class="doc">DHCP server va relay</span></a></p></li>
+<li><p>Masofaviy xodimlar uchun VPN: <a class="reference internal" href="vpn/overview.html"><span class="doc">VPN — Umumiy ko’rinish (Dashboard)</span></a></p></li>
+<li><p>Hujumlarni aniqlash va oldini olish: <a class="reference internal" href="security/ids.html"><span class="doc">Hujumlarni aniqlash va oldini olish (IDS/IPS)</span></a></p></li>
+<li><p>IP manzillarni avtomatik tarqatish: <a class="reference internal" href="network/dhcp.html"><span class="doc">DHCP server</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -219,7 +220,7 @@ qo’shasiz.</p>
 <td><p>Remote Access, Site-to-Site va umumiy sozlamalar.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Tizim sozlamalari</strong></p></td>
-<td><p>Foydalanuvchilar va tizim vaqti.</p></td>
+<td><p>Foydalanuvchilarni boshqarish.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Monitoring</strong></p></td>
 <td><p>Jurnallar va trafik monitoringi.</p></td>
@@ -240,7 +241,7 @@ tushganidan keyin ham saqlanib qoladi.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Sarhad Next-Generation Firewall (Sarhad NGFW)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="introduction/login.html" class="btn btn-neutral float-right" title="2. Tizimga kirish" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction/licensing.html" class="btn btn-neutral float-right" title="2. Litsenziya va faollashtirish" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

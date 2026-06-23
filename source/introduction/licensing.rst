@@ -4,7 +4,12 @@ Litsenziya va faollashtirish
 
 Sarhad NGFW litsenziyalangan mahsulot bo'lib, boshqaruv interfeysidan
 foydalanish uchun amaldagi litsenziya talab qilinadi. Litsenziya har bir
-qurilmaga alohida bog'lanadi va internetga ulanishsiz (offline) tekshiriladi.
+qurilmaga alohida bog'lanadi va internetsiz (offline) tekshiriladi.
+
+.. image:: ../_static/licenses.png
+   :alt: Litsenziyani faollashtirish sahifasi
+   :align: center
+   :width: 100%
 
 Qanday ishlaydi
 ===============
@@ -22,8 +27,12 @@ Qanday ishlaydi
 Litsenziyani faollashtirish
 ===========================
 
-1. Tizimga kirgach, agar litsenziya o'rnatilmagan bo'lsa, avtomatik ravishda
-   ``/license`` sahifasiga yo'naltirilasiz.
+Litsenziyani faollashtirish **tizimga kirishdan oldin** bajariladi. Qurilma
+litsenziyalanmaguncha, kirish (login) sahifasi ham ochilmaydi — brauzer
+har qanday manzilda faqat ``/license`` faollashtirish sahifasini ko'rsatadi.
+
+1. Brauzerda boshqaruv manzilini oching — litsenziya o'rnatilmagan bo'lsa,
+   avtomatik ravishda ``/license`` sahifasi ochiladi.
 2. Sahifada ko'rsatilgan **Machine ID** ni nusxalang.
 3. Bu Machine ID ni mahsulot yetkazib beruvchiga (vendor) yuboring.
 4. Yetkazib beruvchi sizning qurilmangiz uchun litsenziya kalitini (token)
@@ -31,8 +40,9 @@ Litsenziyani faollashtirish
 5. Olingan litsenziya kalitini sahifadagi maydonga joylang va
    **Faollashtirish (Activate)** tugmasini bosing.
 
-Litsenziya to'g'ri bo'lsa, tizim darhol ochiladi va barcha bo'limlardan
-foydalanish mumkin bo'ladi.
+Litsenziya to'g'ri bo'lsa, tizim ochiladi va endi siz **tizimga kirishingiz**
+(login) hamda barcha bo'limlardan foydalanishingiz mumkin
+(qarang: :doc:`/introduction/login`).
 
 Litsenziya muddati
 ==================

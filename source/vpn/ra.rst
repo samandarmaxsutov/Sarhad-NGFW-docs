@@ -3,96 +3,156 @@ Remote Access VPN (Masofaviy kirish)
 ==========================================
 
 Remote Access (RA) VPN alohida foydalanuvchilarga o'z qurilmasidan (noutbuk,
-telefon) korporativ tarmoqqa xavfsiz ulanish imkonini beradi. Sarhad NGFW
-**IKEv2** protokoli va EAP autentifikatsiyasidan foydalanadi. Bu bo'limga
-o'tish uchun chap menyudagi **VPN → Remote Access** bo'limini tanlang
-(``/vpn/ra``).
+telefon) korporativ tarmoqqa xavfsiz ulanish imkonini beradi. Ulanish **IKEv2**
+protokoli va **EAP** (foydalanuvchi nomi/parol) autentifikatsiyasi asosida
+ishlaydi. Bu bo'limga o'tish uchun chap menyudan **VPN → Remote Access**
+bo'limini tanlang (``/vpn/ra``).
 
-Sozlash bosqichlari
-===================
+.. image:: ../_static/vpn_remote_access.png
+   :alt: Remote Access VPN sahifasi
+   :align: center
+   :width: 100%
 
-RA VPN'ni ishga tushirish uchun uchta asosiy qadam bajariladi:
+Sahifa uch tabdan iborat: **Gateways** (kirish nuqtalari), **Users**
+(foydalanuvchilar) va **Groups** (guruhlar).
 
-1. **Gateway** (kirish nuqtasi) yaratish.
-2. **Guruhlar** va **foydalanuvchilar** qo'shish.
-3. Foydalanuvchilarga **ulanish to'plamini (bundle)** tarqatish.
+VPN stekini yoqish
+==================
+
+Sahifaning yuqorisida umumiy boshqaruv elementlari joylashgan:
+
+- **Enable VPN stack** — VPN tizimini yoqadigan/o'chiradigan asosiy tugmacha.
+  O'chirilgan holatda hech bir gateway mijozlarni qabul qilmaydi.
+- **WAN** — VPN tashqi ulanishlarni tinglaydigan interfeys (standart holatda
+  "Auto — first WAN"). Bu interfeysni faqat VPN stek o'chirilgan holatda
+  o'zgartirish mumkin.
+
+Holat satrida tizim qaysi interfeysda tinglayotgani ko'rsatiladi.
 
 1. Gateway yaratish
 ===================
 
-Gateway — foydalanuvchilar ulanadigan VPN kirish nuqtasi.
+Gateway — foydalanuvchilar ulanadigan kirish nuqtasi. **Gateways** tabida
+**New Gateway** tugmasini bosing va quyidagilarni to'ldiring.
 
-1. **Gateway qo'shish (Add Gateway)** tugmasini bosing.
-2. Quyidagilarni kiriting:
-
-   - **Nom (Name)** — gateway nomi.
-   - **Tinglovchi interfeys** — odatda WAN interfeysi (tashqi ulanishlarni
-     qabul qiladi).
-   - **Server sertifikati** — gateway o'zini tasdiqlaydigan sertifikat
-     (PKI'dan, qarang: :doc:`/security/certificates`).
-   - **Manzillar puli (Client pool)** — ulangan mijozlarga beriladigan ichki
-     IP manzillar diapazoni (masalan, ``10.10.10.0/24``).
-   - **DNS serverlar** — mijozlarga beriladigan DNS manzillari.
-   - **Shifrlash algoritmlari** — IKE va ESP uchun shifrlash to'plamlari
-     (standart qiymatlar tavsiya etiladi).
-
-3. **Saqlash** tugmasini bosing.
-
-2. Guruh va foydalanuvchi qo'shish
-==================================
-
-Guruhlar
---------
-
-Guruhlar foydalanuvchilarni birlashtiradi va ularga qaysi ichki tarmoqlarga
-kirish ruxsat etilishini belgilaydi. Masalan, ``Buxgalteriya`` guruhi faqat
-buxgalteriya serverlariga kira oladi.
-
-1. **Guruh qo'shish (Add Group)** tugmasini bosing.
-2. Guruh nomi va ruxsat etilgan tarmoqlarni (allowed subnets) kiriting.
-
-Foydalanuvchilar
+Asosiy maydonlar
 ----------------
 
-1. **Foydalanuvchi qo'shish (Add User)** tugmasini bosing.
-2. Quyidagilarni kiriting:
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
 
-   - **Foydalanuvchi nomi (Username)**.
-   - **Parol (Password)** — EAP autentifikatsiyasi uchun.
-   - **Guruh** — foydalanuvchi qaysi guruhga tegishli.
+   * - Maydon
+     - Tavsifi
+   * - **Name**
+     - Gateway nomi (masalan, ``ra-main``).
+   * - **Server certificate**
+     - Gateway o'zini tasdiqlaydigan server sertifikati (PKI'dan tanlanadi;
+       imzolagan CA avtomatik biriktiriladi). Qarang: :doc:`/vpn/authorities`.
+   * - **Virtual-IP pool**
+     - Ulangan mijozlarga beriladigan ichki IP manzillar diapazoni, CIDR
+       ko'rinishida (masalan, ``10.10.10.0/24``).
+   * - **Route mode**
+     - **Split-tunnel** — faqat ko'rsatilgan ichki tarmoqlarga trafik VPN
+       orqali ketadi (standart). **Full-tunnel** — mijozning butun trafigi VPN
+       orqali o'tadi.
 
-3. **Saqlash** tugmasini bosing.
+Qo'shimcha maydonlar
+--------------------
 
-3. Ulanish to'plamini tarqatish (Bundle)
-========================================
+- **Public address** — mijozlar ulanadigan tashqi manzil yoki domen nomi
+  (masalan, ``vpn.example.com``). Mijoz konfiguratsiyasiga yoziladi.
+- **Listen interface** — IKE tinglovchi aniq WAN interfeysi (bo'sh qoldirilsa,
+  barcha WAN interfeyslari).
+- **DNS servers** — mijozlarga beriladigan DNS manzillari (Cloudflare, Google,
+  Quad9 uchun tezkor tugmalar mavjud).
+- **Reachable LAN/DMZ interfaces** — mijozlar kira oladigan ichki interfeyslar;
+  split-tunnel rejimida ularning tarmoqlari mijozga marshrut sifatida
+  yuboriladi.
+- **Crypto profile** — shifrlash to'plami. Standart "Recommended" qiymati
+  global sozlamalardan (:doc:`/vpn/settings`) olinadi; kerak bo'lsa
+  "Custom" orqali IKE/ESP proposal va vaqtlarni qo'lda kiriting.
 
-Har bir foydalanuvchi uchun tizim avtomatik **ulanish to'plamini** (bundle)
-yaratadi. Bu to'plam mijoz qurilmasiga VPN'ni sozlash uchun kerakli barcha
-ma'lumotlarni o'z ichiga oladi:
+Saqlangach, gateway jadvalidagi **Enabled** ustuni orqali uni yoqing.
 
-- Mijoz sertifikati (``.p12`` fayli).
-- macOS/iOS uchun avtomatik sozlash profili (``.mobileconfig``).
-- Server manzili va ulanish parametrlari.
+2. Guruhlar (Groups)
+====================
 
-To'plamni yuklab olish uchun foydalanuvchi yonidagi **To'plamni yuklab olish
-(Download Bundle)** tugmasini bosing va uni foydalanuvchiga xavfsiz yo'l bilan
+Guruhlar foydalanuvchilarni birlashtiradi va ularga umumiy siyosat beradi.
+**Groups** tabida **New Group** tugmasini bosib quyidagilarni belgilang:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Maydon
+     - Tavsifi
+   * - **Name**
+     - Guruh nomi (masalan, ``developers``).
+   * - **Route mode**
+     - Split-tunnel yoki full-tunnel.
+   * - **Allowed subnets**
+     - Guruh a'zolari kira oladigan ichki tarmoqlar (har qatorda bitta CIDR).
+   * - **Allowed protocols**
+     - Ruxsat etilgan protokol/portlar (masalan, ``tcp/443, udp/53, icmp,
+       any``).
+   * - **Idle timeout (s)**
+     - Faolsizlikdan so'ng sessiyani uzish vaqti (0 — cheksiz).
+   * - **Max concurrent**
+     - Bir a'zo uchun bir vaqtdagi maksimal sessiyalar soni (0 — cheksiz).
+
+3. Foydalanuvchilar (Users)
+===========================
+
+**Users** tabida **New User** tugmasini bosing:
+
+- **Username** — kirish nomi (yaratilgandan keyin o'zgartirib bo'lmaydi).
+- **Password** — parol (kamida 8 belgi; **Generate** tugmasi bilan kuchli
+  parol yaratish mumkin).
+- **Group** — foydalanuvchi qaysi guruhga tegishli (ixtiyoriy).
+- **Gateway** — qaysi gateway'ga biriktirilishi (ixtiyoriy; bo'sh qoldirilsa,
+  birinchi yoqilgan gateway).
+
+Qo'shimcha (overrides) bo'limida bu foydalanuvchi uchun **Static virtual IP**,
+**Expires at** (amal qilish muddati) hamda ruxsat etilgan tarmoq/protokollarni
+alohida belgilash mumkin.
+
+Ulanish konfiguratsiyasini tarqatish
+====================================
+
+Har bir foydalanuvchi yonidagi **yuklab olish** tugmasi orqali uning qurilmasi
+uchun tayyor konfiguratsiya faylini olasiz. Platforma bo'yicha to'rt format
+mavjud:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Platforma
+     - Fayl
+   * - **iOS / macOS**
+     - ``.mobileconfig`` — avtomatik o'rnatiladigan profil.
+   * - **Windows**
+     - ``.zip`` — sozlash skripti va mijoz sertifikati (``.pfx``).
+   * - **Linux**
+     - ``.zip`` — ``swanctl.conf`` parchasi va sertifikat.
+   * - **Android**
+     - ``.sswan`` — strongSwan ilovasi uchun profil.
+
+Har bir yuklab olishda mijoz uchun yangi sertifikat yaratiladi va uning
+``.p12`` paroli ko'rsatiladi. Faylni foydalanuvchiga **xavfsiz** yo'l bilan
 yetkazing.
 
-Faol sessiyalarni kuzatish
-==========================
+Boshqa amallar
+==============
 
-Sahifaning quyi qismida ayni paytda ulangan foydalanuvchilar ko'rsatiladi:
-
-- Foydalanuvchi nomi.
-- Berilgan virtual IP manzil.
-- Mijozning haqiqiy (tashqi) IP manzili.
-- Uzatilgan/qabul qilingan ma'lumot hajmi.
-- Ulanish vaqti.
-
-Kerak bo'lganda foydalanuvchini majburan uzish (disconnect) mumkin.
+Foydalanuvchi qatorida quyidagi amallar mavjud: tahrirlash, **parolni
+yangilash** (rotate), yoqish/o'chirish va o'chirish. Faol sessiyalarni
+:doc:`/vpn/overview` (VPN Dashboard) sahifasida kuzatish va kerak bo'lsa uzish
+mumkin.
 
 .. note::
 
-   Foydalanuvchi parolini yoki sertifikatini bekor qilsangiz, uning faol
-   sessiyasini ham uzishni unutmang — aks holda u keyingi qayta ulanishgacha
+   Foydalanuvchi parolini yangilasangiz yoki hisobini o'chirsangiz, uning faol
+   sessiyasini ham uzishni unutmang — aks holda u keyingi qayta ulanishigacha
    tarmoqda qoladi.

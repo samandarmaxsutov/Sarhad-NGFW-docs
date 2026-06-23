@@ -1,55 +1,62 @@
 ==============================
-DHCP server va relay
+DHCP server
 ==============================
 
 DHCP (Dynamic Host Configuration Protocol) tarmoqdagi qurilmalarga IP
-manzillarni avtomatik tarqatish imkonini beradi. Sarhad NGFW ichki **DHCP
-server** hamda **DHCP relay** funksiyalarini taqdim etadi.
-Bu bo'limga o'tish uchun chap menyudagi **Network → DHCP Server** bo'limini
-tanlang (``/dhcp-server``).
+manzillarni avtomatik tarqatish imkonini beradi. Bu bo'limga o'tish uchun chap
+menyudan **Network → DHCP Server** bo'limini tanlang (``/dhcp-server``).
 
-DHCP server
-===========
+.. image:: ../_static/dhcp.png
+   :alt: DHCP Server sahifasi
+   :align: center
+   :width: 100%
 
-DHCP server ichki tarmoqdagi mijozlarga IP manzil, tarmoq niqobi, gateway va
-DNS server kabi sozlamalarni avtomatik tarqatadi.
+DHCP qoidasi qo'shish
+=====================
 
-Subnet (tarmoq) qo'shish
-------------------------
+DHCP qoidasini yaratish juda sodda — interfeys tanlanadi va IP manzillar
+oralig'i kiritiladi. Tarmoq (subnet) va shlyuz (gateway) interfeysning o'z IP
+manzilidan avtomatik olinadi, ularni qo'lda kiritish shart emas.
 
-1. **Subnet qo'shish (Add Subnet)** tugmasini bosing.
-2. Quyidagilarni kiriting:
+1. **Add rule** tugmasini bosing.
+2. Quyidagilarni belgilang:
 
-   - **Tarmoq (Subnet)** — CIDR ko'rinishida (masalan, ``192.168.10.0/24``).
-   - **Manzillar diapazoni (Pool)** — tarqatiladigan IP manzillar oralig'i
-     (masalan, ``192.168.10.100`` — ``192.168.10.200``).
-   - **Gateway** — mijozlar uchun standart shlyuz (odatda interfeys IP manzili).
-   - **DNS serverlar** — mijozlarga beriladigan DNS manzillari.
-   - **Ijara muddati (Lease time)** — IP manzil mijozga necha vaqtga beriladi.
+   - **Interface** — DHCP xizmati ishlaydigan interfeysni tanlang.
+   - **IP range** — tarqatiladigan manzillar oralig'i
+     (masalan, ``20.20.20.10-20.20.20.200``).
 
 3. **Saqlash (Save)** tugmasini bosing.
 
-Ijaralar (Leases)
------------------
+.. image:: ../_static/dhcp_add.png
+   :alt: DHCP qoidasi qo'shish oynasi
+   :align: center
+   :width: 100%
 
-**Leases** bo'limida ayni paytda tarqatilgan IP manzillar ro'yxati
-ko'rsatiladi: mijoz MAC manzili, berilgan IP, qurilma nomi (hostname) va
-ijara tugash vaqti. Bu orqali tarmoqqa ulangan qurilmalarni kuzatish mumkin.
+Qo'shilgan qoidalar **Rules** jadvalida interfeys va IP oralig'i bilan
+ko'rsatiladi. Qoidani keyinchalik tahrirlash yoki o'chirish mumkin.
 
-DHCP relay
-==========
+Faol IP manzillar (Active leases)
+=================================
 
-Agar markaziy DHCP server boshqa tarmoqda joylashgan bo'lsa, DHCP relay
-mijozlarning so'rovlarini shu serverga uzatadi. Bu, ayniqsa, VLANlarga
-bo'lingan tarmoqlarda foydali — har bir VLAN'da alohida server saqlash shart
-emas.
+**Active leases** bo'limida ayni paytda qurilmalarga berilgan IP manzillar
+ro'yxati ko'rsatiladi:
 
-Relayni sozlash uchun:
+- **IP** — qurilmaga berilgan manzil.
+- **MAC** — qurilmaning fizik manzili.
+- **Hostname** — qurilma nomi.
+- **Expires** — manzilning amal qilish muddati tugash vaqti.
+- **Status** — manzil holati.
 
-- **Tinglovchi interfeys** — DHCP so'rovlari keladigan ichki interfeys yoki VLAN.
-- **DHCP server manzili** — so'rovlar uzatiladigan markaziy server IP manzili.
+Shu orqali tarmoqqa ulangan qurilmalarni kuzatib borish mumkin.
 
-.. note::
+Interfeys oynasidan yoqish
+==========================
 
-   Bitta tarmoqda DHCP server va DHCP relay bir vaqtning o'zida ishlamasligi
-   kerak — ulardan faqat bittasini tanlang.
+DHCP serverni interfeysning sozlash oynasidan ham yoqish mumkin
+(qarang: :doc:`/network/interface`):
+
+1. Interfeys qatorini ikki marta bosib, sozlash oynasini oching.
+2. **DHCP Server** tugmachasini yoqing.
+3. **IP Range** maydoniga manzillar oralig'ini kiriting — tarmoq va shlyuz
+   interfeys IP manzilidan avtomatik aniqlanadi va oynada ko'rsatiladi.
+4. **Saqlash** tugmasini bosing.

@@ -13,9 +13,9 @@ Birinchi sozlash qadamlari
 1. Qurilmaga ulanish
 --------------------
 
-Qurilma birinchi yoqilganda boshqaruv (MGMT) interfeysiga IP manzil berish
-kerak. Buni qurilmaga ulangan fizik konsol (monitor/klaviatura) orqali
-bajariladi: konsol menyusida IP manzil va niqobni kiriting.
+Qurilma birinchi marta yoqilganda boshqaruv (MGMT) interfeysiga IP manzil
+berish kerak. Buni qurilmaga ulangan fizik konsol (monitor/klaviatura) orqali
+bajaring: konsol menyusida IP manzil va niqobni kiriting.
 
 So'ngra shu tarmoqdagi kompyuter brauzeridan boshqaruv panelini oching:
 
@@ -71,7 +71,7 @@ Batafsil: :doc:`/policies/acl`.
 Asosiy tarmoq ishlaganidan so'ng kerakli qo'shimcha funksiyalarni yoqing:
 
 - Masofaviy xodimlar uchun VPN: :doc:`/vpn/overview`
-- Hujumlarni aniqlash va to'sish: :doc:`/security/ids`
+- Hujumlarni aniqlash va oldini olish: :doc:`/security/ids`
 - IP manzillarni avtomatik tarqatish: :doc:`/network/dhcp`
 
 Qo'llanma tuzilishi
@@ -96,7 +96,7 @@ Qo'llanma quyidagi bo'limlardan iborat:
    * - **VPN**
      - Remote Access, Site-to-Site va umumiy sozlamalar.
    * - **Tizim sozlamalari**
-     - Foydalanuvchilar va tizim vaqti.
+     - Foydalanuvchilarni boshqarish.
    * - **Monitoring**
      - Jurnallar va trafik monitoringi.
 

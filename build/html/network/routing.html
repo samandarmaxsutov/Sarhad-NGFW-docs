@@ -50,10 +50,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">2. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">3. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">4. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul class="current">
@@ -68,32 +68,32 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nat.html">3. NAT (Manzil almashtirish)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dhcp.html">4. DHCP server va relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcp.html">4. DHCP server</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/ip-groups.html">2. IP guruhlar (IP Groups)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">3. MAC manzili bo’yicha filtrlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Policer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/abf.html">3. Manbaga asoslangan marshrutlash (ABF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Traffic Policing / QoS)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Tekshiruv sertifikatlari (Inspection Certificates)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish (Dashboard)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/authorities.html">4. Sertifikat markazlari (PKI / Authorities)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">5. VPN umumiy sozlamalari (Settings)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
@@ -127,7 +127,7 @@
              
   <section id="marshrutlash-routing">
 <h1><span class="section-number">2. </span>Marshrutlash (Routing)<a class="headerlink" href="#marshrutlash-routing" title="Link to this heading"></a></h1>
-<p>Marshrutlash bo’limi tarmoq paketlarining qaysi yo’nalish (interfeys yoki
+<p>Marshrutlash bo’limi tarmoq paketlari qaysi yo’nalish (interfeys yoki
 keyingi tugun — next-hop) orqali yuborilishini belgilaydi. Bu bo’limga
 o’tish uchun chap menyudagi <strong>Network → Routes</strong> bo’limini tanlang
 (<code class="docutils literal notranslate"><span class="pre">/routes</span></code>).</p>
@@ -149,9 +149,9 @@ Har bir yozuv quyidagi ustunlardan iborat:</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>Manzil tarmog’i (Destination)</strong></p></td>
-<td><p>Marshrut qaysi tarmoqqa tegishli ekanligi, CIDR ko’rinishida
-(masalan, <code class="docutils literal notranslate"><span class="pre">10.20.0.0/16</span></code>). <code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> — bu standart marshrut
-(default route), ya’ni barcha boshqa marshrutlarga to’g’ri kelmaydigan
+<td><p>Marshrut qaysi tarmoqqa tegishli ekani, CIDR ko’rinishida
+(masalan, <code class="docutils literal notranslate"><span class="pre">10.20.0.0/16</span></code>). <code class="docutils literal notranslate"><span class="pre">0.0.0.0/0</span></code> — standart marshrut
+(default route), ya’ni boshqa hech bir marshrutga to’g’ri kelmaydigan
 trafik.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Keyingi tugun (Next-hop)</strong></p></td>
@@ -159,7 +159,7 @@ trafik.</p></td>
 (masalan, <code class="docutils literal notranslate"><span class="pre">192.168.1.254</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Chiquvchi interfeys (Interface)</strong></p></td>
-<td><p>Paket qaysi interfeys orqali chiqishi.</p></td>
+<td><p>Paket qaysi interfeys orqali chiqib ketishi.</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Manba (Protocol)</strong></p></td>
 <td><p>Marshrut qanday paydo bo’lgani: statik (qo’lda kiritilgan) yoki ulangan
@@ -197,7 +197,7 @@ avtomatik tarzda qo’shiladi.</p>
 <p>Marshrutni jadvaldan o’chirish uchun kerakli yozuv yonidagi <strong>O’chirish
 (Delete)</strong> tugmasini bosing. Ulangan (connected) marshrutlarni qo’lda
 o’chirib bo’lmaydi — ular interfeys IP manzili o’zgarganda yoki o’chirilganda
-avtomatik yangilanadi.</p>
+avtomatik yangilanib turadi.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Marshrutlash faqat paketning yo’nalishini belgilaydi. Trafikning ruxsat

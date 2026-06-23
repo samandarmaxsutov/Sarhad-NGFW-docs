@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3. Trafik tezligini cheklash (Policer) &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+  <title>4. Trafik tezligini cheklash (Traffic Policing / QoS) &mdash; Sarhad NGFW v2026.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1. Hujumlarni aniqlash va oldini olish (IDS/IPS)" href="../security/ids.html" />
-    <link rel="prev" title="2. MAC manzili bo’yicha filtrlash" href="mac-filter.html" /> 
+    <link rel="prev" title="3. Manbaga asoslangan marshrutlash (ABF)" href="abf.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,27 +50,28 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW umumiy ko’rinishi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">2. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">3. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">4. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Trafik tezligini cheklash (Policer)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#qanday-ishlaydi">3.1. Qanday ishlaydi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#policer-profili-yaratish">3.2. Policer profili yaratish</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#profilni-interfeysga-bog-lash">3.3. Profilni interfeysga bog’lash</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#misol-mehmon-tarmog-ini-cheklash">3.3.1. Misol: Mehmon tarmog’ini cheklash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abf.html">3. Manbaga asoslangan marshrutlash (ABF)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Trafik tezligini cheklash (Traffic Policing / QoS)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#qanday-ishlaydi">4.1. Qanday ishlaydi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qos-siyosati-yaratish">4.2. QoS siyosati yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#siyosatni-interfeysga-qo-llash">4.3. Siyosatni interfeysga qo’llash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#misol-mehmon-tarmog-ini-cheklash">4.3.1. Misol: Mehmon tarmog’ini cheklash</a></li>
 </ul>
 </li>
 </ul>
@@ -80,19 +81,19 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Tekshiruv sertifikatlari (Inspection Certificates)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish (Dashboard)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/authorities.html">4. Sertifikat markazlari (PKI / Authorities)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">5. VPN umumiy sozlamalari (Settings)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
@@ -114,7 +115,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">3. </span>Trafik tezligini cheklash (Policer)</li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Trafik tezligini cheklash (Traffic Policing / QoS)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/policies/policer.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -124,56 +125,70 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="trafik-tezligini-cheklash-policer">
-<h1><span class="section-number">3. </span>Trafik tezligini cheklash (Policer)<a class="headerlink" href="#trafik-tezligini-cheklash-policer" title="Link to this heading"></a></h1>
-<p>Policer (trafik cheklovchi) tarmoq trafigining tezligini (bandwidth)
-cheklash imkonini beradi. Bu orqali ayrim interfeyslar yoki ulanishlar tarmoq
-resurslarini haddan tashqari band qilib qo’yishining oldi olinadi. Bu bo’limga
-o’tish uchun chap menyudagi <strong>Firewall → Policer</strong> bo’limini tanlang
-(<code class="docutils literal notranslate"><span class="pre">/policer</span></code>).</p>
+  <section id="trafik-tezligini-cheklash-traffic-policing-qos">
+<h1><span class="section-number">4. </span>Trafik tezligini cheklash (Traffic Policing / QoS)<a class="headerlink" href="#trafik-tezligini-cheklash-traffic-policing-qos" title="Link to this heading"></a></h1>
+<p>Trafik tezligini cheklash (Traffic Policing) tarmoq trafigining tezligini
+(bandwidth) cheklash imkonini beradi. Bu orqali ayrim interfeyslar yoki
+foydalanuvchilarning tarmoq resurslarini haddan tashqari band qilib qo’yishining
+oldi olinadi. Ushbu bo’limga o’tish uchun chap menyudan <strong>Firewall → Policer</strong>
+bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/policer</span></code>).</p>
+<a class="reference internal image-reference" href="../_images/qos.png"><img alt="Traffic Policing (QoS) sahifasi" class="align-center" src="../_images/qos.png" style="width: 100%;" />
+</a>
 <section id="qanday-ishlaydi">
-<h2><span class="section-number">3.1. </span>Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Link to this heading"></a></h2>
-<p>Policer “token bucket” (token chelaki) algoritmidan foydalanadi: trafik
-belgilangan tezlikdan oshib ketsa, ortiqcha paketlar yo belgilanadi (mark) yoki
-tashlab yuboriladi (drop). Bu interfeysga kiruvchi yoki chiquvchi trafikning
-maksimal tezligini kafolatlash imkonini beradi.</p>
+<h2><span class="section-number">4.1. </span>Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Link to this heading"></a></h2>
+<p>Cheklov “token bucket” (token chelaki) algoritmiga asoslanadi: agar trafik
+belgilangan tezlikdan oshib ketsa, ortiqcha paketlar tashlab yuboriladi. Bu
+interfeysga kiruvchi yoki chiquvchi trafikning maksimal tezligini nazorat
+qilish imkonini beradi.</p>
 </section>
-<section id="policer-profili-yaratish">
-<h2><span class="section-number">3.2. </span>Policer profili yaratish<a class="headerlink" href="#policer-profili-yaratish" title="Link to this heading"></a></h2>
+<section id="qos-siyosati-yaratish">
+<h2><span class="section-number">4.2. </span>QoS siyosati yaratish<a class="headerlink" href="#qos-siyosati-yaratish" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p><strong>Profil qo’shish (Add Policer)</strong> tugmasini bosing.</p></li>
+<li><p><strong>Create Policy</strong> tugmasini bosing.</p></li>
 <li><p>Quyidagi parametrlarni kiriting:</p>
 <ul class="simple">
-<li><p><strong>Nom (Name)</strong> — profilning tushunarli nomi (masalan, <code class="docutils literal notranslate"><span class="pre">Mehmon-tarmoq-10M</span></code>).</p></li>
-<li><p><strong>CIR (Committed Information Rate)</strong> — kafolatlangan o’rtacha tezlik
-(masalan, 10 Mbit/s).</p></li>
-<li><p><strong>CBS (Committed Burst Size)</strong> — bir vaqtning o’zida ruxsat etilgan
-maksimal portlash hajmi (baytlarda).</p></li>
-<li><p><strong>Amal (Action)</strong> — chegaradan oshgan trafik bilan nima qilish:
-<code class="docutils literal notranslate"><span class="pre">drop</span></code> (tashlab yuborish) yoki <code class="docutils literal notranslate"><span class="pre">mark</span></code> (belgilash).</p></li>
+<li><p><strong>Policy Name</strong> — siyosatning tushunarli nomi
+(masalan, <code class="docutils literal notranslate"><span class="pre">100Mbps-limit</span></code>).</p></li>
+<li><p><strong>Committed Rate (CIR)</strong> — kafolatlangan o’rtacha tezlik. Qiymatni kiritib,
+birligini (Kbps, Mbps yoki Gbps) tanlang.</p></li>
+<li><p><strong>Committed Burst (CB)</strong> — bir vaqtning o’zida ruxsat etilgan maksimal
+burst (qisqa muddatli ortiqcha) hajmi.</p></li>
 </ul>
 </li>
-<li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
+<li><p><strong>Create</strong> tugmasini bosing.</p></li>
 </ol>
+<a class="reference internal image-reference" href="../_images/add_qos_policy.png"><img alt="QoS siyosatini yaratish oynasi" class="align-center" src="../_images/add_qos_policy.png" style="width: 100%;" />
+</a>
+<p>Yaratilgan siyosatlar jadvalda nomi, Rate (CIR), Burst (CB) va qo’llanilgan
+interfeyslari bilan ko’rsatiladi.</p>
 </section>
-<section id="profilni-interfeysga-bog-lash">
-<h2><span class="section-number">3.3. </span>Profilni interfeysga bog’lash<a class="headerlink" href="#profilni-interfeysga-bog-lash" title="Link to this heading"></a></h2>
-<p>Profil yaratilgandan so’ng uni bir yoki bir nechta interfeysga bog’lash kerak:</p>
+<section id="siyosatni-interfeysga-qo-llash">
+<h2><span class="section-number">4.3. </span>Siyosatni interfeysga qo’llash<a class="headerlink" href="#siyosatni-interfeysga-qo-llash" title="Link to this heading"></a></h2>
+<p>Siyosat yaratilgandan so’ng uni interfeysga qo’llash kerak. Buning uchun
+ro’yxatdagi siyosat <strong>qatorini ikki marta bosing (double-click)</strong> — qo’llash
+oynasi ochiladi:</p>
 <ul class="simple">
-<li><p><strong>Yo’nalish (Direction)</strong> — kiruvchi (ingress) yoki chiquvchi (egress)
-trafikni cheklash.</p></li>
-<li><p><strong>Interfeys</strong> — profil qaysi interfeysga qo’llanishi.</p></li>
+<li><p><strong>Policy</strong> — qo’llaniladigan siyosat.</p></li>
+<li><p><strong>Interface</strong> — siyosat qaysi interfeysga qo’llanishi.</p></li>
+<li><p><strong>Direction</strong> — yo’nalish:</p>
+<ul>
+<li><p><strong>Input</strong> — interfeysga <em>kiruvchi</em> trafikni cheklaydi.</p></li>
+<li><p><strong>Output</strong> — interfeysdan <em>chiquvchi</em> trafikni cheklaydi.</p></li>
 </ul>
+</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/apply_qos_polciy.png"><img alt="QoS siyosatini interfeysga qo'llash oynasi" class="align-center" src="../_images/apply_qos_polciy.png" style="width: 100%;" />
+</a>
 <section id="misol-mehmon-tarmog-ini-cheklash">
-<h3><span class="section-number">3.3.1. </span>Misol: Mehmon tarmog’ini cheklash<a class="headerlink" href="#misol-mehmon-tarmog-ini-cheklash" title="Link to this heading"></a></h3>
-<p>Mehmon foydalanuvchilari tarmog’i internetning butun kanalini band qilmasligi
-uchun unga 10 Mbit/s lik cheklov qo’yish mumkin. Buning uchun <code class="docutils literal notranslate"><span class="pre">CIR</span> <span class="pre">=</span> <span class="pre">10</span> <span class="pre">Mbit/s</span></code>
-bo’lgan profil yaratib, uni mehmon VLAN interfeysiga chiquvchi yo’nalishda
-bog’lang.</p>
+<h3><span class="section-number">4.3.1. </span>Misol: Mehmon tarmog’ini cheklash<a class="headerlink" href="#misol-mehmon-tarmog-ini-cheklash" title="Link to this heading"></a></h3>
+<p>Mehmon foydalanuvchilari tarmog’i internetning butun kanalini band qilib
+qo’ymasligi uchun unga 100 Mbps cheklov qo’yish mumkin. Buning uchun
+<code class="docutils literal notranslate"><span class="pre">CIR</span> <span class="pre">=</span> <span class="pre">100</span> <span class="pre">Mbps</span></code> bo’lgan siyosat yarating va uni mehmon interfeysiga
+<strong>Output</strong> yo’nalishida qo’llang.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Policer trafikni cheklaydi, lekin uni navbatga qo’yib kechiktirmaydi
-(shaping emas). Chegaradan oshgan paketlar darhol belgilanadi yoki tashlab
+<p>Bu mexanizm trafikni cheklaydi (policing), lekin uni navbatga qo’yib
+kechiktirmaydi (shaping emas). Chegaradan oshgan paketlar darhol tashlab
 yuboriladi.</p>
 </div>
 </section>
@@ -184,7 +199,7 @@ yuboriladi.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="mac-filter.html" class="btn btn-neutral float-left" title="2. MAC manzili bo’yicha filtrlash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="abf.html" class="btn btn-neutral float-left" title="3. Manbaga asoslangan marshrutlash (ABF)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../security/ids.html" class="btn btn-neutral float-right" title="1. Hujumlarni aniqlash va oldini olish (IDS/IPS)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

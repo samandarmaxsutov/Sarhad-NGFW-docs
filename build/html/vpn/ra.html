@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. Site-to-Site VPN (Ofislararo tunnel)" href="s2s.html" />
-    <link rel="prev" title="1. VPN — Umumiy ko’rinish" href="overview.html" /> 
+    <link rel="prev" title="1. VPN — Umumiy ko’rinish (Dashboard)" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,53 +50,54 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">2. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">3. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">4. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/ip-groups.html">2. IP guruhlar (IP Groups)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">3. MAC manzili bo’yicha filtrlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Policer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/abf.html">3. Manbaga asoslangan marshrutlash (ABF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Traffic Policing / QoS)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Tekshiruv sertifikatlari (Inspection Certificates)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. VPN — Umumiy ko’rinish (Dashboard)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Remote Access VPN (Masofaviy kirish)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#sozlash-bosqichlari">2.1. Sozlash bosqichlari</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gateway-yaratish">2.2. 1. Gateway yaratish</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#guruh-va-foydalanuvchi-qo-shish">2.3. 2. Guruh va foydalanuvchi qo’shish</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#guruhlar">2.3.1. Guruhlar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#foydalanuvchilar">2.3.2. Foydalanuvchilar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vpn-stekini-yoqish">2.1. VPN stekini yoqish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gateway-yaratish">2.2. 1. Gateway yaratish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#asosiy-maydonlar">2.2.1. Asosiy maydonlar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qo-shimcha-maydonlar">2.2.2. Qo’shimcha maydonlar</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ulanish-to-plamini-tarqatish-bundle">2.4. 3. Ulanish to’plamini tarqatish (Bundle)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#faol-sessiyalarni-kuzatish">2.5. Faol sessiyalarni kuzatish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guruhlar-groups">2.3. 2. Guruhlar (Groups)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#foydalanuvchilar-users">2.4. 3. Foydalanuvchilar (Users)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ulanish-konfiguratsiyasini-tarqatish">2.5. Ulanish konfiguratsiyasini tarqatish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boshqa-amallar">2.6. Boshqa amallar</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authorities.html">4. Sertifikat markazlari (PKI / Authorities)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">5. VPN umumiy sozlamalari (Settings)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
@@ -131,97 +132,177 @@
   <section id="remote-access-vpn-masofaviy-kirish">
 <h1><span class="section-number">2. </span>Remote Access VPN (Masofaviy kirish)<a class="headerlink" href="#remote-access-vpn-masofaviy-kirish" title="Link to this heading"></a></h1>
 <p>Remote Access (RA) VPN alohida foydalanuvchilarga o’z qurilmasidan (noutbuk,
-telefon) korporativ tarmoqqa xavfsiz ulanish imkonini beradi. Sarhad NGFW
-<strong>IKEv2</strong> protokoli va EAP autentifikatsiyasidan foydalanadi. Bu bo’limga
-o’tish uchun chap menyudagi <strong>VPN → Remote Access</strong> bo’limini tanlang
-(<code class="docutils literal notranslate"><span class="pre">/vpn/ra</span></code>).</p>
-<section id="sozlash-bosqichlari">
-<h2><span class="section-number">2.1. </span>Sozlash bosqichlari<a class="headerlink" href="#sozlash-bosqichlari" title="Link to this heading"></a></h2>
-<p>RA VPN’ni ishga tushirish uchun uchta asosiy qadam bajariladi:</p>
-<ol class="arabic simple">
-<li><p><strong>Gateway</strong> (kirish nuqtasi) yaratish.</p></li>
-<li><p><strong>Guruhlar</strong> va <strong>foydalanuvchilar</strong> qo’shish.</p></li>
-<li><p>Foydalanuvchilarga <strong>ulanish to’plamini (bundle)</strong> tarqatish.</p></li>
-</ol>
+telefon) korporativ tarmoqqa xavfsiz ulanish imkonini beradi. Ulanish <strong>IKEv2</strong>
+protokoli va <strong>EAP</strong> (foydalanuvchi nomi/parol) autentifikatsiyasi asosida
+ishlaydi. Bu bo’limga o’tish uchun chap menyudan <strong>VPN → Remote Access</strong>
+bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/vpn/ra</span></code>).</p>
+<a class="reference internal image-reference" href="../_images/vpn_remote_access.png"><img alt="Remote Access VPN sahifasi" class="align-center" src="../_images/vpn_remote_access.png" style="width: 100%;" />
+</a>
+<p>Sahifa uch tabdan iborat: <strong>Gateways</strong> (kirish nuqtalari), <strong>Users</strong>
+(foydalanuvchilar) va <strong>Groups</strong> (guruhlar).</p>
+<section id="vpn-stekini-yoqish">
+<h2><span class="section-number">2.1. </span>VPN stekini yoqish<a class="headerlink" href="#vpn-stekini-yoqish" title="Link to this heading"></a></h2>
+<p>Sahifaning yuqorisida umumiy boshqaruv elementlari joylashgan:</p>
+<ul class="simple">
+<li><p><strong>Enable VPN stack</strong> — VPN tizimini yoqadigan/o’chiradigan asosiy tugmacha.
+O’chirilgan holatda hech bir gateway mijozlarni qabul qilmaydi.</p></li>
+<li><p><strong>WAN</strong> — VPN tashqi ulanishlarni tinglaydigan interfeys (standart holatda
+“Auto — first WAN”). Bu interfeysni faqat VPN stek o’chirilgan holatda
+o’zgartirish mumkin.</p></li>
+</ul>
+<p>Holat satrida tizim qaysi interfeysda tinglayotgani ko’rsatiladi.</p>
 </section>
 <section id="gateway-yaratish">
 <h2><span class="section-number">2.2. </span>1. Gateway yaratish<a class="headerlink" href="#gateway-yaratish" title="Link to this heading"></a></h2>
-<p>Gateway — foydalanuvchilar ulanadigan VPN kirish nuqtasi.</p>
-<ol class="arabic simple">
-<li><p><strong>Gateway qo’shish (Add Gateway)</strong> tugmasini bosing.</p></li>
-<li><p>Quyidagilarni kiriting:</p>
+<p>Gateway — foydalanuvchilar ulanadigan kirish nuqtasi. <strong>Gateways</strong> tabida
+<strong>New Gateway</strong> tugmasini bosing va quyidagilarni to’ldiring.</p>
+<section id="asosiy-maydonlar">
+<h3><span class="section-number">2.2.1. </span>Asosiy maydonlar<a class="headerlink" href="#asosiy-maydonlar" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Maydon</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Name</strong></p></td>
+<td><p>Gateway nomi (masalan, <code class="docutils literal notranslate"><span class="pre">ra-main</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Server certificate</strong></p></td>
+<td><p>Gateway o’zini tasdiqlaydigan server sertifikati (PKI’dan tanlanadi;
+imzolagan CA avtomatik biriktiriladi). Qarang: <a class="reference internal" href="authorities.html"><span class="doc">Sertifikat markazlari (PKI / Authorities)</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Virtual-IP pool</strong></p></td>
+<td><p>Ulangan mijozlarga beriladigan ichki IP manzillar diapazoni, CIDR
+ko’rinishida (masalan, <code class="docutils literal notranslate"><span class="pre">10.10.10.0/24</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Route mode</strong></p></td>
+<td><p><strong>Split-tunnel</strong> — faqat ko’rsatilgan ichki tarmoqlarga trafik VPN
+orqali ketadi (standart). <strong>Full-tunnel</strong> — mijozning butun trafigi VPN
+orqali o’tadi.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="qo-shimcha-maydonlar">
+<h3><span class="section-number">2.2.2. </span>Qo’shimcha maydonlar<a class="headerlink" href="#qo-shimcha-maydonlar" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><strong>Nom (Name)</strong> — gateway nomi.</p></li>
-<li><p><strong>Tinglovchi interfeys</strong> — odatda WAN interfeysi (tashqi ulanishlarni
-qabul qiladi).</p></li>
-<li><p><strong>Server sertifikati</strong> — gateway o’zini tasdiqlaydigan sertifikat
-(PKI’dan, qarang: <a class="reference internal" href="../security/certificates.html"><span class="doc">Sertifikatlar va PKI</span></a>).</p></li>
-<li><p><strong>Manzillar puli (Client pool)</strong> — ulangan mijozlarga beriladigan ichki
-IP manzillar diapazoni (masalan, <code class="docutils literal notranslate"><span class="pre">10.10.10.0/24</span></code>).</p></li>
-<li><p><strong>DNS serverlar</strong> — mijozlarga beriladigan DNS manzillari.</p></li>
-<li><p><strong>Shifrlash algoritmlari</strong> — IKE va ESP uchun shifrlash to’plamlari
-(standart qiymatlar tavsiya etiladi).</p></li>
+<li><p><strong>Public address</strong> — mijozlar ulanadigan tashqi manzil yoki domen nomi
+(masalan, <code class="docutils literal notranslate"><span class="pre">vpn.example.com</span></code>). Mijoz konfiguratsiyasiga yoziladi.</p></li>
+<li><p><strong>Listen interface</strong> — IKE tinglovchi aniq WAN interfeysi (bo’sh qoldirilsa,
+barcha WAN interfeyslari).</p></li>
+<li><p><strong>DNS servers</strong> — mijozlarga beriladigan DNS manzillari (Cloudflare, Google,
+Quad9 uchun tezkor tugmalar mavjud).</p></li>
+<li><p><strong>Reachable LAN/DMZ interfaces</strong> — mijozlar kira oladigan ichki interfeyslar;
+split-tunnel rejimida ularning tarmoqlari mijozga marshrut sifatida
+yuboriladi.</p></li>
+<li><p><strong>Crypto profile</strong> — shifrlash to’plami. Standart “Recommended” qiymati
+global sozlamalardan (<a class="reference internal" href="settings.html"><span class="doc">VPN umumiy sozlamalari (Settings)</span></a>) olinadi; kerak bo’lsa
+“Custom” orqali IKE/ESP proposal va vaqtlarni qo’lda kiriting.</p></li>
 </ul>
-</li>
-<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
-</ol>
+<p>Saqlangach, gateway jadvalidagi <strong>Enabled</strong> ustuni orqali uni yoqing.</p>
 </section>
-<section id="guruh-va-foydalanuvchi-qo-shish">
-<h2><span class="section-number">2.3. </span>2. Guruh va foydalanuvchi qo’shish<a class="headerlink" href="#guruh-va-foydalanuvchi-qo-shish" title="Link to this heading"></a></h2>
-<section id="guruhlar">
-<h3><span class="section-number">2.3.1. </span>Guruhlar<a class="headerlink" href="#guruhlar" title="Link to this heading"></a></h3>
-<p>Guruhlar foydalanuvchilarni birlashtiradi va ularga qaysi ichki tarmoqlarga
-kirish ruxsat etilishini belgilaydi. Masalan, <code class="docutils literal notranslate"><span class="pre">Buxgalteriya</span></code> guruhi faqat
-buxgalteriya serverlariga kira oladi.</p>
-<ol class="arabic simple">
-<li><p><strong>Guruh qo’shish (Add Group)</strong> tugmasini bosing.</p></li>
-<li><p>Guruh nomi va ruxsat etilgan tarmoqlarni (allowed subnets) kiriting.</p></li>
-</ol>
 </section>
-<section id="foydalanuvchilar">
-<h3><span class="section-number">2.3.2. </span>Foydalanuvchilar<a class="headerlink" href="#foydalanuvchilar" title="Link to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p><strong>Foydalanuvchi qo’shish (Add User)</strong> tugmasini bosing.</p></li>
-<li><p>Quyidagilarni kiriting:</p>
+<section id="guruhlar-groups">
+<h2><span class="section-number">2.3. </span>2. Guruhlar (Groups)<a class="headerlink" href="#guruhlar-groups" title="Link to this heading"></a></h2>
+<p>Guruhlar foydalanuvchilarni birlashtiradi va ularga umumiy siyosat beradi.
+<strong>Groups</strong> tabida <strong>New Group</strong> tugmasini bosib quyidagilarni belgilang:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Maydon</p></th>
+<th class="head"><p>Tavsifi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Name</strong></p></td>
+<td><p>Guruh nomi (masalan, <code class="docutils literal notranslate"><span class="pre">developers</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Route mode</strong></p></td>
+<td><p>Split-tunnel yoki full-tunnel.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Allowed subnets</strong></p></td>
+<td><p>Guruh a’zolari kira oladigan ichki tarmoqlar (har qatorda bitta CIDR).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Allowed protocols</strong></p></td>
+<td><p>Ruxsat etilgan protokol/portlar (masalan, <code class="docutils literal notranslate"><span class="pre">tcp/443,</span> <span class="pre">udp/53,</span> <span class="pre">icmp,</span>
+<span class="pre">any</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Idle timeout (s)</strong></p></td>
+<td><p>Faolsizlikdan so’ng sessiyani uzish vaqti (0 — cheksiz).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Max concurrent</strong></p></td>
+<td><p>Bir a’zo uchun bir vaqtdagi maksimal sessiyalar soni (0 — cheksiz).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="foydalanuvchilar-users">
+<h2><span class="section-number">2.4. </span>3. Foydalanuvchilar (Users)<a class="headerlink" href="#foydalanuvchilar-users" title="Link to this heading"></a></h2>
+<p><strong>Users</strong> tabida <strong>New User</strong> tugmasini bosing:</p>
 <ul class="simple">
-<li><p><strong>Foydalanuvchi nomi (Username)</strong>.</p></li>
-<li><p><strong>Parol (Password)</strong> — EAP autentifikatsiyasi uchun.</p></li>
-<li><p><strong>Guruh</strong> — foydalanuvchi qaysi guruhga tegishli.</p></li>
+<li><p><strong>Username</strong> — kirish nomi (yaratilgandan keyin o’zgartirib bo’lmaydi).</p></li>
+<li><p><strong>Password</strong> — parol (kamida 8 belgi; <strong>Generate</strong> tugmasi bilan kuchli
+parol yaratish mumkin).</p></li>
+<li><p><strong>Group</strong> — foydalanuvchi qaysi guruhga tegishli (ixtiyoriy).</p></li>
+<li><p><strong>Gateway</strong> — qaysi gateway’ga biriktirilishi (ixtiyoriy; bo’sh qoldirilsa,
+birinchi yoqilgan gateway).</p></li>
 </ul>
-</li>
-<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
-</ol>
+<p>Qo’shimcha (overrides) bo’limida bu foydalanuvchi uchun <strong>Static virtual IP</strong>,
+<strong>Expires at</strong> (amal qilish muddati) hamda ruxsat etilgan tarmoq/protokollarni
+alohida belgilash mumkin.</p>
 </section>
-</section>
-<section id="ulanish-to-plamini-tarqatish-bundle">
-<h2><span class="section-number">2.4. </span>3. Ulanish to’plamini tarqatish (Bundle)<a class="headerlink" href="#ulanish-to-plamini-tarqatish-bundle" title="Link to this heading"></a></h2>
-<p>Har bir foydalanuvchi uchun tizim avtomatik <strong>ulanish to’plamini</strong> (bundle)
-yaratadi. Bu to’plam mijoz qurilmasiga VPN’ni sozlash uchun kerakli barcha
-ma’lumotlarni o’z ichiga oladi:</p>
-<ul class="simple">
-<li><p>Mijoz sertifikati (<code class="docutils literal notranslate"><span class="pre">.p12</span></code> fayli).</p></li>
-<li><p>macOS/iOS uchun avtomatik sozlash profili (<code class="docutils literal notranslate"><span class="pre">.mobileconfig</span></code>).</p></li>
-<li><p>Server manzili va ulanish parametrlari.</p></li>
-</ul>
-<p>To’plamni yuklab olish uchun foydalanuvchi yonidagi <strong>To’plamni yuklab olish
-(Download Bundle)</strong> tugmasini bosing va uni foydalanuvchiga xavfsiz yo’l bilan
+<section id="ulanish-konfiguratsiyasini-tarqatish">
+<h2><span class="section-number">2.5. </span>Ulanish konfiguratsiyasini tarqatish<a class="headerlink" href="#ulanish-konfiguratsiyasini-tarqatish" title="Link to this heading"></a></h2>
+<p>Har bir foydalanuvchi yonidagi <strong>yuklab olish</strong> tugmasi orqali uning qurilmasi
+uchun tayyor konfiguratsiya faylini olasiz. Platforma bo’yicha to’rt format
+mavjud:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Platforma</p></th>
+<th class="head"><p>Fayl</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>iOS / macOS</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.mobileconfig</span></code> — avtomatik o’rnatiladigan profil.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Windows</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.zip</span></code> — sozlash skripti va mijoz sertifikati (<code class="docutils literal notranslate"><span class="pre">.pfx</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Linux</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.zip</span></code> — <code class="docutils literal notranslate"><span class="pre">swanctl.conf</span></code> parchasi va sertifikat.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Android</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.sswan</span></code> — strongSwan ilovasi uchun profil.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Har bir yuklab olishda mijoz uchun yangi sertifikat yaratiladi va uning
+<code class="docutils literal notranslate"><span class="pre">.p12</span></code> paroli ko’rsatiladi. Faylni foydalanuvchiga <strong>xavfsiz</strong> yo’l bilan
 yetkazing.</p>
 </section>
-<section id="faol-sessiyalarni-kuzatish">
-<h2><span class="section-number">2.5. </span>Faol sessiyalarni kuzatish<a class="headerlink" href="#faol-sessiyalarni-kuzatish" title="Link to this heading"></a></h2>
-<p>Sahifaning quyi qismida ayni paytda ulangan foydalanuvchilar ko’rsatiladi:</p>
-<ul class="simple">
-<li><p>Foydalanuvchi nomi.</p></li>
-<li><p>Berilgan virtual IP manzil.</p></li>
-<li><p>Mijozning haqiqiy (tashqi) IP manzili.</p></li>
-<li><p>Uzatilgan/qabul qilingan ma’lumot hajmi.</p></li>
-<li><p>Ulanish vaqti.</p></li>
-</ul>
-<p>Kerak bo’lganda foydalanuvchini majburan uzish (disconnect) mumkin.</p>
+<section id="boshqa-amallar">
+<h2><span class="section-number">2.6. </span>Boshqa amallar<a class="headerlink" href="#boshqa-amallar" title="Link to this heading"></a></h2>
+<p>Foydalanuvchi qatorida quyidagi amallar mavjud: tahrirlash, <strong>parolni
+yangilash</strong> (rotate), yoqish/o’chirish va o’chirish. Faol sessiyalarni
+<a class="reference internal" href="overview.html"><span class="doc">VPN — Umumiy ko’rinish (Dashboard)</span></a> (VPN Dashboard) sahifasida kuzatish va kerak bo’lsa uzish
+mumkin.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Foydalanuvchi parolini yoki sertifikatini bekor qilsangiz, uning faol
-sessiyasini ham uzishni unutmang — aks holda u keyingi qayta ulanishgacha
+<p>Foydalanuvchi parolini yangilasangiz yoki hisobini o’chirsangiz, uning faol
+sessiyasini ham uzishni unutmang — aks holda u keyingi qayta ulanishigacha
 tarmoqda qoladi.</p>
 </div>
 </section>
@@ -231,7 +312,7 @@ tarmoqda qoladi.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="overview.html" class="btn btn-neutral float-left" title="1. VPN — Umumiy ko’rinish" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral float-left" title="1. VPN — Umumiy ko’rinish (Dashboard)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="s2s.html" class="btn btn-neutral float-right" title="3. Site-to-Site VPN (Ofislararo tunnel)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

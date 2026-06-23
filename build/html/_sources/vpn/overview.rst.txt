@@ -1,39 +1,87 @@
 ==========================================
-VPN — Umumiy ko'rinish
+VPN — Umumiy ko'rinish (Dashboard)
 ==========================================
 
-VPN (Virtual Private Network — virtual xususiy tarmoq) ochiq internet orqali
-xavfsiz, shifrlangan ulanish yaratish imkonini beradi. Sarhad NGFW **IPsec
-(IKEv2)** protokoli asosida ikki turdagi VPN'ni qo'llab-quvvatlaydi.
-Bu bo'limga o'tish uchun chap menyudagi **VPN → Overview** bo'limini tanlang
-(``/vpn``).
+VPN ulanishlari ochiq internet orqali xavfsiz, shifrlangan tunnel yaratadi.
+Sarhad NGFW **IKEv2 / IPsec** protokoliga asoslangan ikki turdagi VPN'ni
+qo'llab-quvvatlaydi. Bu bo'limga o'tish uchun chap menyudan **VPN → Dashboard**
+bo'limini tanlang (``/vpn``).
+
+.. image:: ../_static/vpn_overview.png
+   :alt: VPN Dashboard
+   :align: center
+   :width: 100%
+
+**VPN Dashboard** — kuzatuv (monitoring) sahifasi. U yerda ulanishlar sozlanmaydi,
+balki ayni paytdagi faol sessiyalar va trafik real vaqtda kuzatiladi. Sahifa
+har 5 soniyada avtomatik yangilanadi.
 
 VPN turlari
 ===========
 
 .. list-table::
    :header-rows: 1
-   :widths: 30 70
+   :widths: 28 72
 
    * - Tur
      - Tavsifi
    * - **Remote Access (RA)**
-     - Alohida foydalanuvchilar (masalan, masofadan ishlovchi xodimlar)
-       o'z qurilmasidan korporativ tarmoqqa xavfsiz ulanadi.
+     - Alohida foydalanuvchilar o'z qurilmasidan korporativ tarmoqqa ulanadi.
+       IKEv2 + EAP (foydalanuvchi nomi/parol) autentifikatsiyasi ishlatiladi.
        Qarang: :doc:`/vpn/ra`.
    * - **Site-to-Site (S2S)**
-     - Ikki ofis yoki tarmoqni internet orqali doimiy xavfsiz tunnel bilan
-       bog'laydi. Qarang: :doc:`/vpn/s2s`.
+     - Ikki ofis tarmog'ini doimiy IKEv2 tunnel bilan bog'laydi.
+       Qarang: :doc:`/vpn/s2s`.
 
-VPN holati dashboardi
-=====================
+Throughput grafigi
+==================
 
-Overview sahifasida VPN tizimining umumiy holati ko'rsatiladi:
+Sahifaning yuqorisidagi **Throughput (kbps)** grafigi barcha SA (Security
+Association) lar bo'yicha jami trafikni ko'rsatadi:
 
-- **Faol sessiyalar** — ayni paytda ulangan foydalanuvchilar va tunnellar soni.
-- **Tunnel holati** — har bir Site-to-Site tunnelning holati (UP/DOWN).
-- **Statistika** — uzatilgan va qabul qilingan ma'lumotlar hajmi.
-- **So'nggi hodisalar** — autentifikatsiya va ulanish hodisalari.
+- **In** — kiruvchi trafik (kbit/s).
+- **Out** — chiquvchi trafik (kbit/s).
+
+Grafik RA va S2S ulanishlarining umumiy o'tkazuvchanligini real vaqtda aks
+ettiradi.
+
+Faol sessiyalar (Live sessions)
+===============================
+
+**Live sessions** jadvalida ayni paytda o'rnatilgan barcha IKE SA'lar
+ko'rsatiladi. Ustunlar:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Ustun
+     - Tavsifi
+   * - **User / IKE**
+     - RA sessiyasi uchun — foydalanuvchi nomi (EAP ID) va u ulangan gateway
+       nomi. S2S uchun — tunnel (IKE ulanish) nomi.
+   * - **VIP**
+     - RA mijoziga manzillar pulidan berilgan virtual IP. S2S uchun bo'sh
+       (``—``).
+   * - **Public IP**
+     - Mijoz yoki masofaviy peer'ning tashqi (WAN) IP manzili.
+   * - **State**
+     - IKE SA holati: **Established** (o'rnatilgan), **Connecting**
+       (ulanmoqda), **Rekeying** (kalit yangilanmoqda), **Deleting**
+       (uzilmoqda).
+   * - **Bytes (in / out)**
+     - Shu sessiyada uzatilgan va qabul qilingan ma'lumot hajmi.
+   * - **Duration**
+     - Sessiya o'rnatilganidan beri o'tgan vaqt.
+   * - **Actions**
+     - Sessiyani majburan uzish (**Disconnect**) tugmasi.
+
+.. note::
+
+   Terminlar haqida qisqacha: **IKE SA** — boshqaruv kanali (kalit almashinuvi);
+   **Child SA (ESP)** — haqiqiy ma'lumotni shifrlovchi tunnel. Bitta IKE SA
+   ostida bir nechta Child SA bo'lishi mumkin; jadvaldagi baytlar ularning
+   yig'indisidir.
 
 Tayyorgarlik
 ============
@@ -41,15 +89,10 @@ Tayyorgarlik
 VPN'ni sozlashdan oldin quyidagilarni tayyorlang:
 
 1. **Sertifikatlar (PKI)** — VPN autentifikatsiyasi uchun CA va server
-   sertifikatlari kerak. Qarang: :doc:`/security/certificates`.
-2. **WAN interfeysi** — VPN tashqi internetdan ulanishlarni qabul qiladigan
-   interfeys. Qarang: :doc:`/vpn/settings`.
-3. **Firewall qoidalari** — VPN trafigi uchun mos ruxsatlar (odatda tizim
-   avtomatik yaratadi).
+   sertifikatlari. Qarang: :doc:`/vpn/authorities`.
+2. **WAN interfeysi** — VPN tashqi ulanishlarni qabul qiladigan interfeys.
+3. **Global sozlamalar** — shifrlash va vaqt parametrlari. Qarang:
+   :doc:`/vpn/settings`.
 
-Keyingi qadamlar
-================
-
-- Masofaviy foydalanuvchilar uchun: :doc:`/vpn/ra`
-- Ofislarni bog'lash uchun: :doc:`/vpn/s2s`
-- Umumiy VPN sozlamalari: :doc:`/vpn/settings`
+Keyingi qadamlar: :doc:`/vpn/ra` (masofaviy foydalanuvchilar),
+:doc:`/vpn/s2s` (ofislararo tunnel).

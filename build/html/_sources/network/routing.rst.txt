@@ -2,7 +2,7 @@
 Marshrutlash (Routing)
 ======================
 
-Marshrutlash bo'limi tarmoq paketlarining qaysi yo'nalish (interfeys yoki
+Marshrutlash bo'limi tarmoq paketlari qaysi yo'nalish (interfeys yoki
 keyingi tugun — next-hop) orqali yuborilishini belgilaydi. Bu bo'limga
 o'tish uchun chap menyudagi **Network → Routes** bo'limini tanlang
 (``/routes``).
@@ -25,15 +25,15 @@ Har bir yozuv quyidagi ustunlardan iborat:
    * - Ustun
      - Tavsifi
    * - **Manzil tarmog'i (Destination)**
-     - Marshrut qaysi tarmoqqa tegishli ekanligi, CIDR ko'rinishida
-       (masalan, ``10.20.0.0/16``). ``0.0.0.0/0`` — bu standart marshrut
-       (default route), ya'ni barcha boshqa marshrutlarga to'g'ri kelmaydigan
+     - Marshrut qaysi tarmoqqa tegishli ekani, CIDR ko'rinishida
+       (masalan, ``10.20.0.0/16``). ``0.0.0.0/0`` — standart marshrut
+       (default route), ya'ni boshqa hech bir marshrutga to'g'ri kelmaydigan
        trafik.
    * - **Keyingi tugun (Next-hop)**
      - Paket yuboriladigan keyingi gateway IP manzili
        (masalan, ``192.168.1.254``).
    * - **Chiquvchi interfeys (Interface)**
-     - Paket qaysi interfeys orqali chiqishi.
+     - Paket qaysi interfeys orqali chiqib ketishi.
    * - **Manba (Protocol)**
      - Marshrut qanday paydo bo'lgani: statik (qo'lda kiritilgan) yoki ulangan
        (connected — interfeys IP manzilidan kelib chiqqan).
@@ -70,7 +70,7 @@ Marshrutni o'chirish
 Marshrutni jadvaldan o'chirish uchun kerakli yozuv yonidagi **O'chirish
 (Delete)** tugmasini bosing. Ulangan (connected) marshrutlarni qo'lda
 o'chirib bo'lmaydi — ular interfeys IP manzili o'zgarganda yoki o'chirilganda
-avtomatik yangilanadi.
+avtomatik yangilanib turadi.
 
 .. note::
 

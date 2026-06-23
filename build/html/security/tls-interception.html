@@ -25,7 +25,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Sertifikatlar va PKI" href="certificates.html" />
+    <link rel="next" title="3. Tekshiruv sertifikatlari (Inspection Certificates)" href="certificates.html" />
     <link rel="prev" title="1. Hujumlarni aniqlash va oldini olish (IDS/IPS)" href="ids.html" /> 
 </head>
 
@@ -50,24 +50,24 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Sarhad NGFW Umumiy Ko’rinishi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">2. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">3. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">4. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/ip-groups.html">2. IP guruhlar (IP Groups)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">3. MAC manzili bo’yicha filtrlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Policer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/abf.html">3. Manbaga asoslangan marshrutlash (ABF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Traffic Policing / QoS)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul class="current">
@@ -77,19 +77,19 @@
 <li class="toctree-l2"><a class="reference internal" href="#sozlash">2.2. Sozlash</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="certificates.html">3. Sertifikatlar va PKI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="certificates.html">3. Tekshiruv sertifikatlari (Inspection Certificates)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish (Dashboard)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/authorities.html">4. Sertifikat markazlari (PKI / Authorities)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">5. VPN umumiy sozlamalari (Settings)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
@@ -124,49 +124,61 @@
   <section id="tls-trafigini-tekshirish-tls-interception">
 <h1><span class="section-number">2. </span>TLS trafigini tekshirish (TLS Interception)<a class="headerlink" href="#tls-trafigini-tekshirish-tls-interception" title="Link to this heading"></a></h1>
 <p>Bugungi kunda internet trafigining katta qismi shifrlangan (HTTPS/TLS).
-Bu xavfsizlikni oshirsa-da, zararli dasturlar ham o’z aloqasini shu shifr
-ostida yashirishi mumkin. <strong>TLS Interception</strong> funksiyasi shifrlangan
-trafikni vaqtincha ochib, tekshirib, qaytadan shifrlash imkonini beradi —
-shunda IDS/IPS va filtrlash tizimlari shifrlangan trafik ichini ham ko’ra
-oladi. Bu bo’limga o’tish uchun chap menyudagi <strong>Security → TLS Interception</strong>
+Bu xavfsizlikni oshiradi, biroq zararli dasturlar ham o’z aloqasini shu
+shifr ostida yashirishi mumkin. <strong>TLS Interception</strong> funksiyasi shifrlangan
+trafikni vaqtincha ochadi, tekshiradi va qaytadan shifrlaydi — natijada
+IDS/IPS va filtrlash tizimlari shifrlangan trafik ichini ham ko’ra oladi.
+Bu bo’limga o’tish uchun chap menyudagi <strong>Security → TLS Interception</strong>
 bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/tls-interception</span></code>).</p>
 <section id="qanday-ishlaydi">
 <h2><span class="section-number">2.1. </span>Qanday ishlaydi<a class="headerlink" href="#qanday-ishlaydi" title="Link to this heading"></a></h2>
 <p>TLS Interception “o’rtadagi ishonchli vositachi” (man-in-the-middle) tamoyili
 asosida ishlaydi:</p>
 <ol class="arabic simple">
-<li><p>Mijoz qurilmasi HTTPS sayt bilan bog’lanmoqchi bo’ladi.</p></li>
-<li><p>Sarhad NGFW ulanishni ushlab, o’zining sertifikati bilan mijozga ulanadi
-va alohida ravishda haqiqiy sayt bilan ulanadi.</p></li>
-<li><p>Trafik tizim ichida ochilib tekshiriladi, so’ngra qaytadan shifrlanadi.</p></li>
+<li><p>Mijoz qurilmasi HTTPS sayt bilan bog’lanishga harakat qiladi.</p></li>
+<li><p>Sarhad NGFW bu ulanishni ushlaydi: mijozga o’z sertifikati bilan, haqiqiy
+saytga esa alohida ulanadi.</p></li>
+<li><p>Trafik tizim ichida ochiladi va tekshiriladi, so’ngra qaytadan shifrlanadi.</p></li>
 </ol>
-<p>Ishlashi uchun mijoz qurilmalariga tizimning <strong>CA sertifikati</strong> ishonchli
-sifatida o’rnatilgan bo’lishi shart (qarang: <a class="reference internal" href="certificates.html"><span class="doc">Sertifikatlar va PKI</span></a>).</p>
+<p>Funksiya ishlashi uchun mijoz qurilmalariga tizimning <strong>CA sertifikati</strong>
+ishonchli sifatida o’rnatilgan bo’lishi shart
+(qarang: <a class="reference internal" href="certificates.html"><span class="doc">Tekshiruv sertifikatlari (Inspection Certificates)</span></a>).</p>
 </section>
 <section id="sozlash">
 <h2><span class="section-number">2.2. </span>Sozlash<a class="headerlink" href="#sozlash" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/tls_inspection.png"><img alt="TLS trafigini tekshirish sahifasi" class="align-center" src="../_images/tls_inspection.png" style="width: 100%;" />
+</a>
 <ol class="arabic simple">
-<li><p><strong>TLS Interception</strong> sahifasiga o’ting.</p></li>
-<li><p>Funksiyani <strong>yoqing (Enable)</strong>.</p></li>
+<li><p><strong>TLS Interception</strong> sahifasiga o’ting va funksiyani <strong>yoqing (Enable)</strong>.</p></li>
 <li><p>Quyidagilarni sozlang:</p>
 <ul class="simple">
-<li><p><strong>CA sertifikati</strong> — trafikni qaytadan shifrlash uchun ishlatiladigan
-sertifikat to’plami. Uni <a class="reference internal" href="certificates.html"><span class="doc">Sertifikatlar va PKI</span></a> bo’limida yuklang.</p></li>
-<li><p><strong>Tekshiriladigan interfeyslar</strong> — qaysi LAN interfeyslari trafigi
-tekshirilishi.</p></li>
-<li><p><strong>Tarmoq (Subnet) override</strong> — kerak bo’lsa, interfeysning standart
-tarmog’i o’rniga maxsus tarmoqni ko’rsatish.</p></li>
-<li><p><strong>QUIC bloklash</strong> — HTTP/3 (QUIC, UDP) protokolini bloklash. Bu brauzerlarni
-tekshirilishi mumkin bo’lgan oddiy HTTPS (TCP) ga qaytishga majbur qiladi.</p></li>
+<li><p><strong>Network Interfaces</strong> — tekshiriladigan LAN interfeyslarini tanlang.
+Har bir tanlangan interfeys uchun manba tarmoq (subnet) maydoni
+interfeysning o’z tarmog’i bilan avtomatik to’ldiriladi; kerak bo’lsa,
+uni o’zgartirib, aniq mijoz/manba tarmog’ini ko’rsating.</p></li>
+<li><p><strong>Intercept Ports</strong> — tekshiriladigan portlar (masalan, <code class="docutils literal notranslate"><span class="pre">443</span></code> — HTTPS).</p></li>
+<li><p><strong>QUIC block</strong> — QUIC (HTTP/3, UDP) portlarini bloklaydi. Bu brauzerlarni
+tekshirib bo’ladigan oddiy HTTPS (TCP) ga qaytishga majbur qiladi.</p></li>
+<li><p><strong>URL Exclusions</strong> — tekshiruvdan istisno qilinadigan URL yoki domenlar
+(masalan, bank yoki sog’liqni saqlash saytlari). Ko’p manzilni
+<strong>Bulk Import</strong> orqali bir vaqtda qo’shish mumkin.</p></li>
 </ul>
 </li>
-<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+<li><p>O’zgarishlarni kuchga kiritish uchun <strong>Apply</strong> tugmasini bosing. Saqlanmagan
+o’zgarishlar “Unsaved changes” deb belgilanadi; ularni <strong>Reset</strong> tugmasi
+bilan bekor qilish mumkin.</p></li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Trafikni qaytadan shifrlash uchun CA sertifikati kerak. CA sertifikati
+alohida sahifada yaratiladi va tekshiriladigan interfeyslarga biriktiriladi
+(qarang: <a class="reference internal" href="certificates.html"><span class="doc">Tekshiruv sertifikatlari (Inspection Certificates)</span></a>).</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>TLS Interception maxfiylikka ta’sir qiluvchi sezgir funksiya. Uni yoqishdan
-oldin tashkilotingizning xavfsizlik siyosati va qonuniy talablariga rioya
-qilinishiga ishonch hosil qiling. Bank, sog’liqni saqlash kabi maxfiy
+oldin tashkilotingizning xavfsizlik siyosati va qonuniy talablarga rioya
+qilinayotganiga ishonch hosil qiling. Bank va sog’liqni saqlash kabi maxfiy
 saytlar trafigini tekshirishdan istisno qilish tavsiya etiladi.</p>
 </div>
 <div class="admonition note">
@@ -183,7 +195,7 @@ istisno (bypass) qoidalarini qo’shing.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ids.html" class="btn btn-neutral float-left" title="1. Hujumlarni aniqlash va oldini olish (IDS/IPS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="certificates.html" class="btn btn-neutral float-right" title="3. Sertifikatlar va PKI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="certificates.html" class="btn btn-neutral float-right" title="3. Tekshiruv sertifikatlari (Inspection Certificates)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

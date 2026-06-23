@@ -2,98 +2,166 @@
 Hujumlarni aniqlash va oldini olish (IDS/IPS)
 ==================================================
 
-Sarhad NGFW tarmoqdagi shubhali va zararli faoliyatni aniqlash hamda to'sish
-uchun o'rnatilgan IDS/IPS tizimidan foydalanadi. Bu bo'limga o'tish uchun chap
-menyudagi **Security → Intrusion Prevention** bo'limini tanlang
-(``/intrusion-prevention``).
+Sarhad NGFW tarmoqdagi shubhali va zararli faoliyatni aniqlash hamda oldini
+olish uchun o'rnatilgan IDS/IPS tizimidan foydalanadi. Tizim **Snort** dvigateli
+asosida ishlaydi, shuning uchun maxsus qoidalar Snort sintaksisida yoziladi.
+Ushbu bo'limga o'tish uchun chap menyudan **Security → Intrusion Prevention**
+bo'limini tanlang (``/intrusion-prevention``).
 
 Asosiy tushunchalar
 ===================
 
 - **IDS (Intrusion Detection System)** — hujumlarni *aniqlaydi* va ogohlantirish
-  (alert) yaratadi, lekin trafikni to'smaydi.
+  (alert) yaratadi, lekin trafikni to'xtatmaydi.
 - **IPS (Intrusion Prevention System)** — hujumlarni aniqlash bilan birga
-  zararli trafikni *to'sadi* (bloklaydi).
+  zararli trafikni *to'xtatadi* (bloklaydi).
 
-Tizim tarmoq paketlarini maxsus **qoidalar (rules)** to'plamiga solishtiradi.
-Agar paket biror qoidaga mos kelsa (masalan, ma'lum bir virus yoki hujum
-imzosi), tizim ogohlantirish yaratadi yoki paketni bloklaydi.
+Tizim tarmoq paketlarini maxsus **qoidalar (rules)** to'plami bilan
+solishtiradi. Agar paket biror qoidaga (masalan, ma'lum bir virus yoki hujum
+imzosiga) mos kelsa, tizim ogohlantirish yaratadi yoki paketni bloklaydi.
 
-IDS/IPS ni yoqish va sozlash
-============================
+Sahifa uch tabdan iborat: **Settings** (sozlash), **Rules** (qoidalar manbalari)
+va **Alerts** (ogohlantirishlar). Yuqorida xizmatni boshqarish tugmalari
+(**Start**, **Stop**, **Restart**) joylashgan.
 
-Konfiguratsiya bo'limida quyidagi asosiy parametrlarni sozlash mumkin:
+.. tip::
 
-- **Rejim** — IDS (faqat aniqlash) yoki IPS (aniqlash va bloklash).
-- **HOME_NET** — himoyalanadigan ichki tarmoq(lar) (masalan,
-  ``192.168.0.0/16``). Tizim qaysi tarmoq "ichki" ekanligini shu orqali biladi.
-- **EXTERNAL_NET** — tashqi tarmoq ta'rifi (odatda HOME_NET'dan tashqari
-  hammasi).
-- **Jurnal rejimi** — ogohlantirishlarni qanday yozib borish.
+   Agar kiritilgan o'zgarishlar darhol ko'rinmasa, sahifaning yuqori
+   burchagidagi **Refresh** tugmasini bosing.
 
-Sozlashdan so'ng **Saqlash** tugmasini bosing va kerak bo'lsa IDS/IPS xizmatini
-qayta ishga tushiring (restart).
+Settings tabi — yoqish va sozlash
+=================================
 
-Qoidalarni boshqarish
-=====================
+.. image:: ../_static/idps_start.png
+   :alt: IDS/IPS ni yoqish va sozlash
+   :align: center
+   :width: 100%
 
-Qoidalar manbalari (Rule sources)
----------------------------------
+Tekshiriladigan interfeyslar
+----------------------------
 
-Tizim qoidalarni tashqi manbalardan yuklab oladi va muntazam yangilab turadi.
-Quyidagi manbalar qo'llab-quvvatlanadi:
+**Interfaces** bo'limida IDS/IPS qaysi interfeyslar trafigini tekshirishi
+belgilanadi. Kerakli interfeysni tanlab, **Add** tugmasi bilan qo'shing.
+Tekshiruv faqat shu interfeyslarga qo'llaniladi.
 
-- **Jamoaviy (Community) qoidalar** — bepul, ochiq qoidalar to'plami.
-- **Obuna (Subscriber) qoidalar** — ro'yxatdan o'tgan foydalanuvchilar uchun
-  qoidalar (obuna kaliti talab qiladi).
-- **Maxsus (custom) manbalar** — boshqa tashqi qoida manbalari.
+Tekshiruv siyosati
+------------------
 
-Manba qo'shish uchun:
+- **Inspection policy** — tekshiruv qat'iyligi darajasi.
+- **Detection effort** — aniqlash chuqurligi (yuqori daraja ko'proq tahdidni
+  topadi, biroq ko'proq resurs talab qiladi).
 
-1. **Manba qo'shish (Add Source)** tugmasini bosing.
-2. Manba URL manzili va kerak bo'lsa **obuna kaliti** ni kiriting.
-3. Yangilanish jadvalini (avtomatik yoki qo'lda) tanlang.
+Advanced — HOME tarmog'i (network scope)
+----------------------------------------
 
-Qoidalarni yoqish/o'chirish
----------------------------
+**Advanced** bo'limida himoyalanadigan ichki tarmoq (HOME network) belgilanadi.
+Tizim tanlangan interfeyslar asosida mos tarmoqni avtomatik **taklif qiladi**:
 
-Qoidalar toifalarga (kategoriyalarga) bo'lingan (masalan, malware, exploit,
-veb-hujumlar). Har bir toifani alohida yoqish yoki o'chirish mumkin. Bu
-keraksiz ogohlantirishlarni kamaytirish va tizim yukini optimallashtirish
+1. Taklif qilingan qiymatni qo'llash uchun **Apply** tugmasini bosing
+   (yoki tarmoqni qo'lda kiriting, masalan ``192.168.0.0/16``).
+2. So'ngra **Save network scope** tugmasini bosib, tarmoq doirasini saqlang.
+
+To'g'ri belgilangan HOME tarmog'i tizimga "ichki" va "tashqi" trafikni farqlash
 imkonini beradi.
 
-Avtomatik qoidalar boshqaruvi
------------------------------
+Maxsus qoidalar (custom rules)
+------------------------------
 
-Tizim qoidalarni avtomatik yuklab olish, yangilash va birlashtirish imkonini
-beradi. U eskirgan qoidalarni almashtiradi va manbalar o'rtasidagi qoidalarni
-muvofiqlashtiradi. Avtomatik yangilanishni yoqib qo'ysangiz, qoidalar muntazam
-ravishda o'zi yangilanib turadi.
+Tashqi manbalardan tashqari, o'zingizning maxsus qoidalaringizni Snort
+sintaksisida yozishingiz mumkin. Buni ikki usulda qilish mumkin:
 
-Maxsus qoidalar
----------------
+- **Quick add (namunaviy qoidalar)** — tayyor namunalar yordamida qoida tuzish.
+  Tayyor namunalardan birini tanlasangiz (masalan, ``SSH (22) log``,
+  ``DNS (53) log``, ``Block TCP port`` yoki QUIC trafigini bloklash), maydonlar
+  avtomatik to'ldiriladi. So'ngra quyidagilarni moslang:
 
-Tashqi manbalardan tashqari, o'zingizning maxsus qoidalaringizni ham
-qo'shishingiz mumkin. Bu o'ziga xos tahdidlarga qarshi maxsus himoya yaratish
-uchun foydali.
+  - **Action** — ``Log (alert)`` (ogohlantirish), ``Drop`` (tashlab yuborish)
+    yoki ``Reject`` (rad etish).
+  - **Protocol** — TCP, UDP, ICMP yoki IP (any).
+  - **Source / Destination** — manba va manzil (yoki ``any``).
+  - **Dest port** — manzil porti.
+  - **Message** — qoida ishga tushganda yoziladigan izoh.
 
-Ogohlantirishlar (Alerts)
-=========================
+  So'ng **Append to editor** tugmasini bosing — qoida quyidagi tahrirlagichga
+  qo'shiladi.
 
-**Alerts** bo'limida tizim aniqlagan barcha hodisalar ko'rsatiladi:
+- **Qo'lda yozish** — qoidalarni to'g'ridan-to'g'ri tahrirlagich (editor)
+  oynasiga Snort sintaksisida yozish.
 
-- **Vaqt (Timestamp)** — hodisa qachon sodir bo'lgani.
-- **Imzo (Signature / SID)** — ishga tushgan qoidaning identifikatori.
-- **Xabar (Message)** — hodisaning tavsifi.
-- **Muhimlik (Priority)** — tahdidning xavf darajasi.
-- **Manba/Manzil** — hujumning kelib chiqishi va nishoni.
+Qoidalarni yozib bo'lgach, **Save rules** tugmasini bosing. Faol qoidalarni
+qayta yuklash uchun **Reload active rules** tugmasidan foydalaning.
 
-Ogohlantirishlarni muhimlik darajasi yoki vaqt bo'yicha filtrlash va tashqi
-faylga (CSV) eksport qilish mumkin.
+.. important::
+
+   Maxsus qoidalar ishlashi uchun pastdagi **Additional rule packs** bo'limida
+   **local rules** (mahalliy qoidalar) yoqilgan bo'lishi shart. Aks holda siz
+   yozgan qoidalar qo'llanmaydi.
+
+Rules tabi — qoidalar manbalari
+===============================
+
+.. image:: ../_static/idps_rules.png
+   :alt: IDS/IPS qoidalar manbalari
+   :align: center
+   :width: 100%
+
+Bu tabda tayyor qoidalar to'plamlari (rule sources) yuklab olinadi va yangilab
+turiladi:
+
+- **Community** — bepul, ochiq qoidalar to'plami (kalit talab qilmaydi).
+- **Talos** — kengaytirilgan qoidalar to'plami (obuna kaliti talab qilishi
+  mumkin; kalitni manba kartasidagi maydonga kiriting).
+
+Har bir manba uchun:
+
+1. **Download** tugmasini bosib qoidalarni yuklab oling. Holat ko'rsatkichi
+   yuklangan qoidalar sonini (``N rules``) yoki ``Not downloaded`` ni ko'rsatadi.
+2. **Auto-update** tugmachasini yoqib, yangilanish oralig'ini (``Every 6h``,
+   ``12h`` yoki ``24h``) tanlang — shunda qoidalar muntazam avtomatik
+   yangilanib turadi.
+
+Alerts tabi — ogohlantirishlar
+==============================
+
+.. image:: ../_static/idps_alerts.png
+   :alt: IDS/IPS ogohlantirishlari
+   :align: center
+   :width: 100%
+
+**Alerts** tabida tizim aniqlagan barcha hodisalar jadval ko'rinishida
+ko'rsatiladi. Ustunlar:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 18 82
+
+   * - Ustun
+     - Tavsifi
+   * - **Time**
+     - Hodisa sodir bo'lgan sana va vaqt.
+   * - **Pri**
+     - Muhimlik darajasi (priority). Raqam qancha kichik bo'lsa, tahdid shuncha
+       jiddiy.
+   * - **ID**
+     - Ishga tushgan qoidaning identifikatori (signature ID / SID).
+   * - **Proto**
+     - Hodisaga tegishli protokol (TCP, UDP, ICMP va h.k.).
+   * - **Source**
+     - Trafikning manba IP manzili (va porti) — hujum qayerdan kelgani.
+   * - **Destination**
+     - Trafikning manzil IP manzili (va porti) — nishon.
+   * - **Action**
+     - Tizim bajargan amal: ``alert`` (ogohlantirish), ``drop`` (tashlangan)
+       yoki ``reject`` (rad etilgan).
+   * - **Message**
+     - Hodisaning tavsifi — qaysi tahdid yoki holat aniqlangani.
+
+Ogohlantirishlarni ko'rib chiqib, takror yoki noto'g'ri (false positive)
+qoidalarni sozlash orqali tizimni aniqlashtirib borish mumkin.
 
 .. note::
 
-   IPS rejimida noto'g'ri sozlangan qoidalar haqiqiy (zararsiz) trafikni
-   bloklab qo'yishi mumkin (false positive). Yangi qoidalarni avval IDS
-   (faqat aniqlash) rejimida sinab ko'rib, so'ngra IPS rejimiga o'tkazish
-   tavsiya etiladi.
+   IPS rejimida (``Drop`` / ``Reject``) noto'g'ri sozlangan qoidalar haqiqiy
+   (zararsiz) trafikni ham bloklab qo'yishi mumkin. Shu sababli yangi
+   qoidalarni avval ``Log (alert)`` rejimida sinab ko'rib, ishonch hosil
+   qilgandan so'ng bloklash rejimiga o'tkazish tavsiya etiladi.

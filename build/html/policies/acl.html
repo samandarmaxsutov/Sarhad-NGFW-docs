@@ -26,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. MAC manzili bo’yicha filtrlash" href="mac-filter.html" />
-    <link rel="prev" title="4. DHCP server va relay" href="../network/dhcp.html" /> 
+    <link rel="prev" title="4. DHCP server" href="../network/dhcp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,16 +51,16 @@
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">2. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">3. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">4. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../network/interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/routing.html">2. Marshrutlash (Routing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../network/nat.html">3. NAT (Manzil almashtirish)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server va relay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/dhcp.html">4. DHCP server</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Firewall Qoidalarini Sozlash</span></p>
 <ul class="current">
@@ -77,25 +77,26 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policer.html">3. Trafik tezligini cheklash (Policer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abf.html">3. Manbaga asoslangan marshrutlash (ABF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="policer.html">4. Trafik tezligini cheklash (Traffic Policing / QoS)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Tekshiruv sertifikatlari (Inspection Certificates)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish (Dashboard)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/authorities.html">4. Sertifikat markazlari (PKI / Authorities)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">5. VPN umumiy sozlamalari (Settings)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
@@ -129,22 +130,24 @@
              
   <section id="firewall-qoidalari-firewall-policies-acl">
 <h1><span class="section-number">1. </span>Firewall qoidalari (Firewall Policies / ACL)<a class="headerlink" href="#firewall-qoidalari-firewall-policies-acl" title="Link to this heading"></a></h1>
-<p>Firewall qoidalari tarmoq trafigining qaysi qismi ruxsat etilishi (permit)
-yoki bloklanishi (deny) kerakligini belgilaydi. Sarhad NGFW da bu qoidalar
-<strong>siyosatlar (policies)</strong> ko’rinishida boshqariladi va ular avtomatik ravishda
-interfeyslarga qo’llaniladi. Bu bo’limga o’tish uchun chap menyudagi
+<p>Firewall qoidalari tarmoq trafigining qaysi qismiga ruxsat berilishini (permit)
+yoki bloklanishini (deny) belgilaydi. Sarhad NGFW da bu qoidalar
+<strong>siyosatlar (policies)</strong> sifatida boshqariladi va interfeyslarga avtomatik
+qo’llaniladi. Ushbu bo’limga o’tish uchun chap menyudagi
 <strong>Firewall → ACL</strong> bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/acl</span></code>).</p>
+<a class="reference internal image-reference" href="../_images/acl.png"><img alt="Firewall qoidalari sahifasi" class="align-center" src="../_images/acl.png" style="width: 100%;" />
+</a>
 <section id="qoidalar-qanday-ishlaydi">
 <h2><span class="section-number">1.1. </span>Qoidalar qanday ishlaydi<a class="headerlink" href="#qoidalar-qanday-ishlaydi" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Har bir siyosat (policy) — nomlangan, tartiblangan qoida bo’lib, u trafikning
-ma’lum belgilariga mos kelganda ma’lum amalni bajaradi.</p></li>
+<li><p>Har bir siyosat (policy) — bu nomlangan va tartiblangan qoida bo’lib, trafik
+uning belgilariga mos kelganda tegishli amalni bajaradi.</p></li>
 <li><p>Qoidalar <strong>yuqoridan pastga</strong> qarab tekshiriladi. Trafik birinchi mos kelgan
-qoidaning amalini oladi (permit yoki deny), keyingi qoidalar tekshirilmaydi.</p></li>
+qoidaning amaliga (permit yoki deny) bo’ysunadi, keyingi qoidalar tekshirilmaydi.</p></li>
 <li><p>Ro’yxat oxirida yashirin “barchasini taqiqlash” (implicit deny) qoidasi
-amal qiladi: hech qaysi qoidaga mos kelmagan trafik bloklanadi.</p></li>
+amal qiladi: hech bir qoidaga mos kelmagan trafik bloklanadi.</p></li>
 <li><p>Bundan tashqari, zonalar (WAN/LAN/DMZ) o’rtasidagi trafik uchun tizim
-avtomatik <strong>zona qoidalarini</strong> yaratadi.</p></li>
+<strong>zona qoidalarini</strong> avtomatik yaratadi.</p></li>
 </ul>
 </section>
 <section id="qoida-tarkibi">
@@ -164,25 +167,31 @@ avtomatik <strong>zona qoidalarini</strong> yaratadi.</p></li>
 <tr class="row-even"><td><p><strong>Nom (Name)</strong></p></td>
 <td><p>Qoidaning tushunarli nomi (masalan, <code class="docutils literal notranslate"><span class="pre">Veb-serverga</span> <span class="pre">ruxsat</span></code>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Amal (Action)</strong></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">Permit</span></code> (ruxsat) yoki <code class="docutils literal notranslate"><span class="pre">Deny</span></code> (taqiq).</p></td>
+<tr class="row-odd"><td><p><strong>Yo’nalish (From / To)</strong></p></td>
+<td><p>Trafik qayerdan (From — kiruvchi) va qayerga (To — chiquvchi) yo’nalishi.</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Manba (Source)</strong></p></td>
-<td><p>Trafik qayerdan kelishi: IP manzil yoki tarmoq (CIDR).</p></td>
+<td><p>Trafik qayerdan kelishi: <code class="docutils literal notranslate"><span class="pre">any</span></code>, IP manzil yoki tarmoq (CIDR).</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Manzil (Destination)</strong></p></td>
-<td><p>Trafik qayerga borishi: IP manzil yoki tarmoq (CIDR).</p></td>
+<td><p>Trafik qayerga borishi: <code class="docutils literal notranslate"><span class="pre">any</span></code>, IP manzil yoki tarmoq (CIDR).</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Protokol</strong></p></td>
+<tr class="row-even"><td><p><strong>Protokol (Protocol)</strong></p></td>
 <td><p>TCP, UDP, ICMP yoki “barchasi” (any).</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Portlar</strong></p></td>
-<td><p>Manba va/yoki manzil portlari (masalan, <code class="docutils literal notranslate"><span class="pre">80</span></code>, <code class="docutils literal notranslate"><span class="pre">443</span></code>,
-<code class="docutils literal notranslate"><span class="pre">1000-2000</span></code>).</p></td>
+<tr class="row-odd"><td><p><strong>Portlar (Ports)</strong></p></td>
+<td><p>Manzil portlari (masalan, <code class="docutils literal notranslate"><span class="pre">80</span></code>, <code class="docutils literal notranslate"><span class="pre">443</span></code>, <code class="docutils literal notranslate"><span class="pre">1000-2000</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Amal (Action)</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Permit</span></code> (ruxsat) yoki <code class="docutils literal notranslate"><span class="pre">Deny</span></code> (taqiq).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tartib (Order)</strong></p></td>
+<td><p>Qoidaning tekshirilish tartibi. Raqam qancha kichik bo’lsa, qoida shuncha
+oldin tekshiriladi (<code class="docutils literal notranslate"><span class="pre">lower</span> <span class="pre">=</span> <span class="pre">first</span></code>).</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>Holati (Enabled)</strong></p></td>
-<td><p>Qoida yoqilgan yoki o’chirilgan. O’chirilgan qoida o’chirilmasdan
-vaqtincha ishlamay turadi.</p></td>
+<td><p>Qoida yoqilgan yoki o’chirilgan. O’chirilgan qoida ro’yxatdan
+olib tashlanmasdan vaqtincha ishlamay turadi.</p></td>
 </tr>
 </tbody>
 </table>
@@ -190,12 +199,24 @@ vaqtincha ishlamay turadi.</p></td>
 <section id="yangi-qoida-qo-shish">
 <h2><span class="section-number">1.3. </span>Yangi qoida qo’shish<a class="headerlink" href="#yangi-qoida-qo-shish" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p><strong>Qoida qo’shish (Add Rule)</strong> tugmasini bosing.</p></li>
+<li><p><strong>Add Policy</strong> tugmasini bosing.</p></li>
 <li><p>Yuqorida keltirilgan maydonlarni to’ldiring.</p></li>
 <li><p>Amalni (Permit yoki Deny) tanlang.</p></li>
 <li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
 </ol>
-<p>Qoida darhol kuchga kiradi va kerakli interfeyslarga avtomatik bog’lanadi.</p>
+<a class="reference internal image-reference" href="../_images/add_policy.png"><img alt="Yangi firewall qoidasini qo'shish oynasi" class="align-center" src="../_images/add_policy.png" style="width: 100%;" />
+</a>
+<p>Qoidalarni qo’shib yoki o’zgartirib bo’lgach, ularni kuchga kiritish uchun
+<strong>Apply rules</strong> tugmasini bosing — shundan so’ng qoidalar interfeyslarga
+qo’llaniladi.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Qoidani saqlash (<strong>Save</strong>) — uni faqat ro’yxatga qo’shadi, lekin hali
+ishga tushirmaydi. <strong>Apply rules</strong> tugmasi bosilmaguncha qoidalar
+<strong>ishlamaydi</strong>. Har qanday o’zgarish (qo’shish, tahrirlash, o’chirish,
+yoqish/o’chirish yoki tartibni o’zgartirish) dan so’ng <strong>Apply rules</strong>
+tugmasini bosishni unutmang.</p>
+</div>
 <section id="misol-tashqaridan-veb-serverga-ruxsat-berish">
 <h3><span class="section-number">1.3.1. </span>Misol: Tashqaridan veb-serverga ruxsat berish<a class="headerlink" href="#misol-tashqaridan-veb-serverga-ruxsat-berish" title="Link to this heading"></a></h3>
 <ul class="simple">
@@ -210,14 +231,16 @@ vaqtincha ishlamay turadi.</p></td>
 </section>
 <section id="qoidalar-tartibini-o-zgartirish">
 <h2><span class="section-number">1.4. </span>Qoidalar tartibini o’zgartirish<a class="headerlink" href="#qoidalar-tartibini-o-zgartirish" title="Link to this heading"></a></h2>
-<p>Qoidalar tartibi muhim ahamiyatga ega, chunki trafik birinchi mos kelgan
-qoidaga bo’ysunadi. Qoidani yuqoriga yoki pastga surish uchun ro’yxatdagi
-strelkalardan (yoki sudrab tashlash — drag and drop) foydalaning.</p>
+<p>Qoidalar tartibi muhim, chunki trafik birinchi mos kelgan qoidaga bo’ysunadi.
+Tartib <strong>Order</strong> maydoni orqali belgilanadi: bu raqam qancha kichik bo’lsa,
+qoida shuncha oldin tekshiriladi (<code class="docutils literal notranslate"><span class="pre">lower</span> <span class="pre">=</span> <span class="pre">first</span></code>). Tartibni o’zgartirish
+uchun qoidani tahrirlab, uning <strong>Order</strong> qiymatini o’zgartiring.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Aniqroq (spetsifik) qoidalarni ro’yxatning yuqorisiga, umumiyroq qoidalarni
-pastiga joylashtiring. Masalan, “bitta IP’ni bloklash” qoidasini “butun
-tarmoqqa ruxsat berish” qoidasidan yuqoriga qo’ying.</p>
+<p>Aniqroq (spetsifik) qoidalarga kichikroq <strong>Order</strong> raqamini bering, shunda
+ular umumiyroq qoidalardan oldin tekshiriladi. Masalan, “bitta IP’ni
+bloklash” qoidasiga “butun tarmoqqa ruxsat berish” qoidasidan kichikroq
+Order qiymatini qo’ying.</p>
 </div>
 </section>
 <section id="qoidani-tahrirlash-va-o-chirish">
@@ -233,7 +256,7 @@ faolsizlantirish.</p></li>
 <h2><span class="section-number">1.6. </span>Bog’liq bo’limlar<a class="headerlink" href="#bog-liq-bo-limlar" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>MAC manzillari bo’yicha filtrlash: <a class="reference internal" href="mac-filter.html"><span class="doc">MAC manzili bo’yicha filtrlash</span></a></p></li>
-<li><p>Trafik tezligini cheklash: <a class="reference internal" href="policer.html"><span class="doc">Trafik tezligini cheklash (Policer)</span></a></p></li>
+<li><p>Trafik tezligini cheklash: <a class="reference internal" href="policer.html"><span class="doc">Trafik tezligini cheklash (Traffic Policing / QoS)</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -242,7 +265,7 @@ faolsizlantirish.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../network/dhcp.html" class="btn btn-neutral float-left" title="4. DHCP server va relay" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../network/dhcp.html" class="btn btn-neutral float-left" title="4. DHCP server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="mac-filter.html" class="btn btn-neutral float-right" title="2. MAC manzili bo’yicha filtrlash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

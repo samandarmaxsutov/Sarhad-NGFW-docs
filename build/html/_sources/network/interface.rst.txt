@@ -14,11 +14,11 @@ Sarhad NGFW ikki turdagi tarmoq interfeyslarini boshqaradi:
 
 - **MGMT (boshqaruv) interfeysi** — tizimni boshqarish uchun ajratilgan
   interfeys. Boshqaruv veb-paneli (``https://<ip>:8443``) aynan shu interfeys
-  orqali ishlaydi. Bu interfeys himoyalangan: uni ma'lumotlar interfeysiga
-  aylantirib bo'lmaydi, shuning uchun boshqaruv aloqasi hech qachon yo'qolmaydi.
+  orqali ochiladi. Bu interfeys himoyalangan: uni ma'lumotlar interfeysiga
+  aylantirib bo'lmaydi, shu sababli boshqaruv aloqasi hech qachon uzilmaydi.
 
 - **Ma'lumotlar interfeyslari** — tarmoq trafigini tashuvchi interfeyslar.
-  Aynan shu interfeyslar orqali tarmoq trafigi filtrlanadi, marshrutlanadi va
+  Tarmoq trafigi aynan shu interfeyslar orqali filtrlanadi, marshrutlanadi va
   himoyalanadi.
 
 .. image:: ../_static/interfaces.png
@@ -50,8 +50,8 @@ xavfsizlik darajasini va unga avtomatik qo'llaniladigan qoidalarni belgilaydi:
    * - **MGMT**
      - Boshqaruv interfeysi. Faqat tizimni boshqarish uchun ishlatiladi.
 
-Zonalar o'rtasidagi trafik uchun tizim avtomatik ravishda asosiy ruxsat/taqiq
-qoidalarini (zone ACL) yaratadi. Masalan, LAN'dan WAN'ga chiquvchi trafik
+Zonalar o'rtasidagi trafik uchun tizim asosiy ruxsat/taqiq qoidalarini
+(zone ACL) avtomatik yaratadi. Masalan, LAN'dan WAN'ga chiquvchi trafik
 odatda ruxsat etiladi, WAN'dan LAN'ga kiruvchi trafik esa standart holatda
 bloklanadi.
 
@@ -75,8 +75,8 @@ Statistika har soniyada avtomatik yangilanib turadi.
 Interfeysni sozlash
 ===================
 
-Interfeysni sozlash uchun ro'yxatdagi kerakli interfeys yonidagi
-**Sozlash (Configure)** tugmasini bosing.
+Interfeysni sozlash uchun ro'yxatdagi kerakli interfeys qatorini **ikki marta
+bosing (double-click)** — interfeysning sozlash oynasi ochiladi.
 
 .. image:: ../_static/interface_config.png
    :alt: Interfeysni sozlash oynasi
@@ -108,9 +108,9 @@ IP manzilni kiritib, **Saqlash (Save)** tugmasini bosing.
 Interfeys holatini boshqarish
 -----------------------------
 
-Interfeysni **UP** (yoqish) yoki **DOWN** (o'chirish) holatiga o'tkazishingiz
-mumkin. Texnik xizmat ko'rsatish paytida interfeysni vaqtincha o'chirib
-qo'yish qulay.
+Interfeysni **UP** (yoqilgan) yoki **DOWN** (o'chirilgan) holatiga
+o'tkazishingiz mumkin. Texnik xizmat ko'rsatish paytida interfeysni vaqtincha
+o'chirib qo'yish qulay.
 
 Taxallus (alias) berish
 -----------------------
@@ -138,8 +138,8 @@ Quyidagi maydonlarni to'ldiring:
 - **VLAN ID** — 1 dan 4094 gacha bo'lgan tartib raqami (masalan, ``100``).
 - **IP manzil** — VLAN interfeysining manzili (ixtiyoriy).
 
-VLAN yaratilgandan so'ng u alohida interfeys sifatida ro'yxatda paydo bo'ladi
-va unga zona hamda qoidalar tayinlash mumkin.
+VLAN yaratilgach, u alohida interfeys sifatida ro'yxatda paydo bo'ladi
+va unga zona hamda qoidalar tayinlanishi mumkin.
 
 Muhim eslatmalar
 ================

@@ -4,8 +4,14 @@ NAT (Manzil almashtirish)
 
 NAT (Network Address Translation — tarmoq manzilini almashtirish) ichki
 tarmoqdagi xususiy IP manzillarni tashqi (ommaviy) IP manzilga aylantirish
-imkonini beradi. Bu bo'limga o'tish uchun chap menyudagi **Network → NAT**
+imkonini beradi. Bu bo'limga o'tish uchun chap menyudan **Network → NAT**
 bo'limini tanlang (``/nat``).
+
+NAT sahifasi ikkita tabdan iborat:
+
+- **NAT** — Source NAT holati va DNAT (port forwarding) qoidalarini sozlash.
+- **Active Sessions** — faol NAT ulanishlarini ko'rish va vaqt chegaralarini
+  (timeouts) sozlash.
 
 NAT turlari
 ===========
@@ -14,72 +20,88 @@ Sarhad NGFW quyidagi NAT rejimlarini qo'llab-quvvatlaydi:
 
 - **Source NAT (SNAT)** — ichki tarmoqdan internetga chiquvchi trafikning
   manba (source) manzilini WAN manziliga almashtiradi. Bu eng keng tarqalgan
-  rejim: ichki foydalanuvchilar bitta ommaviy IP orqali internetga chiqadi.
-
+  rejim bo'lib, ichki foydalanuvchilar bitta ommaviy IP orqali internetga
+  chiqadi.
 - **Destination NAT (DNAT)** — tashqaridan kelgan trafikni ichki serverga
   yo'naltiradi (port forwarding). Masalan, WAN'ning 443-portiga kelgan trafik
   ichki veb-serverga uzatiladi.
 
-- **Statik tasvirlash (Static mapping)** — bitta ichki IP manzilni bitta
-  tashqi IP manzilga doimiy ravishda bog'laydi (1:1).
+Interfeys rollari avtomatik aniqlanadi
+======================================
 
-Interfeyslarni sozlash (inside / outside)
-=========================================
+NAT interfeys rollari (ichki/tashqi) qo'lda tanlanmaydi — ular har bir
+interfeysga berilgan zona asosida avtomatik belgilanadi:
 
-NAT ishlashi uchun har bir interfeys "ichki" yoki "tashqi" deb belgilanishi
-kerak:
+- **WAN** zonasi → tashqi (outside) interfeys.
+- **LAN** yoki **DMZ** zonasi → ichki (inside) interfeys.
 
-- **Inside (ichki)** — LAN tomonidagi interfeyslar. Bu interfeyslardan
-  kelgan trafik manzili almashtiriladi.
-- **Outside (tashqi)** — WAN tomonidagi interfeys. Almashtirilgan trafik shu
-  interfeys orqali chiqadi.
+Shu sababli NAT'ni ishlatish uchun avval interfeyslarga to'g'ri zonani bering
+(qarang: :doc:`/network/interface`). Zona o'zgartirilsa, NAT rollari ham
+avtomatik yangilanadi.
 
-.. tip::
-
-   Aksariyat hollarda zona (WAN/LAN) tayinlanganda tizim mos NAT
-   interfeyslarini avtomatik sozlaydi. Qo'shimcha qoidalar qo'shilganda kerakli
-   ichki interfeyslar avtomatik qo'shiladi.
-
-Manzillar puli (Address pool)
+NAT tabi (Source NAT va DNAT)
 =============================
 
-SNAT uchun tashqi (ommaviy) IP manzillar puli belgilanadi. Trafik shu puldagi
-manzillar orqali tashqariga chiqariladi. Pulga bitta yoki bir nechta IP manzil
-diapazoni qo'shilishi mumkin.
+.. image:: ../_static/dNAT.png
+   :alt: NAT sozlash tabi
+   :align: center
+   :width: 100%
 
-DNAT (Port forwarding) qoidasi qo'shish
-=======================================
+**Source NAT** bo'limida tizim ichki (LAN/DMZ) va tashqi (WAN) interfeyslarni
+hamda manzillar ro'yxatini (address pool) zonalar asosida avtomatik ko'rsatadi.
 
-Tashqaridan ichki serverga kirishni ochish uchun:
+**Static Mappings (DNAT / port forwarding)** bo'limida tashqaridan ichki
+serverga kirishni ochuvchi qoidalar yaratiladi:
 
-1. **DNAT qoidasi qo'shish (Add DNAT Rule)** tugmasini bosing.
+1. **New Mapping** tugmasini bosing.
 2. Quyidagilarni kiriting:
 
-   - **Tashqi manzil/port** — WAN IP va port (masalan, ``203.0.113.5:443``).
-   - **Ichki manzil/port** — paket yo'naltiriladigan ichki server
-     (masalan, ``192.168.10.20:443``).
-   - **Protokol** — TCP yoki UDP.
+   - **Protocol** — TCP, UDP, ICMP yoki "barchasi" (any).
+   - **Label** — qoidaning tushunarli nomi (masalan, ``Veb-server``).
+   - **External IP / External Port** — tashqi (WAN) manzil va port
+     (masalan, ``203.0.113.5`` : ``443``).
+   - **Local IP / Local Port** — paket yo'naltiriladigan ichki server manzili
+     va porti (masalan, ``192.168.10.20`` : ``443``).
 
 3. **Saqlash (Save)** tugmasini bosing.
 
-Faol sessiyalar (NAT Sessions)
-==============================
+Qoida darhol kuchga kiradi va ro'yxatda paydo bo'ladi.
 
-**NAT Sessions** bo'limida ayni paytda faol bo'lgan barcha NAT ulanishlari
-ko'rsatiladi: manba va manzil manzillari, portlar, protokol va sessiya
-davomiyligi. Kerak bo'lganda alohida sessiyani yoki barcha sessiyalarni
-tozalash (clear) mumkin.
+Active Sessions tabi
+====================
 
-Qo'shimcha sozlamalar
-=====================
+.. image:: ../_static/NATstats.png
+   :alt: NAT sessiyalari va vaqt chegaralari
+   :align: center
+   :width: 100%
 
-- **Vaqt chegaralari (Timeouts)** — TCP, UDP va boshqa protokollar uchun
-  sessiyaning bo'sh turish vaqtini sozlash.
-- **IPFIX jurnali** — NAT hodisalarini Netflow orqali tashqi yig'uvchiga
-  (collector) yuborish (qarang: :doc:`/monitoring/flow`).
+Bu tabda NAT trafigini kuzatish va vaqt chegaralarini sozlash mumkin.
+
+Vaqt chegaralari (Session timeouts)
+-----------------------------------
+
+Sessiyaning bo'sh turish vaqti (sekundlarda) protokol turi bo'yicha sozlanadi:
+
+- **UDP** — UDP sessiyalari uchun.
+- **TCP established** — o'rnatilgan TCP ulanishlari uchun.
+- **TCP transitory** — o'rnatilayotgan (yarim ochiq) TCP ulanishlari uchun.
+- **ICMP** — ICMP (ping) trafigi uchun.
+
+Qiymatlarni kiritib, **Save timeouts** tugmasini bosing.
+
+Faol sessiyalar (Active NAT sessions)
+-------------------------------------
+
+Ayni paytda faol bo'lgan barcha NAT ulanishlari jadvalda ko'rsatiladi:
+protokol, ichki (Inside/Local) va tashqi (Outside/NAT) manzillar. Sessiyalarni
+IP bo'yicha qidirish, shuningdek alohida yoki barcha sessiyalarni tozalash
+(**Clear all**) mumkin.
+
+Bundan tashqari, **User traffic summary** jadvalida har bir ichki IP bo'yicha
+sessiyalar soni, paketlar va umumiy trafik hajmi ko'rsatiladi.
 
 .. note::
 
    NAT qoidalari firewall qoidalari bilan birga ishlaydi. DNAT qoidasi
-   trafikni ichki serverga yo'naltirsa-da, trafik o'tishi uchun firewall'da
-   ham mos ruxsat qoidasi bo'lishi kerak (qarang: :doc:`/policies/acl`).
+   trafikni ichki serverga yo'naltirsa ham, trafik o'tishi uchun firewall'da
+   mos ruxsat qoidasi ham bo'lishi shart (qarang: :doc:`/policies/acl`).

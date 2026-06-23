@@ -3,7 +3,7 @@
 Sarhad Next-Generation Firewall (Sarhad NGFW)
 ==============================================
 
-**Sarhad NGFW** — bu korporativ tarmoqlarni himoya qilish, murakkab kiber tahdidlarga qarshi kurashish va yuqori tezlikdagi tarmoq trafigini tahlil qilish uchun mo'ljallangan yangi avlod tarmoq xavfsizlik devoridir.
+**Sarhad NGFW** — korporativ tarmoqlarni himoya qilish, murakkab kiber tahdidlarga qarshi turish va yuqori tezlikdagi tarmoq trafigini tahlil qilish uchun mo'ljallangan yangi avlod tarmoq xavfsizlik devori.
 
 .. image:: /_static/test_ar.png
    :alt: Sarhad NGFW Tizim Sxemasi
@@ -16,9 +16,9 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    :numbered:
 
    overview
+   introduction/licensing
    introduction/login
    introduction/dashboard
-   introduction/licensing
 
 
 .. toctree::
@@ -38,6 +38,7 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
 
    policies/acl
    policies/mac-filter
+   policies/abf
    policies/policer
 
 .. toctree::
@@ -57,6 +58,7 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    vpn/overview
    vpn/ra
    vpn/s2s
+   vpn/authorities
    vpn/settings
 
 .. toctree::
@@ -65,7 +67,6 @@ Sarhad Next-Generation Firewall (Sarhad NGFW)
    :numbered:
 
    system/users
-   system/time
 
 .. toctree::
    :maxdepth: 2

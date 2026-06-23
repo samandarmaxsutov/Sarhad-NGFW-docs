@@ -31,6 +31,12 @@ exclude_patterns = []
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
+# # Sarhad NGFW logosi (yon panel yuqorisida ko'rsatiladi)
+# html_logo = '_static/sarhad_logo.jpg'
+
+# # Maxsus CSS (logo o'lchamini boshqarish uchun)
+# html_css_files = ['custom.css']
+
 html_theme_options = {
     'collapse_navigation': True,  # Faqat faol bo'lim ochiq turadi, qolganlari yopiq
     'sticky_navigation': True,

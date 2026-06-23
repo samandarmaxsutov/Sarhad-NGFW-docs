@@ -1,56 +1,78 @@
-==========================================
-Trafik tezligini cheklash (Policer)
-==========================================
+==================================================
+Trafik tezligini cheklash (Traffic Policing / QoS)
+==================================================
 
-Policer (trafik cheklovchi) tarmoq trafigining tezligini (bandwidth)
-cheklash imkonini beradi. Bu orqali ayrim interfeyslar yoki ulanishlar tarmoq
-resurslarini haddan tashqari band qilib qo'yishining oldi olinadi. Bu bo'limga
-o'tish uchun chap menyudagi **Firewall → Policer** bo'limini tanlang
-(``/policer``).
+Trafik tezligini cheklash (Traffic Policing) tarmoq trafigining tezligini
+(bandwidth) cheklash imkonini beradi. Bu orqali ayrim interfeyslar yoki
+foydalanuvchilarning tarmoq resurslarini haddan tashqari band qilib qo'yishining
+oldi olinadi. Ushbu bo'limga o'tish uchun chap menyudan **Firewall → Policer**
+bo'limini tanlang (``/policer``).
+
+.. image:: ../_static/qos.png
+   :alt: Traffic Policing (QoS) sahifasi
+   :align: center
+   :width: 100%
 
 Qanday ishlaydi
 ===============
 
-Policer "token bucket" (token chelaki) algoritmidan foydalanadi: trafik
-belgilangan tezlikdan oshib ketsa, ortiqcha paketlar yo belgilanadi (mark) yoki
-tashlab yuboriladi (drop). Bu interfeysga kiruvchi yoki chiquvchi trafikning
-maksimal tezligini kafolatlash imkonini beradi.
+Cheklov "token bucket" (token chelaki) algoritmiga asoslanadi: agar trafik
+belgilangan tezlikdan oshib ketsa, ortiqcha paketlar tashlab yuboriladi. Bu
+interfeysga kiruvchi yoki chiquvchi trafikning maksimal tezligini nazorat
+qilish imkonini beradi.
 
-Policer profili yaratish
-========================
+QoS siyosati yaratish
+=====================
 
-1. **Profil qo'shish (Add Policer)** tugmasini bosing.
+1. **Create Policy** tugmasini bosing.
 2. Quyidagi parametrlarni kiriting:
 
-   - **Nom (Name)** — profilning tushunarli nomi (masalan, ``Mehmon-tarmoq-10M``).
-   - **CIR (Committed Information Rate)** — kafolatlangan o'rtacha tezlik
-     (masalan, 10 Mbit/s).
-   - **CBS (Committed Burst Size)** — bir vaqtning o'zida ruxsat etilgan
-     maksimal portlash hajmi (baytlarda).
-   - **Amal (Action)** — chegaradan oshgan trafik bilan nima qilish:
-     ``drop`` (tashlab yuborish) yoki ``mark`` (belgilash).
+   - **Policy Name** — siyosatning tushunarli nomi
+     (masalan, ``100Mbps-limit``).
+   - **Committed Rate (CIR)** — kafolatlangan o'rtacha tezlik. Qiymatni kiritib,
+     birligini (Kbps, Mbps yoki Gbps) tanlang.
+   - **Committed Burst (CB)** — bir vaqtning o'zida ruxsat etilgan maksimal
+     burst (qisqa muddatli ortiqcha) hajmi.
 
-3. **Saqlash (Save)** tugmasini bosing.
+3. **Create** tugmasini bosing.
 
-Profilni interfeysga bog'lash
-=============================
+.. image:: ../_static/add_qos_policy.png
+   :alt: QoS siyosatini yaratish oynasi
+   :align: center
+   :width: 100%
 
-Profil yaratilgandan so'ng uni bir yoki bir nechta interfeysga bog'lash kerak:
+Yaratilgan siyosatlar jadvalda nomi, Rate (CIR), Burst (CB) va qo'llanilgan
+interfeyslari bilan ko'rsatiladi.
 
-- **Yo'nalish (Direction)** — kiruvchi (ingress) yoki chiquvchi (egress)
-  trafikni cheklash.
-- **Interfeys** — profil qaysi interfeysga qo'llanishi.
+Siyosatni interfeysga qo'llash
+==============================
+
+Siyosat yaratilgandan so'ng uni interfeysga qo'llash kerak. Buning uchun
+ro'yxatdagi siyosat **qatorini ikki marta bosing (double-click)** — qo'llash
+oynasi ochiladi:
+
+- **Policy** — qo'llaniladigan siyosat.
+- **Interface** — siyosat qaysi interfeysga qo'llanishi.
+- **Direction** — yo'nalish:
+
+  - **Input** — interfeysga *kiruvchi* trafikni cheklaydi.
+  - **Output** — interfeysdan *chiquvchi* trafikni cheklaydi.
+
+.. image:: ../_static/apply_qos_polciy.png
+   :alt: QoS siyosatini interfeysga qo'llash oynasi
+   :align: center
+   :width: 100%
 
 Misol: Mehmon tarmog'ini cheklash
 ---------------------------------
 
-Mehmon foydalanuvchilari tarmog'i internetning butun kanalini band qilmasligi
-uchun unga 10 Mbit/s lik cheklov qo'yish mumkin. Buning uchun ``CIR = 10 Mbit/s``
-bo'lgan profil yaratib, uni mehmon VLAN interfeysiga chiquvchi yo'nalishda
-bog'lang.
+Mehmon foydalanuvchilari tarmog'i internetning butun kanalini band qilib
+qo'ymasligi uchun unga 100 Mbps cheklov qo'yish mumkin. Buning uchun
+``CIR = 100 Mbps`` bo'lgan siyosat yarating va uni mehmon interfeysiga
+**Output** yo'nalishida qo'llang.
 
 .. note::
 
-   Policer trafikni cheklaydi, lekin uni navbatga qo'yib kechiktirmaydi
-   (shaping emas). Chegaradan oshgan paketlar darhol belgilanadi yoki tashlab
+   Bu mexanizm trafikni cheklaydi (policing), lekin uni navbatga qo'yib
+   kechiktirmaydi (shaping emas). Chegaradan oshgan paketlar darhol tashlab
    yuboriladi.

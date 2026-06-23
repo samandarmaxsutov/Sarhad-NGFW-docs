@@ -1,77 +1,68 @@
-==========================================
-Sertifikatlar va PKI
-==========================================
+==================================================
+Tekshiruv sertifikatlari (Inspection Certificates)
+==================================================
 
-Sarhad NGFW raqamli sertifikatlarni boshqarish uchun ichki **PKI** (Public Key
-Infrastructure — ochiq kalitlar infratuzilmasi) tizimiga ega. Sertifikatlar
-TLS trafigini tekshirish hamda VPN ulanishlarini autentifikatsiya qilish uchun
-ishlatiladi. Bu bo'limga o'tish uchun chap menyudagi **Security → Certificates**
-yoki **PKI → Authorities** bo'limini tanlang
-(``/certificates``, ``/pki/authorities``).
+Bu sahifa TLS trafigini tekshirish (:doc:`/security/tls-interception`) uchun
+ishlatiladigan CA sertifikatlarini boshqaradi. Sertifikat yaratiladi (yoki
+yuklanadi) va LAN interfeyslariga biriktiriladi (attach). Bu bo'limga o'tish
+uchun chap menyudan **Security → Inspection Certificates** bo'limini tanlang
+(``/certificates``).
+
+.. image:: ../_static/certs.png
+   :alt: Tekshiruv sertifikatlari sahifasi
+   :align: center
+   :width: 100%
 
 Asosiy tushunchalar
 ===================
 
 - **CA (Certificate Authority)** — sertifikat beruvchi markaz. CA boshqa
-  sertifikatlarni imzolaydi va ularning haqiqiyligini tasdiqlaydi.
-- **Server sertifikati** — server (masalan, VPN gateway) o'zini tasdiqlash
-  uchun ishlatadigan sertifikat.
-- **Mijoz sertifikati** — foydalanuvchi yoki qurilmani tasdiqlash uchun
-  ishlatiladigan sertifikat.
+  sertifikatlarni imzolaydi va ularning haqiqiyligini kafolatlaydi.
 - **CRL (Certificate Revocation List)** — bekor qilingan sertifikatlar ro'yxati.
-
-Sertifikat markazini (CA) yaratish
-==================================
-
-1. **PKI → Authorities** sahifasiga o'ting.
-2. **CA yaratish (Create CA)** tugmasini bosing.
-3. Quyidagilarni kiriting:
-
-   - **Nom (CN — Common Name)** — CA nomi (masalan, ``Sarhad-Root-CA``).
-   - **Tashkilot (Organization)** — tashkilot nomi.
-   - **Amal qilish muddati** — sertifikat necha kun amal qilishi.
-
-4. **Yaratish** tugmasini bosing.
-
-Mavjud CA'ni import qilish ham mumkin — buning uchun PEM formatidagi
-sertifikat va maxfiy kalit fayllarini yuklang.
-
-Sertifikat berish (issue)
-=========================
-
-CA yaratilgandan so'ng undan server yoki mijoz sertifikatlarini berishingiz
-mumkin:
-
-1. CA'ni tanlang va **Sertifikat berish (Issue Certificate)** tugmasini bosing.
-2. Sertifikat turini (server yoki mijoz) va CN (egasi nomi) ni kiriting.
-3. Amal qilish muddatini belgilang va **Berish** tugmasini bosing.
-
-Berilgan sertifikatni yuklab olish (download) yoki VPN sozlamalarida ishlatish
-mumkin.
-
-TLS Interception uchun CA
-=========================
-
-TLS trafigini tekshirish (:doc:`/security/tls-interception`) uchun maxsus CA
-sertifikati kerak. Bu sertifikatni **Certificates** sahifasida yuklang
-(upload) yoki PKI orqali yarating. So'ngra bu CA sertifikatini barcha mijoz
-qurilmalariga **ishonchli** sifatida o'rnating — aks holda foydalanuvchilar
-brauzerda sertifikat xatoliklarini ko'radi.
-
-Sertifikatni bekor qilish (revoke)
-==================================
-
-Agar sertifikat xavf ostida qolsa yoki kerak bo'lmasa, uni bekor qilish
-mumkin:
-
-1. Sertifikatlar ro'yxatidan kerakli sertifikatni tanlang.
-2. **Bekor qilish (Revoke)** tugmasini bosing.
-
-Bekor qilingan sertifikat CRL'ga qo'shiladi va undan keyin ishonchsiz deb
-hisoblanadi.
 
 .. note::
 
-   CA'ning maxfiy kalitini xavfsiz saqlang. Agar maxfiy kalit o'g'irlansa,
-   tajovuzkor soxta sertifikatlar yaratishi mumkin. Shubha tug'ilsa, CA'ni
-   bekor qilib, yangisini yarating.
+   VPN ulanishlari uchun CA va server/mijoz sertifikatlari alohida sahifada
+   boshqariladi (qarang: :doc:`/vpn/authorities`).
+
+Sertifikatlar ro'yxatida har biri uchun **Name** (nom), **Subject (CN)**,
+**Valid until** (amal qilish muddati) va **Attached to** (qaysi interfeyslarga
+biriktirilgani) ko'rsatiladi.
+
+1-qadam: Sertifikat yaratish yoki yuklash
+=========================================
+
+**Add certificate** tugmasini bosing. Sertifikatni ikki usulda olish mumkin:
+
+- **Yangi CA yaratish (Generate)** — tizim yangi CA sertifikatini o'zi yaratadi.
+- **Mavjud CA'ni yuklash (Upload CA bundle)** — tayyor sertifikatni yuklang:
+
+  - **Certificate name** — sertifikatga nom bering.
+  - **PEM file** — PEM formatidagi sertifikat faylini tanlang.
+  - **Upload** tugmasini bosing.
+
+.. image:: ../_static/cert_create.png
+   :alt: Sertifikat yaratish / yuklash oynasi
+   :align: center
+   :width: 100%
+
+2-qadam: Sertifikatni interfeyslarga biriktirish (Attach)
+=========================================================
+
+Sertifikat yaratilgandan so'ng uni tekshiriladigan LAN interfeyslariga
+biriktirish kerak. **Attach certificate to LAN interfaces** bo'limida:
+
+1. **Interface** — sertifikat biriktiriladigan interfeysni tanlang.
+2. **Certificate** — biriktiriladigan sertifikatni tanlang.
+3. Biriktirishni tasdiqlang.
+
+Biriktirilgan interfeyslar ro'yxatdagi **Attached to** ustunida ko'rinadi.
+Endi shu interfeyslardan o'tuvchi TLS trafigi tekshiriladi.
+
+3-qadam: CA'ni mijoz qurilmalariga o'rnatish
+============================================
+
+Tekshiruv ishlashi uchun CA sertifikatining **ochiq qismini** (faqat ommaviy
+sertifikat, maxfiy kalitni emas) barcha mijoz qurilmalariga
+**ishonchli (trusted)** sifatida o'rnating. Aks holda foydalanuvchilar brauzerda
+sertifikat xatoliklarini ko'radi.

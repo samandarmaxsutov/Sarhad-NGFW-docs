@@ -5,8 +5,8 @@ Dashboard oynasi
 Tizimga muvaffaqiyatli kirgandan so'ng siz avtomatik ravishda **Dashboard**
 sahifasiga o'tasiz. Bu — boshqaruv panelining bosh sahifasi bo'lib, qurilmaning
 umumiy holatini va tarmoq faoliyatini bir qarashda ko'rish imkonini beradi.
-Sahifadagi ma'lumotlar real vaqtda, bir necha soniyada bir avtomatik yangilanib
-turadi.
+Sahifadagi ma'lumotlar real vaqtda, har necha soniyada avtomatik
+yangilanib turadi.
 
 .. image:: /_static/dashboard.png
    :alt: Dashboard
@@ -33,8 +33,8 @@ ko'rsatiladi:
    * - **Memory Usage** (Xotira)
      - Ishlatilayotgan operativ xotira (RAM) miqdori.
    * - **System Uptime** (Ish vaqti)
-     - Qurilma so'nggi qayta yuklanishdan beri uzluksiz necha vaqtdan beri
-       ishlayotgani.
+     - Qurilma oxirgi qayta ishga tushishidan beri uzluksiz qancha vaqt
+       ishlayotganini ko'rsatadi.
 
 Interfeys grafiklari va statistikasi
 ====================================
@@ -44,7 +44,7 @@ Kartalardan pastda tarmoq trafigi ikki ko'rinishda taqdim etiladi.
 **Trafik grafiklari** — interfeyslar bo'yicha trafikning vaqt davomida
 o'zgarishini ko'rsatadigan real vaqtdagi grafiklar. Ular orqali qaysi interfeys
 qancha yuklanganini va trafikdagi keskin o'zgarishlarni (masalan, kutilmagan
-portlashlarni) tezda payqash mumkin.
+burstlarni) tezda payqash mumkin.
 
 **Interface Statistics jadvali** — har bir interfeys uchun aniq raqamli
 ko'rsatkichlar:
@@ -66,17 +66,48 @@ ko'rsatkichlar:
 Navigatsiya
 ===========
 
-Sidebar (chap menyu)
---------------------
+Chap tomondagi menyu bo'limlarga (guruhlarga) ajratilgan. Quyida har bir
+guruh va undagi sahifalar keltirilgan:
 
-Chap tomondagi menyu orqali tizimning barcha bo'limlariga o'tiladi:
+**Dashboard**
+   - *Status* — bosh sahifa (tizimning umumiy holati).
 
-- **Tarmoq (Network)** — interfeyslar, marshrutlash, NAT, DHCP.
-- **Firewall** — ACL qoidalari, MAC filtr, Policer.
-- **Xavfsizlik (Security)** — IDS/IPS, TLS tekshiruvi, sertifikatlar.
-- **VPN** — Remote Access, Site-to-Site, sozlamalar.
-- **Tizim (System)** — foydalanuvchilar, vaqt.
-- **Monitoring** — jurnallar va trafik monitoringi.
+**Network (Tarmoq)**
+   - *Interfaces* — tarmoq interfeyslari.
+   - *Routes* — marshrutlash.
+   - *NAT* — manzil almashtirish.
+   - *DHCP* — DHCP server va relay.
+
+**Firewall Policies (Firewall qoidalari)**
+   - *ACL* — firewall qoidalari.
+   - *MAC Filter* — MAC manzili bo'yicha filtrlash.
+   - *ABF* — manbaga asoslangan marshrutlash (policy-based routing).
+   - *Policer* — trafik tezligini cheklash.
+   - *Flow Monitoring* — trafik oqimlari monitoringi.
+
+**Security Profiles (Xavfsizlik)**
+   - *IDS/IPS* — hujumlarni aniqlash va oldini olish.
+   - *SSL/TLS Inspection* — shifrlangan trafikni tekshirish.
+   - *Inspection Certificates* — tekshiruv sertifikatlari.
+
+**VPN**
+   - *Dashboard* — VPN umumiy holati.
+   - *Site-to-Site* — ofislararo tunnel.
+   - *Remote Access* — masofaviy kirish.
+   - *Authorities* — sertifikat markazlari (PKI).
+   - *Settings* — VPN sozlamalari.
+
+**System (Tizim)**
+   - *Firewall Users* — foydalanuvchilarni boshqarish.
+
+**Logs (Jurnallar)**
+   - *Firewall Logs* — firewall hodisalari jurnali.
+   - *URL Logs* — ko'rilgan URL manzillar jurnali.
+   - *Config Logs* — konfiguratsiya o'zgarishlari jurnali.
+   - *Auth Logs* — kirish/chiqish jurnali.
+   - *VPN Logs* — VPN hodisalari jurnali.
+   - *IDS/IPS Logs* — hujum ogohlantirishlari jurnali.
+   - *Log settings* — jurnal saqlash sozlamalari.
 
 Yuqori panel (Top bar)
 ----------------------

@@ -11,6 +11,11 @@ manzili:
 
 Masalan: ``https://192.168.1.1:8443/login``
 
+.. image:: ../_static/login_page.png
+   :alt: Kirish sahifasi
+   :align: center
+   :width: 100%
+
 Tizimda standart (bootstrap) holatda ikkita hisob yaratiladi. Ikkalasining
 ham boshlang'ich paroli bir xil:
 
@@ -53,8 +58,3 @@ Tizimda uchta rol mavjud:
 **readonly**
    Faqat ko'rish huquqi: tizim holati, statistika va hisobotlarni ko'radi,
    lekin sozlamalarni o'zgartira olmaydi.
-
-.. image:: ../_static/login_page.png
-   :alt: Kirish sahifasi
-   :align: center
-   :width: 100%

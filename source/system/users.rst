@@ -2,80 +2,117 @@
 Foydalanuvchilarni boshqarish
 =============================
 
-Bu bo'limda veb-panelga kirish huquqiga ega foydalanuvchi hisoblarini
-yaratish, tahrirlash va o'chirish bo'yicha qo'llanma keltirilgan. Bu bo'limga
-o'tish uchun chap menyudagi **System → User Management** bo'limini tanlang
-(``/user-mgmt``).
+Bu sahifa boshqaruv paneliga kirish huquqiga ega foydalanuvchi hisoblarini
+boshqaradi. Bu bo'limga o'tish uchun chap menyudan **System → Firewall Users**
+bo'limini tanlang (``/user-mgmt``).
 
-Foydalanuvchi rollari
-=====================
+.. image:: ../_static/users.png
+   :alt: Foydalanuvchilarni boshqarish sahifasi
+   :align: center
+   :width: 100%
 
-Sarhad NGFW da uchta rol mavjud bo'lib, har biri turli huquqlarni beradi:
+Rollar va ruxsatlar
+===================
+
+Tizimda uchta rol mavjud. Har bir rol turli ruxsat va ko'rish darajasiga ega:
 
 .. list-table::
    :header-rows: 1
-   :widths: 20 80
+   :widths: 18 42 40
 
    * - Rol
-     - Huquqlar
-   * - **root**
-     - Eng yuqori huquq. Barcha sozlamalarni o'zgartirish, foydalanuvchilarni
-       boshqarish, litsenziyani boshqarish va tizim darajasidagi amallarni
-       bajarish mumkin.
-   * - **admin**
-     - Konfiguratsiyani ko'rish va o'zgartirish, foydalanuvchilar yaratish va
-       boshqarish mumkin. Ba'zi tizim darajasidagi amallar faqat root uchun.
-   * - **readonly (user)**
-     - Faqat ko'rish huquqi. Tizim holati, statistika va hisobotlarni ko'rish
-       mumkin, lekin hech narsani o'zgartira olmaydi.
+     - Ruxsatlari
+     - Ko'rish darajasi
+   * - **Root**
+     - Foydalanuvchilarni to'liq boshqarish (Full user-management access):
+       hisob yaratish, tahrirlash, o'chirish, har qanday nom va parolni
+       o'zgartirish.
+     - Barcha hisoblarni ko'radi.
+   * - **Admin**
+     - Faqat firewall konfiguratsiyasiga kirish (Firewall configuration access
+       only). Faqat ``read-only`` hisoblar yarata oladi.
+     - Faqat ``read-only`` hisoblarni ko'radi.
+   * - **Read-only**
+     - Faqat ko'rish (View-only access): holat va sozlamalarni ko'radi, lekin
+       o'zgartira olmaydi.
+     - Foydalanuvchilar ro'yxatini umuman ko'ra olmaydi.
+
+Rol qoidalari
+-------------
+
+- Tizimda **faqat bitta root** foydalanuvchi mavjud va u tizimning standart
+  egasi.
+- **Root** o'z va boshqa foydalanuvchilarning nomlari va parollarini
+  o'zgartira oladi.
+- Boshqa **adminlar** foydalanuvchi boshqaruvida nom va parollarni o'zgartira
+  olmaydi.
+- **Read-only** foydalanuvchilar tizimdagi hech qanday foydalanuvchini ko'ra
+  olmaydi.
+
+Hisoblar jadvali
+================
+
+**Accounts** jadvalida ko'rinadigan foydalanuvchilar ro'yxati keltiriladi:
+**Username** (nom), **Role** (rol), **Permissions** (ruxsatlar), **Updated**
+(oxirgi o'zgarish) va **Actions** (amallar). Joriy sessiya alohida belgilanadi.
 
 Yangi foydalanuvchi qo'shish
 ============================
 
-1. **Foydalanuvchi qo'shish (Add User)** tugmasini bosing.
-2. Quyidagilarni kiriting:
+1. **Add User** tugmasini bosing.
+2. **Create User** oynasida quyidagilarni kiriting:
 
-   - **Foydalanuvchi nomi (Username)** — kirish uchun noyob nom.
-   - **Parol (Password)** — kuchli parol tanlang (qarang quyidagi tavsiyalar).
-   - **Rol (Role)** — root, admin yoki readonly.
+   - **Role** — ``Admin`` yoki ``Read-only`` (root tomonidan yaratiladi;
+     admin faqat ``Read-only`` qo'sha oladi).
+   - **Username** — kirish nomi.
+   - **Password** — parol.
 
-3. **Saqlash** tugmasini bosing.
+3. **Create** tugmasini bosing.
 
-Parolni o'zgartirish
-====================
+.. image:: ../_static/add_user.png
+   :alt: Yangi foydalanuvchi qo'shish oynasi
+   :align: center
+   :width: 100%
 
-O'z parolingizni o'zgartirish uchun:
+Foydalanuvchini tahrirlash
+==========================
 
-1. **Parolni o'zgartirish (Change Password)** bo'limini oching.
-2. Joriy parolni va yangi parolni ikki marta kiriting.
-3. **Saqlash** tugmasini bosing.
+Hisob yonidagi tahrirlash tugmasi orqali **Edit User** oynasi ochiladi. U yerda
+**Role** va **Username** ni o'zgartirish hamda **New Password** kiritish mumkin.
+Parol maydonini bo'sh qoldirsangiz, joriy parol o'zgarmaydi.
 
-Administrator boshqa foydalanuvchining parolini ham o'zgartirishi mumkin.
+Root parolini o'zgartirish
+==========================
 
-Foydalanuvchini tahrirlash va o'chirish
-=======================================
+Root o'z parolini **Change Root Password** tugmasi orqali o'zgartiradi.
 
-- **Tahrirlash (Edit)** — foydalanuvchi rolini yoki sozlamalarini o'zgartirish.
-- **O'chirish (Delete)** — foydalanuvchi hisobini o'chirish.
+Support (vaqtinchalik SSH)
+==========================
+
+Texnik yordam zarur bo'lganda, root foydalanuvchi vaqtinchalik SSH kirishni
+yoqishi mumkin. Bu **Support** paneli orqali amalga oshiriladi (faqat root
+uchun) va xavfsizlik yuzasidan **4 soatdan keyin avtomatik o'chadi**
+(**Enable SSH (4h)**). Yordam tugagach, uni **qo'lda ham o'chirib qo'yish**
+tavsiya etiladi.
 
 .. warning::
 
-   So'nggi **root** yoki **admin** hisobini o'chirib qo'ymang — aks holda
-   tizimni boshqarish imkoniyatini yo'qotasiz.
+   So'nggi **root** hisobini o'chirib qo'ymang — aks holda tizimni boshqarish
+   imkoniyatini butunlay yo'qotasiz.
 
 Xavfsizlik tavsiyalari
 ======================
 
-- Standart ``admin`` parolini birinchi kirishdayoq o'zgartiring.
+- Standart parolni birinchi kirishdayoq o'zgartiring.
 - Kuchli parollardan foydalaning: kamida 12 ta belgi, katta-kichik harflar,
   raqamlar va maxsus belgilar aralashmasi.
 - Har bir xodimga alohida hisob bering — umumiy hisoblardan foydalanmang.
-- Faqat zarur huquqlarni bering: ko'rish kifoya bo'lsa, ``readonly`` rolini
+- Faqat zarur huquqlarni bering: ko'rish kifoya qilsa, ``Read-only`` rolini
   tanlang.
-- Foydalanuvchilarning kirish/chiqish faoliyati :doc:`/monitoring/logs`
-  bo'limida qayd etiladi — uni muntazam tekshirib turing.
+- Kirish/chiqish faoliyati :doc:`/monitoring/logs` bo'limida qayd etiladi —
+  uni muntazam tekshirib turing.
 
 .. note::
 
    Sessiyalar xavfsizlik uchun ma'lum vaqtdan keyin avtomatik tugaydi.
-   Faolsizlikdan so'ng tizim sizdan qayta kirishni so'rashi mumkin.
+   Faolsizlikdan so'ng tizim qayta kirishni so'rashi mumkin.

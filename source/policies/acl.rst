@@ -2,23 +2,28 @@
 Firewall qoidalari (Firewall Policies / ACL)
 ============================================
 
-Firewall qoidalari tarmoq trafigining qaysi qismi ruxsat etilishi (permit)
-yoki bloklanishi (deny) kerakligini belgilaydi. Sarhad NGFW da bu qoidalar
-**siyosatlar (policies)** ko'rinishida boshqariladi va ular avtomatik ravishda
-interfeyslarga qo'llaniladi. Bu bo'limga o'tish uchun chap menyudagi
+Firewall qoidalari tarmoq trafigining qaysi qismiga ruxsat berilishini (permit)
+yoki bloklanishini (deny) belgilaydi. Sarhad NGFW da bu qoidalar
+**siyosatlar (policies)** sifatida boshqariladi va interfeyslarga avtomatik
+qo'llaniladi. Ushbu bo'limga o'tish uchun chap menyudagi
 **Firewall → ACL** bo'limini tanlang (``/acl``).
+
+.. image:: ../_static/acl.png
+   :alt: Firewall qoidalari sahifasi
+   :align: center
+   :width: 100%
 
 Qoidalar qanday ishlaydi
 ========================
 
-- Har bir siyosat (policy) — nomlangan, tartiblangan qoida bo'lib, u trafikning
-  ma'lum belgilariga mos kelganda ma'lum amalni bajaradi.
+- Har bir siyosat (policy) — bu nomlangan va tartiblangan qoida bo'lib, trafik
+  uning belgilariga mos kelganda tegishli amalni bajaradi.
 - Qoidalar **yuqoridan pastga** qarab tekshiriladi. Trafik birinchi mos kelgan
-  qoidaning amalini oladi (permit yoki deny), keyingi qoidalar tekshirilmaydi.
+  qoidaning amaliga (permit yoki deny) bo'ysunadi, keyingi qoidalar tekshirilmaydi.
 - Ro'yxat oxirida yashirin "barchasini taqiqlash" (implicit deny) qoidasi
-  amal qiladi: hech qaysi qoidaga mos kelmagan trafik bloklanadi.
+  amal qiladi: hech bir qoidaga mos kelmagan trafik bloklanadi.
 - Bundan tashqari, zonalar (WAN/LAN/DMZ) o'rtasidagi trafik uchun tizim
-  avtomatik **zona qoidalarini** yaratadi.
+  **zona qoidalarini** avtomatik yaratadi.
 
 Qoida tarkibi
 =============
@@ -33,30 +38,49 @@ Har bir firewall qoidasi quyidagi maydonlardan iborat:
      - Tavsifi
    * - **Nom (Name)**
      - Qoidaning tushunarli nomi (masalan, ``Veb-serverga ruxsat``).
+   * - **Yo'nalish (From / To)**
+     - Trafik qayerdan (From — kiruvchi) va qayerga (To — chiquvchi) yo'nalishi.
+   * - **Manba (Source)**
+     - Trafik qayerdan kelishi: ``any``, IP manzil yoki tarmoq (CIDR).
+   * - **Manzil (Destination)**
+     - Trafik qayerga borishi: ``any``, IP manzil yoki tarmoq (CIDR).
+   * - **Protokol (Protocol)**
+     - TCP, UDP, ICMP yoki "barchasi" (any).
+   * - **Portlar (Ports)**
+     - Manzil portlari (masalan, ``80``, ``443``, ``1000-2000``).
    * - **Amal (Action)**
      - ``Permit`` (ruxsat) yoki ``Deny`` (taqiq).
-   * - **Manba (Source)**
-     - Trafik qayerdan kelishi: IP manzil yoki tarmoq (CIDR).
-   * - **Manzil (Destination)**
-     - Trafik qayerga borishi: IP manzil yoki tarmoq (CIDR).
-   * - **Protokol**
-     - TCP, UDP, ICMP yoki "barchasi" (any).
-   * - **Portlar**
-     - Manba va/yoki manzil portlari (masalan, ``80``, ``443``,
-       ``1000-2000``).
+   * - **Tartib (Order)**
+     - Qoidaning tekshirilish tartibi. Raqam qancha kichik bo'lsa, qoida shuncha
+       oldin tekshiriladi (``lower = first``).
    * - **Holati (Enabled)**
-     - Qoida yoqilgan yoki o'chirilgan. O'chirilgan qoida o'chirilmasdan
-       vaqtincha ishlamay turadi.
+     - Qoida yoqilgan yoki o'chirilgan. O'chirilgan qoida ro'yxatdan
+       olib tashlanmasdan vaqtincha ishlamay turadi.
 
 Yangi qoida qo'shish
 ====================
 
-1. **Qoida qo'shish (Add Rule)** tugmasini bosing.
+1. **Add Policy** tugmasini bosing.
 2. Yuqorida keltirilgan maydonlarni to'ldiring.
 3. Amalni (Permit yoki Deny) tanlang.
 4. **Saqlash (Save)** tugmasini bosing.
 
-Qoida darhol kuchga kiradi va kerakli interfeyslarga avtomatik bog'lanadi.
+.. image:: ../_static/add_policy.png
+   :alt: Yangi firewall qoidasini qo'shish oynasi
+   :align: center
+   :width: 100%
+
+Qoidalarni qo'shib yoki o'zgartirib bo'lgach, ularni kuchga kiritish uchun
+**Apply rules** tugmasini bosing — shundan so'ng qoidalar interfeyslarga
+qo'llaniladi.
+
+.. warning::
+
+   Qoidani saqlash (**Save**) — uni faqat ro'yxatga qo'shadi, lekin hali
+   ishga tushirmaydi. **Apply rules** tugmasi bosilmaguncha qoidalar
+   **ishlamaydi**. Har qanday o'zgarish (qo'shish, tahrirlash, o'chirish,
+   yoqish/o'chirish yoki tartibni o'zgartirish) dan so'ng **Apply rules**
+   tugmasini bosishni unutmang.
 
 Misol: Tashqaridan veb-serverga ruxsat berish
 ---------------------------------------------
@@ -71,15 +95,17 @@ Misol: Tashqaridan veb-serverga ruxsat berish
 Qoidalar tartibini o'zgartirish
 ===============================
 
-Qoidalar tartibi muhim ahamiyatga ega, chunki trafik birinchi mos kelgan
-qoidaga bo'ysunadi. Qoidani yuqoriga yoki pastga surish uchun ro'yxatdagi
-strelkalardan (yoki sudrab tashlash — drag and drop) foydalaning.
+Qoidalar tartibi muhim, chunki trafik birinchi mos kelgan qoidaga bo'ysunadi.
+Tartib **Order** maydoni orqali belgilanadi: bu raqam qancha kichik bo'lsa,
+qoida shuncha oldin tekshiriladi (``lower = first``). Tartibni o'zgartirish
+uchun qoidani tahrirlab, uning **Order** qiymatini o'zgartiring.
 
 .. tip::
 
-   Aniqroq (spetsifik) qoidalarni ro'yxatning yuqorisiga, umumiyroq qoidalarni
-   pastiga joylashtiring. Masalan, "bitta IP'ni bloklash" qoidasini "butun
-   tarmoqqa ruxsat berish" qoidasidan yuqoriga qo'ying.
+   Aniqroq (spetsifik) qoidalarga kichikroq **Order** raqamini bering, shunda
+   ular umumiyroq qoidalardan oldin tekshiriladi. Masalan, "bitta IP'ni
+   bloklash" qoidasiga "butun tarmoqqa ruxsat berish" qoidasidan kichikroq
+   Order qiymatini qo'ying.
 
 Qoidani tahrirlash va o'chirish
 ===============================

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4. DHCP server va relay &mdash; Sarhad NGFW v2026.1.0 documentation</title>
+  <title>4. DHCP server &mdash; Sarhad NGFW v2026.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
@@ -51,22 +51,19 @@
               <p class="caption" role="heading"><span class="caption-text">Kirish</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">1. Tezkor boshlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">2. Tizimga kirish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">3. Dashboard oynasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">4. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/licensing.html">2. Litsenziya va faollashtirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/login.html">3. Tizimga kirish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/dashboard.html">4. Dashboard oynasi</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tarmoq Sozlamalari</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="interface.html">1. Tarmoq interfeyslarini sozlash va boshqarish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="routing.html">2. Marshrutlash (Routing)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nat.html">3. NAT (Manzil almashtirish)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. DHCP server va relay</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#dhcp-server">4.1. DHCP server</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#subnet-tarmoq-qo-shish">4.1.1. Subnet (tarmoq) qo’shish</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ijaralar-leases">4.1.2. Ijaralar (Leases)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#dhcp-relay">4.2. DHCP relay</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. DHCP server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dhcp-qoidasi-qo-shish">4.1. DHCP qoidasi qo’shish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faol-ip-manzillar-active-leases">4.2. Faol IP manzillar (Active leases)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interfeys-oynasidan-yoqish">4.3. Interfeys oynasidan yoqish</a></li>
 </ul>
 </li>
 </ul>
@@ -74,25 +71,26 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../policies/acl.html">1. Firewall qoidalari (Firewall Policies / ACL)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../policies/mac-filter.html">2. MAC manzili bo’yicha filtrlash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">3. Trafik tezligini cheklash (Policer)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/abf.html">3. Manbaga asoslangan marshrutlash (ABF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policies/policer.html">4. Trafik tezligini cheklash (Traffic Policing / QoS)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Xavfsizlik Xususiyatlarini Sozlash</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../security/ids.html">1. Hujumlarni aniqlash va oldini olish (IDS/IPS)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../security/tls-interception.html">2. TLS trafigini tekshirish (TLS Interception)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Sertifikatlar va PKI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/certificates.html">3. Tekshiruv sertifikatlari (Inspection Certificates)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Virtual Private Network (VPN)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/overview.html">1. VPN — Umumiy ko’rinish (Dashboard)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/ra.html">2. Remote Access VPN (Masofaviy kirish)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../vpn/s2s.html">3. Site-to-Site VPN (Ofislararo tunnel)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">4. VPN umumiy sozlamalari (IPsec Settings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/authorities.html">4. Sertifikat markazlari (PKI / Authorities)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vpn/settings.html">5. VPN umumiy sozlamalari (Settings)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Sozlamalari</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../system/users.html">1. Foydalanuvchilarni boshqarish</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system/time.html">2. Tizim vaqti va NTP</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tizim Monitoring va Hisobot</span></p>
 <ul>
@@ -114,7 +112,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">4. </span>DHCP server va relay</li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>DHCP server</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/network/dhcp.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -124,57 +122,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="dhcp-server-va-relay">
-<h1><span class="section-number">4. </span>DHCP server va relay<a class="headerlink" href="#dhcp-server-va-relay" title="Link to this heading"></a></h1>
+  <section id="dhcp-server">
+<h1><span class="section-number">4. </span>DHCP server<a class="headerlink" href="#dhcp-server" title="Link to this heading"></a></h1>
 <p>DHCP (Dynamic Host Configuration Protocol) tarmoqdagi qurilmalarga IP
-manzillarni avtomatik tarqatish imkonini beradi. Sarhad NGFW ichki <strong>DHCP
-server</strong> hamda <strong>DHCP relay</strong> funksiyalarini taqdim etadi.
-Bu bo’limga o’tish uchun chap menyudagi <strong>Network → DHCP Server</strong> bo’limini
-tanlang (<code class="docutils literal notranslate"><span class="pre">/dhcp-server</span></code>).</p>
-<section id="dhcp-server">
-<h2><span class="section-number">4.1. </span>DHCP server<a class="headerlink" href="#dhcp-server" title="Link to this heading"></a></h2>
-<p>DHCP server ichki tarmoqdagi mijozlarga IP manzil, tarmoq niqobi, gateway va
-DNS server kabi sozlamalarni avtomatik tarqatadi.</p>
-<section id="subnet-tarmoq-qo-shish">
-<h3><span class="section-number">4.1.1. </span>Subnet (tarmoq) qo’shish<a class="headerlink" href="#subnet-tarmoq-qo-shish" title="Link to this heading"></a></h3>
+manzillarni avtomatik tarqatish imkonini beradi. Bu bo’limga o’tish uchun chap
+menyudan <strong>Network → DHCP Server</strong> bo’limini tanlang (<code class="docutils literal notranslate"><span class="pre">/dhcp-server</span></code>).</p>
+<a class="reference internal image-reference" href="../_images/dhcp.png"><img alt="DHCP Server sahifasi" class="align-center" src="../_images/dhcp.png" style="width: 100%;" />
+</a>
+<section id="dhcp-qoidasi-qo-shish">
+<h2><span class="section-number">4.1. </span>DHCP qoidasi qo’shish<a class="headerlink" href="#dhcp-qoidasi-qo-shish" title="Link to this heading"></a></h2>
+<p>DHCP qoidasini yaratish juda sodda — interfeys tanlanadi va IP manzillar
+oralig’i kiritiladi. Tarmoq (subnet) va shlyuz (gateway) interfeysning o’z IP
+manzilidan avtomatik olinadi, ularni qo’lda kiritish shart emas.</p>
 <ol class="arabic simple">
-<li><p><strong>Subnet qo’shish (Add Subnet)</strong> tugmasini bosing.</p></li>
-<li><p>Quyidagilarni kiriting:</p>
+<li><p><strong>Add rule</strong> tugmasini bosing.</p></li>
+<li><p>Quyidagilarni belgilang:</p>
 <ul class="simple">
-<li><p><strong>Tarmoq (Subnet)</strong> — CIDR ko’rinishida (masalan, <code class="docutils literal notranslate"><span class="pre">192.168.10.0/24</span></code>).</p></li>
-<li><p><strong>Manzillar diapazoni (Pool)</strong> — tarqatiladigan IP manzillar oralig’i
-(masalan, <code class="docutils literal notranslate"><span class="pre">192.168.10.100</span></code> — <code class="docutils literal notranslate"><span class="pre">192.168.10.200</span></code>).</p></li>
-<li><p><strong>Gateway</strong> — mijozlar uchun standart shlyuz (odatda interfeys IP manzili).</p></li>
-<li><p><strong>DNS serverlar</strong> — mijozlarga beriladigan DNS manzillari.</p></li>
-<li><p><strong>Ijara muddati (Lease time)</strong> — IP manzil mijozga necha vaqtga beriladi.</p></li>
+<li><p><strong>Interface</strong> — DHCP xizmati ishlaydigan interfeysni tanlang.</p></li>
+<li><p><strong>IP range</strong> — tarqatiladigan manzillar oralig’i
+(masalan, <code class="docutils literal notranslate"><span class="pre">20.20.20.10-20.20.20.200</span></code>).</p></li>
 </ul>
 </li>
 <li><p><strong>Saqlash (Save)</strong> tugmasini bosing.</p></li>
 </ol>
+<a class="reference internal image-reference" href="../_images/dhcp_add.png"><img alt="DHCP qoidasi qo'shish oynasi" class="align-center" src="../_images/dhcp_add.png" style="width: 100%;" />
+</a>
+<p>Qo’shilgan qoidalar <strong>Rules</strong> jadvalida interfeys va IP oralig’i bilan
+ko’rsatiladi. Qoidani keyinchalik tahrirlash yoki o’chirish mumkin.</p>
 </section>
-<section id="ijaralar-leases">
-<h3><span class="section-number">4.1.2. </span>Ijaralar (Leases)<a class="headerlink" href="#ijaralar-leases" title="Link to this heading"></a></h3>
-<p><strong>Leases</strong> bo’limida ayni paytda tarqatilgan IP manzillar ro’yxati
-ko’rsatiladi: mijoz MAC manzili, berilgan IP, qurilma nomi (hostname) va
-ijara tugash vaqti. Bu orqali tarmoqqa ulangan qurilmalarni kuzatish mumkin.</p>
-</section>
-</section>
-<section id="dhcp-relay">
-<h2><span class="section-number">4.2. </span>DHCP relay<a class="headerlink" href="#dhcp-relay" title="Link to this heading"></a></h2>
-<p>Agar markaziy DHCP server boshqa tarmoqda joylashgan bo’lsa, DHCP relay
-mijozlarning so’rovlarini shu serverga uzatadi. Bu, ayniqsa, VLANlarga
-bo’lingan tarmoqlarda foydali — har bir VLAN’da alohida server saqlash shart
-emas.</p>
-<p>Relayni sozlash uchun:</p>
+<section id="faol-ip-manzillar-active-leases">
+<h2><span class="section-number">4.2. </span>Faol IP manzillar (Active leases)<a class="headerlink" href="#faol-ip-manzillar-active-leases" title="Link to this heading"></a></h2>
+<p><strong>Active leases</strong> bo’limida ayni paytda qurilmalarga berilgan IP manzillar
+ro’yxati ko’rsatiladi:</p>
 <ul class="simple">
-<li><p><strong>Tinglovchi interfeys</strong> — DHCP so’rovlari keladigan ichki interfeys yoki VLAN.</p></li>
-<li><p><strong>DHCP server manzili</strong> — so’rovlar uzatiladigan markaziy server IP manzili.</p></li>
+<li><p><strong>IP</strong> — qurilmaga berilgan manzil.</p></li>
+<li><p><strong>MAC</strong> — qurilmaning fizik manzili.</p></li>
+<li><p><strong>Hostname</strong> — qurilma nomi.</p></li>
+<li><p><strong>Expires</strong> — manzilning amal qilish muddati tugash vaqti.</p></li>
+<li><p><strong>Status</strong> — manzil holati.</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Bitta tarmoqda DHCP server va DHCP relay bir vaqtning o’zida ishlamasligi
-kerak — ulardan faqat bittasini tanlang.</p>
-</div>
+<p>Shu orqali tarmoqqa ulangan qurilmalarni kuzatib borish mumkin.</p>
+</section>
+<section id="interfeys-oynasidan-yoqish">
+<h2><span class="section-number">4.3. </span>Interfeys oynasidan yoqish<a class="headerlink" href="#interfeys-oynasidan-yoqish" title="Link to this heading"></a></h2>
+<p>DHCP serverni interfeysning sozlash oynasidan ham yoqish mumkin
+(qarang: <a class="reference internal" href="interface.html"><span class="doc">Tarmoq interfeyslarini sozlash va boshqarish</span></a>):</p>
+<ol class="arabic simple">
+<li><p>Interfeys qatorini ikki marta bosib, sozlash oynasini oching.</p></li>
+<li><p><strong>DHCP Server</strong> tugmachasini yoqing.</p></li>
+<li><p><strong>IP Range</strong> maydoniga manzillar oralig’ini kiriting — tarmoq va shlyuz
+interfeys IP manzilidan avtomatik aniqlanadi va oynada ko’rsatiladi.</p></li>
+<li><p><strong>Saqlash</strong> tugmasini bosing.</p></li>
+</ol>
 </section>
 </section>
 

@@ -1,0 +1,8 @@
+/* Sarhad NGFW hujjati uchun maxsus uslublar */
+
+/* Yon paneldagi logoni kichikroq qilish */
+.wy-side-nav-search > a img.logo,
+.wy-side-nav-search .wy-dropdown > a img.logo {
+    max-width: 70px;
+    margin: 6px auto 0;
+}
