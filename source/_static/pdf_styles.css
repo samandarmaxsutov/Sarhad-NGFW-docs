@@ -1,0 +1,48 @@
+/* PDF (sphinx-simplepdf) uchun maxsus uslublar.
+   @media print ichida — faqat PDF generatsiyasida (weasyprint) qo'llaniladi,
+   HTML ekran ko'rinishiga ta'sir qilmaydi. */
+@media print {
+
+  /* ---- Mundarija (Table of Contents) ---- */
+
+  /* Sarlavha matnini "Table of Contents" o'rniga "Mundarija" qilish */
+  .sphinxsidebarwrapper > div > h3 > a {
+    font-size: 0 !important;          /* asl inglizcha matnni yashirish */
+  }
+  .sphinxsidebarwrapper > div > h3 > a::after {
+    content: "Mundarija";
+    font-size: 24pt;
+    color: #1e4537;
+  }
+
+  /* Bob sarlavhalari — brend yashil rangda, qalinroq */
+  .sphinxsidebarwrapper > div > ul > li > a {
+    color: #1e4537 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Sahifa raqamlari — yashil va qalin */
+  .sphinxsidebarwrapper > div > ul > li > a::after {
+    color: #1e4537 !important;
+    font-weight: 600 !important;
+  }
+
+  /* Ichki bandlardagi nuqtalarni (•) butunlay olib tashlash —
+     bandlar allaqachon raqamlangan (1.1, 1.2, ...) */
+  .sphinxsidebarwrapper > div > ul > li > ul > li a::before {
+    content: none !important;
+  }
+
+  /* Ichki bandlar orasidagi ajratuvchi chiziqni nozikroq va och rangli qilish */
+  .sphinxsidebarwrapper > div > ul > li > ul > li {
+    border-top: 0.3pt solid #e3e8e6 !important;
+  }
+
+  /* ---- Kontent sahifalari ---- */
+
+  /* Bo'lim sarlavhalari yashil — LEKIN muqova sarlavhasiga tegmaslik */
+  h1:not(.title-cover) {
+    color: #1e4537 !important;
+  }
+
+}

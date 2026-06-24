@@ -67,6 +67,8 @@ simplepdf_file_name = 'SarhadNGFW.pdf'
 # bo'lishi kerak. Avvalgi sozlamada bu teskari va rang nomuvofiq edi.
 simplepdf_vars = {
     'primary': '#1e4537',          # Asosiy yashil — sarlavhalar, chiziqlar, linklar
+    'primary-opaque': 'rgba(30, 69, 55, 0.45)',  # Sarlavha/futer chizig'i — YASHIL
+                                                 # (standart qizil edi — pushti chiziq shundan)
     'primary-light': '#2e6b54',    # Ochroq yashil — fon urg'ulari, hover holatlari
     'primary-dark': '#12231d',     # To'q yashil — kuchli urg'u
     'secondary': '#2e6b54',        # Ikkilamchi yashil ohang
@@ -78,3 +80,8 @@ simplepdf_vars = {
     'top-right-content': "'Sarhad NGFW'",                # Yuqori o'ng: mahsulot nomi
     'bottom-center-content': "'Sarhad NGFW — Foydalanuvchi qo''llanmasi'",
 }
+
+# PDF mundarija va matn uslublari uchun qo'shimcha CSS (faqat PDF'ga ta'sir qiladi).
+# Eslatma: bu HTML build'ga ham yuklanadi, lekin qoidalar @media print ichida
+# bo'lgani uchun ekran ko'rinishiga ta'sir qilmaydi.
+html_css_files = ['pdf_styles.css']
